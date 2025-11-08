@@ -1,0 +1,29 @@
+---
+import { onMount } from "astro/jsx-runtime";
+import { gsap } from "gsap";
+import lottie from "lottie-web";
+
+onMount(() => {
+  const title = document.querySelector(".hero-title");
+  const animContainer = document.querySelector("#lottie-logo");
+
+  // Animación GSAP
+  gsap.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 });
+
+  // Animación Lottie (logo o icono)
+  lottie.loadAnimation({
+    container: animContainer,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "/logo.json" // tu archivo Lottie en /public
+  });
+});
+---
+
+<section class="h-screen flex flex-col items-center justify-center text-center">
+  <div id="lottie-logo" class="w-32 h-32 mb-6"></div>
+  <h1 class="hero-title text-5xl font-bold mb-3">Hola, soy Uziel 👋</h1>
+  <p class="text-gray-400 text-lg">Ingeniero en Sistemas Computacionales</p>
+  <a href="/projects" class="mt-8 px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition">Ver mis proyectos</a>
+</section>
