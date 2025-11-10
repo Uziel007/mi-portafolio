@@ -4,6 +4,10 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { certificaciones } from '../data/certificaciones.js';
+import '../styles/habilidades.css';
+import '../styles/global.css';
+
+
 
 const totalHoras = certificaciones.reduce((sum, cert) => sum + (cert.horas || 0), 0);
 const completadas = certificaciones.filter(cert => (cert.completado || 0) === 100).length;
@@ -349,8 +353,7 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
 
   <Footer />
 
-  <style is:global>
-    @import '../styles/habilidades.css';
-  </style>
-  <script src="/src/scripts/habilidades.js" is:inline></script>
+  <script>
+  import '../scripts/habilidades.js';
+</script>
 </Layout>
