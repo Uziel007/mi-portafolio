@@ -5,10 +5,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/experiencias.css';
 import '../styles/global.css';
-
-// ⚠️ IMPORTA LOS SCRIPTS AQUÍ
-import '../data/experienciasData.js';
-import '../scripts/experiencias.js';
 ---
 
 <Layout title="Experiencia - Portafolio de Uziel Sánchez Marín">
@@ -95,4 +91,8 @@ import '../scripts/experiencias.js';
   </main>
 
   <Footer />
+  <script>
+  import '../data/experienciasData.js';
+  import '../scripts/experiencias.js';
+</script>
 </Layout>
