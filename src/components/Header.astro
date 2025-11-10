@@ -14,11 +14,11 @@ const isActive = (path: string) => {
   <nav class="modern-navigation">
     
     <!-- 🐱 GATO ANIMADO - Enlace a juego.html -->
-    <a 
-      href="/juego.html" 
-      style="text-decoration: none; display: inline-block; position: relative;"
-      aria-label="Ir al juego"
-    >
+  <a 
+    href="/juego" 
+    style="text-decoration: none; display: inline-block; position: relative;"
+    aria-label="Ir al juego"
+  >
       <div class="cat" style="display: inline-block; position: relative;">
         <!-- Orejas -->
         <div class="ear ear--left"></div>
@@ -52,38 +52,27 @@ const isActive = (path: string) => {
     <!-- 📋 MENÚ DE NAVEGACIÓN -->
     <ul class="navigation-menu">
       <li>
-        <a 
-          href="/" 
-          class={`nav-item ${isActive('/') ? 'active' : ''}`}
-        >
+        <a href="/" class={`nav-item ${isActive('/') ? 'active' : ''}`}>
           Perfil
         </a>
       </li>
       <li>
-        <a 
-          href="/habilidades.html#habilidades" 
-          class={`nav-item ${isActive('/habilidades') ? 'active' : ''}`}
-        >
+        <a href="/habilidades#habilidades" class={`nav-item ${isActive('/habilidades') ? 'active' : ''}`}>
           Habilidades
         </a>
       </li>
       <li>
-        <a 
-          href="/experiencia.html#experiencia" 
-          class={`nav-item ${isActive('/experiencia') ? 'active' : ''}`}
-        >
+        <a href="/experiencia#experiencia" class={`nav-item ${isActive('/experiencia') ? 'active' : ''}`}>
           Experiencia
         </a>
       </li>
       <li>
-        <a 
-          href="/hobbies.html#hobbies" 
-          class={`nav-item ${isActive('/hobbies') ? 'active' : ''}`}
-        >
+        <a href="/hobbies#hobbies" class={`nav-item ${isActive('/hobbies') ? 'active' : ''}`}>
           Hobbies
         </a>
       </li>
     </ul>
+
   </nav>
 </header>
 
