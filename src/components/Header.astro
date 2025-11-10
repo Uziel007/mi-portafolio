@@ -1,0 +1,521 @@
+---
+// src/components/Header.astro
+const currentPath = Astro.url.pathname;
+
+// Determinar qué enlace está activo
+const isActive = (path: string) => {
+  if (path === '/' && currentPath === '/') return true;
+  if (path !== '/' && currentPath.includes(path)) return true;
+  return false;
+};
+---
+
+<header class="modern-header">
+  <nav class="modern-navigation">
+    
+    <!-- 🐱 GATO ANIMADO - Enlace a juego.html -->
+    <a 
+      href="/juego.html" 
+      style="text-decoration: none; display: inline-block; position: relative;"
+      aria-label="Ir al juego"
+    >
+      <div class="cat" style="display: inline-block; position: relative;">
+        <!-- Orejas -->
+        <div class="ear ear--left"></div>
+        <div class="ear ear--right"></div>
+        
+        <!-- Cara -->
+        <div class="face">
+          <!-- Ojos -->
+          <div class="eye eye--left">
+            <div class="eye-pupil"></div>
+          </div>
+          <div class="eye eye--right">
+            <div class="eye-pupil"></div>
+          </div>
+          
+          <!-- Hocico -->
+          <div class="muzzle"></div>
+        </div>
+
+        <!-- Texto "Jugar" debajo del gato -->
+        <div class="play-text">Jugar</div>
+
+        <!-- Triángulo apuntando hacia abajo -->
+        <div class="arrow-down"></div>
+      </div>
+    </a>
+
+    <!-- 👤 NOMBRE / TÍTULO DE MARCA -->
+    <div class="brand-title">Uziel Sánchez Marín</div>
+
+    <!-- 📋 MENÚ DE NAVEGACIÓN -->
+    <ul class="navigation-menu">
+      <li>
+        <a 
+          href="/" 
+          class={`nav-item ${isActive('/') ? 'active' : ''}`}
+        >
+          Perfil
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/habilidades.html#habilidades" 
+          class={`nav-item ${isActive('/habilidades') ? 'active' : ''}`}
+        >
+          Habilidades
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/experiencia.html#experiencia" 
+          class={`nav-item ${isActive('/experiencia') ? 'active' : ''}`}
+        >
+          Experiencia
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/hobbies.html#hobbies" 
+          class={`nav-item ${isActive('/hobbies') ? 'active' : ''}`}
+        >
+          Hobbies
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  /* ========================================
+     🎨 VARIABLES CSS
+     ======================================== */
+  :root {
+    /* Header colors */
+    --header-bg-primary: #1f1b1a;
+    --header-bg-secondary: #16213e;
+    --header-accent: #a60f0f;
+    --header-accent-hover: #ce3c14;
+    --header-text-primary: #ffffff;
+    --header-text-secondary: #b8c6db;
+    --header-border: rgba(255, 255, 255, 0.1);
+    --header-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --header-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.2);
+    --header-transition: 0.3s ease;
+
+    /* Cat variables */
+    --color-black: #161616;
+    --color-white: #fff;
+    --color-pink: #ffa7dc;
+    --color-green: #59a622;
+    --size: 50px;
+  }
+
+  /* ========================================
+     📌 HEADER PRINCIPAL
+     ======================================== */
+  .modern-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--header-border);
+  }
+
+  /* ========================================
+     🧭 NAVEGACIÓN MODERNA
+     ======================================== */
+  .modern-navigation {
+    background: linear-gradient(
+      135deg,
+      var(--header-bg-primary),
+      var(--header-bg-secondary)
+    );
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: var(--header-shadow);
+    min-height: 70px;
+  }
+
+  /* ========================================
+     👤 TÍTULO DE MARCA
+     ======================================== */
+  .brand-title {
+    color: var(--header-text-primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color var(--header-transition);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .brand-title:hover {
+    color: var(--header-accent);
+  }
+
+  /* ========================================
+     📋 MENÚ DE NAVEGACIÓN
+     ======================================== */
+  .navigation-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navigation-menu li {
+    margin: 0;
+  }
+
+  /* Enlaces del menú */
+  .nav-item {
+    color: var(--header-text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: all var(--header-transition);
+    position: relative;
+    border: 2px solid transparent;
+    display: block;
+  }
+
+  .nav-item:hover {
+    color: var(--header-text-primary);
+    background-color: var(--header-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--header-shadow-light);
+  }
+
+  /* Estado activo */
+  .nav-item.active {
+    background-color: var(--header-accent);
+    color: var(--header-text-primary);
+    border-color: var(--header-accent-hover);
+    font-weight: bold;
+  }
+
+  /* ========================================
+     🐱 GATO ANIMADO
+     ======================================== */
+  .cat {
+    position: relative;
+    height: var(--size);
+    width: calc(var(--size) * 1.13);
+    transition: transform 0.3s ease;
+  }
+
+  .cat:hover {
+    transform: scale(1.05);
+  }
+
+  /* === OREJAS === */
+  .ear {
+    position: absolute;
+    top: -30%;
+    height: 60%;
+    width: 25%;
+    background: var(--color-pink);
+  }
+
+  .ear::before,
+  .ear::after {
+    content: "";
+    position: absolute;
+    bottom: 24%;
+    height: 10%;
+    width: 5%;
+    border-radius: 50%;
+    background: var(--color-black);
+  }
+
+  .ear::after {
+    transform-origin: 50% 100%;
+  }
+
+  .ear--left {
+    left: -7%;
+    border-radius: 70% 30% 0 0 / 100% 100% 0 0;
+    transform: rotate(-15deg);
+  }
+
+  .ear--left::before,
+  .ear--left::after {
+    right: 10%;
+  }
+
+  .ear--left::after {
+    transform: rotate(-45deg);
+  }
+
+  .ear--right {
+    right: -7%;
+    border-radius: 30% 70% 0 0 / 100% 100% 0 0;
+    transform: rotate(15deg);
+  }
+
+  .ear--right::before,
+  .ear--right::after {
+    left: 10%;
+  }
+
+  .ear--right::after {
+    transform: rotate(45deg);
+  }
+
+  /* === CARA === */
+  .face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--color-black);
+    border-radius: 50%;
+  }
+
+  /* === OJOS === */
+  .eye {
+    position: absolute;
+    top: 35%;
+    height: 30%;
+    width: 31%;
+    background: var(--color-green);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  }
+
+  /* Animación de parpadeo */
+  .eye::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    border-radius: 0 0 50% 50% / 0 0 40% 40%;
+    background: var(--color-black);
+    animation: blink 4s infinite ease-in;
+  }
+
+  @keyframes blink {
+    0% { height: 0; }
+    90% { height: 0; }
+    92.5% { height: 100%; }
+    95% { height: 0; }
+    97.5% { height: 100%; }
+    100% { height: 0; }
+  }
+
+  .eye::before {
+    content: "";
+    position: absolute;
+    top: 60%;
+    height: 10%;
+    width: 15%;
+    background: var(--color-green);
+    border-radius: 50%;
+  }
+
+  .eye--left {
+    left: 0;
+  }
+
+  .eye--left::before {
+    right: -5%;
+  }
+
+  .eye--right {
+    right: 0;
+  }
+
+  .eye--right::before {
+    left: -5%;
+  }
+
+  /* === PUPILAS === */
+  .eye-pupil {
+    position: absolute;
+    top: 25%;
+    height: 50%;
+    width: 20%;
+    background: var(--color-black);
+    border-radius: 50%;
+    animation: look-around 4s infinite;
+  }
+
+  @keyframes look-around {
+    0% { transform: translate(0); }
+    5% { transform: translate(50%, -25%); }
+    10% { transform: translate(50%, -25%); }
+    15% { transform: translate(-100%, -25%); }
+    20% { transform: translate(-100%, -25%); }
+    25% { transform: translate(0, 0); }
+    100% { transform: translate(0, 0); }
+  }
+
+  .eye--left .eye-pupil {
+    right: 30%;
+  }
+
+  .eye--right .eye-pupil {
+    left: 30%;
+  }
+
+  .eye-pupil::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    right: -5%;
+    height: 20%;
+    width: 35%;
+    border-radius: 50%;
+    background: var(--color-green);
+  }
+
+  /* === HOCICO === */
+  .muzzle {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    height: 6%;
+    width: 10%;
+    background: var(--color-pink);
+    transform: translateX(-50%);
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  }
+
+  /* === TEXTO "JUGAR" === */
+  .play-text {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+    opacity: 0;
+    animation: fadeMove 2s infinite alternate;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeMove {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(0px);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateX(-50%) translateY(-2px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(0px);
+    }
+  }
+
+  /* === FLECHA ANIMADA === */
+  .arrow-down {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid white;
+    opacity: 0;
+    animation: blinkArrow 3s infinite;
+  }
+
+  @keyframes blinkArrow {
+    0%, 50%, 100% { opacity: 0; }
+    25%, 75% { opacity: 1; }
+  }
+
+  /* ========================================
+     📱 RESPONSIVE DESIGN
+     ======================================== */
+  @media (max-width: 1024px) {
+    .modern-navigation {
+      padding: 1rem 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .brand-title {
+      font-size: 1.4rem;
+    }
+
+    .navigation-menu {
+      gap: 0.8rem;
+    }
+
+    .nav-item {
+      padding: 0.6rem 1rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modern-navigation {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+      min-height: auto;
+    }
+
+    .brand-title {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+
+    .navigation-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .navigation-menu li {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .nav-item {
+      width: 100%;
+      text-align: center;
+      padding: 0.8rem 1rem;
+    }
+
+    .cat {
+      transform: scale(0.9);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .modern-navigation {
+      padding: 0.8rem;
+    }
+
+    .brand-title {
+      font-size: 1.2rem;
+    }
+
+    .nav-item {
+      font-size: 0.9rem;
+      padding: 0.7rem 0.8rem;
+    }
+
+    .cat {
+      transform: scale(0.85);
+    }
+  }
+</style>

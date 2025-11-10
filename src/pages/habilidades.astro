@@ -1,0 +1,356 @@
+---
+// Datos y lógica igual
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { certificaciones } from '../data/certificaciones.js';
+
+const totalHoras = certificaciones.reduce((sum, cert) => sum + (cert.horas || 0), 0);
+const completadas = certificaciones.filter(cert => (cert.completado || 0) === 100).length;
+const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certificaciones.length) * 100) : 0;
+---
+
+<Layout title="Habilidades - Uziel Sánchez Marín">
+  <Header />
+
+  <div id="particles-bg" class="particles-container"></div>
+
+  <main class="main-content">
+    <section id="formacion" class="section-formacion">
+      <div class="container-max">
+        <h2 class="section-title gsap-title">Formación Académica</h2>
+        <ul class="academic-list gsap-list">
+          <li class="academic-item">
+            <strong class="text-highlight">Ingeniería en Sistemas:</strong> Universidad Bancaria de México (2021-2025)
+          </li>
+          <li class="academic-item">
+            <strong class="text-highlight">Técnico en Programación:</strong> Universidad Bancaria de México (2016-2019)
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Timeline Académico -->
+    <section id="timeline" class="section-timeline">
+      <div class="container-max">
+        <h2 class="section-title gsap-title">Timeline Académico</h2>
+        <div class="timeline gsap-timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3 class="timeline-title">Técnico en Programación</h3>
+              <p class="timeline-desc">Universidad Bancaria de México – Fundamentos sólidos en programación y desarrollo de software.</p>
+            </div>
+            <div class="timeline-date">2016-2019</div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3 class="timeline-title">Certificaciones en Bases de Datos</h3>
+              <ul class="timeline-list">
+                <li>SQL y Normalización</li>
+                <li>MongoDB y NoSQL</li>
+                <li>JPA / Hibernate</li>
+              </ul>
+            </div>
+            <div class="timeline-date">2020-2022</div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3 class="timeline-title">Ingeniería en Sistemas Computacionales</h3>
+              <p class="timeline-desc">Universidad Bancaria de México – Especialización en desarrollo full-stack, arquitectura de sistemas y gestión de proyectos.</p>
+            </div>
+            <div class="timeline-date">2021-2025</div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3 class="timeline-title">Certificaciones en Desarrollo Web y Arquitectura</h3>
+              <ul class="timeline-list">
+                <li>Java Full Stack</li>
+                <li>JavaScript Avanzado</li>
+                <li>Microservicios con Spring Boot</li>
+                <li>APIs y Seguridad con JWT</li>
+              </ul>
+            </div>
+            <div class="timeline-date">2022-2025</div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3 class="timeline-title">Certificaciones en Marketing Digital y Metodologías Ágiles</h3>
+              <ul class="timeline-list">
+                <li>Google Analytics</li>
+                <li>SEO y Estrategias Digitales</li>
+                <li>SCRUM Fundamentals</li>
+                <li>Gestión de Proyectos Ágiles</li>
+              </ul>
+            </div>
+            <div class="timeline-date">2020-2025</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conocimientos" class="section-conocimientos">
+      <div class="container-max-lg">
+        <h2 class="section-title gsap-title">Conocimientos Técnicos</h2>
+        <div class="knowledge-grid gsap-grid">
+          <div class="knowledge-card">
+            <h3 class="card-title">Lenguajes de Programación</h3>
+            <p class="card-text">Java (Full Stack con Spring Boot), JavaScript (ES6+), Python, PHP, C++. Desarrollo orientado a objetos, algoritmos eficientes y optimización de rendimiento en entornos escalables.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Desarrollo Web Frontend</h3>
+            <p class="card-text">HTML5, CSS3 (Flexbox/Grid), JavaScript/TypeScript, jQuery. Interfaces responsivas, accesibles y optimizadas para UX/UI con enfoque en rendimiento y SEO.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Frameworks y Librerías</h3>
+            <p class="card-text">Angular (componentes, routing, JWT), React, Spring Boot (microservicios, Modulith), Node.js/Express, Bootstrap. Arquitecturas modulares y despliegues con Docker/Kubernetes.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Bases de Datos</h3>
+            <p class="card-text">SQL (MySQL, PostgreSQL), NoSQL (MongoDB), SQLite, JPA/Hibernate. Diseño relacional, normalización, consultas avanzadas y gestión de datos en aplicaciones JavaFX.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Computación en la Nube</h3>
+            <p class="card-text">AWS (servicios básicos y arquitectura), Google Cloud Platform, Azure. Despliegue escalable, seguridad y mejores prácticas en entornos cloud híbridos.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Arquitectura de Software</h3>
+            <p class="card-text">Patrones SOLID, UML, diseño de sistemas distribuidos. Transición monolito a microservicios, escalabilidad y mantenibilidad en aplicaciones enterprise.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Inteligencia Artificial y ML</h3>
+            <p class="card-text">Ingeniería de IA: Modelos de machine learning, deep learning, optimización de algoritmos y manejo de datos para soluciones en sectores reales.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Marketing Digital y Análisis</h3>
+            <p class="card-text">Google Analytics (métricas, segmentación), SEO, campañas digitales. Estrategias data-driven para optimización de rendimiento y engagement.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Metodologías Ágiles</h3>
+            <p class="card-text">Scrum (sprints, roles), Kanban (flujo visual, mejora continua). Gestión iterativa de proyectos con enfoque en entrega de valor y colaboración.</p>
+          </div>
+          <div class="knowledge-card">
+            <h3 class="card-title">Herramientas de Productividad</h3>
+            <p class="card-text">Notion (bases de datos, IA), Git, VS Code, IntelliJ. Flujos colaborativos, automatización y optimización de workflows en equipos remotos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="aptitudes" class="section-aptitudes">
+      <div class="container-max-lg">
+        <h2 class="section-title gsap-title">Aptitudes Profesionales</h2>
+        <div class="skills-columns gsap-skills">
+          <ul class="skills-list">
+            <li class="skill-item"><span class="bullet">▸</span> Liderazgo estratégico y motivación de equipos multidisciplinarios</li>
+            <li class="skill-item"><span class="bullet">▸</span> Resolución analítica de problemas complejos con pensamiento crítico</li>
+            <li class="skill-item"><span class="bullet">▸</span> Comunicación asertiva y persuasiva en entornos colaborativos</li>
+            <li class="skill-item"><span class="bullet">▸</span> Adaptabilidad a tecnologías emergentes y cambios ágiles</li>
+            <li class="skill-item"><span class="bullet">▸</span> Innovación en diseño de soluciones escalables y sostenibles</li>
+          </ul>
+          <ul class="skills-list">
+            <li class="skill-item"><span class="bullet">▸</span> Planificación y ejecución de proyectos con metodologías híbridas</li>
+            <li class="skill-item"><span class="bullet">▸</span> Gestión eficiente de recursos y optimización de procesos</li>
+            <li class="skill-item"><span class="bullet">▸</span> Análisis de datos avanzado para toma de decisiones informadas</li>
+            <li class="skill-item"><span class="bullet">▸</span> Aprendizaje autónomo y continuo en entornos dinámicos</li>
+            <li class="skill-item"><span class="bullet">▸</span> Empatía y fomentación de culturas inclusivas en equipos</li>
+          </ul>
+          <ul class="skills-list">
+            <li class="skill-item"><span class="bullet">▸</span> Resiliencia bajo presión con enfoque en resultados medibles</li>
+            <li class="skill-item"><span class="bullet">▸</span> Creatividad aplicada a UX/UI y estrategias digitales</li>
+            <li class="skill-item"><span class="bullet">▸</span> Ética profesional en seguridad y privacidad de datos</li>
+            <li class="skill-item"><span class="bullet">▸</span> Colaboración remota con herramientas globales</li>
+            <li class="skill-item"><span class="bullet">▸</span> Orientación a cliente con métricas de satisfacción</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologias" class="section-tecnologias">
+      <div class="container-max-lg">
+        <h2 class="section-title gsap-title">Tecnologías que Utilizo</h2>
+        <div class="tech-grid gsap-grid">
+          <div class="tech-card">
+            <h3 class="card-title">Backend</h3>
+            <ul class="tech-list">
+              <li>Java (Spring Boot)</li>
+              <li>Node.js (Express)</li>
+              <li>PHP</li>
+              <li>Python</li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <h3 class="card-title">Frontend</h3>
+            <ul class="tech-list">
+              <li>Angular</li>
+              <li>React</li>
+              <li>JavaScript/TypeScript</li>
+              <li>jQuery</li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <h3 class="card-title">Bases de Datos</h3>
+            <ul class="tech-list">
+              <li>MySQL/PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>SQLite</li>
+              <li>Hibernate/JPA</li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <h3 class="card-title">Cloud & DevOps</h3>
+            <ul class="tech-list">
+              <li>AWS</li>
+              <li>Google Cloud</li>
+              <li>Docker</li>
+              <li>Kubernetes</li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <h3 class="card-title">Herramientas</h3>
+            <ul class="tech-list">
+              <li>Git</li>
+              <li>VS Code/IntelliJ</li>
+              <li>Notion</li>
+              <li>Google Analytics</li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <h3 class="card-title">IA & Otros</h3>
+            <ul class="tech-list">
+              <li>Machine Learning</li>
+              <li>UML</li>
+              <li>JWT/Seguridad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificaciones" class="section-certificaciones">
+      <div class="container-max-lg">
+        <h2 class="section-title gsap-title">Certificaciones</h2>
+
+        <div class="stats-grid gsap-stats">
+        <div class="stat-card">
+            <p class="stat-number" data-target={certificaciones.length}>0</p>
+            <p class="stat-label">Certificaciones</p>
+        </div>
+        <div class="stat-card">
+            <p class="stat-number" data-target={totalHoras}>0</p>
+            <p class="stat-label">Horas de Estudio</p>
+        </div>
+        <div class="stat-card">
+            <p class="stat-number" data-target={tasaFinal}>0</p>
+            <p class="stat-label">Tasa de Finalización</p>
+        </div>
+        </div>
+
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="🔍 Buscar certificaciones..." 
+            class="search-input"
+          />
+        </div>
+
+        <div class="filters-container gsap-filters">
+            <button class="filter-btn active" data-filter="all" id="habilidades-filter-all">Todas</button>
+            <button class="filter-btn" data-filter="programming" id="habilidades-filter-programming">Programación</button>
+            <button class="filter-btn" data-filter="database" id="habilidades-filter-database">Base de Datos</button>
+            <button class="filter-btn" data-filter="marketing" id="habilidades-filter-marketing">Marketing</button>
+            <button class="filter-btn" data-filter="agile" id="habilidades-filter-agile">Metodologías Ágiles</button>
+            <button class="filter-btn" data-filter="frameworks" id="habilidades-filter-frameworks">Frameworks</button>
+            <button class="filter-btn" data-filter="cloud" id="habilidades-filter-cloud">Nube</button>
+            <button class="filter-btn" data-filter="tools" id="habilidades-filter-tools">Herramientas</button>
+            <button class="filter-btn" data-filter="leadership" id="habilidades-filter-leadership">Liderazgo</button>
+            <button class="filter-btn" data-filter="ai" id="habilidades-filter-ai">IA/ML</button>
+            <button class="filter-btn" data-filter="language" id="habilidades-filter-language">Idiomas</button>
+            <button class="filter-btn" data-filter="architecture" id="habilidades-filter-architecture">Arquitectura</button>
+        </div>
+
+        <div id="certificatesGrid" class="certificates-grid gsap-certificates">
+          {certificaciones.map((cert) => (
+            <a 
+              href={cert.url} 
+              target="_blank" 
+              class="certificate-card"
+              data-category={cert.categoria}
+            >
+              <img 
+                src={cert.imagen} 
+                alt={cert.titulo} 
+                class="certificate-image"
+                loading="lazy"
+              />
+              <div class="certificate-content">
+                <h3 class="certificate-title">{cert.titulo}</h3>
+                <p class="certificate-description">{cert.descripcion}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="idiomas" class="section-idiomas">
+      <div class="container-max-md">
+        <h2 class="section-title gsap-title">Inglés</h2>
+        <div class="progress-container gsap-progress">
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>Vocabulario básico</span>
+              <span>75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="75%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>Pronunciación</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="90%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>Gramática básica</span>
+              <span>70%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="70%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>Comprensión auditiva</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="85%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>Escritura y lectura</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <style is:global>
+    @import '../styles/habilidades.css';
+  </style>
+  <script src="/src/scripts/habilidades.js" is:inline></script>
+</Layout>
