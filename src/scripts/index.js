@@ -43,14 +43,11 @@
     };
     document.body.appendChild(gsapScript);
 
-    // ✅ Lottie animación
-    const lottieContainer = document.getElementById("lottie-hero");
-    if (lottieContainer && window.lottie) {
-      window.lottie.loadAnimation({
-        container: lottieContainer,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-      });
-    }
-  });
+// ✅ Lottie animación (solo si hay archivo o data disponible)
+const lottieContainer = document.getElementById("lottie-hero");
+
+if (lottieContainer && window.lottie) {
+  // Si tu contenedor debería tener algo visual, puedes mostrar una imagen o dejarlo vacío
+  console.log("No hay animación Lottie asignada, se omite la carga.");
+}
+});
