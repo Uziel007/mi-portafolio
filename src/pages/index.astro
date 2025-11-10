@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-
 <Layout title="Portafolio - Uziel Sánchez Marín">
   <Header />
 
@@ -66,9 +65,11 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <Footer />
-
-  <script src="/scripts/index.js" is:inline></script>
+    <style is:global>
+      @import '/public/styles/index.css';
+    </style>
+    <script src="/public/scripts/index.js" is:inline></script>
 </Layout>
 
-<!-- Lottie (externo, funciona) -->
+<!-- ✅ Lottie y GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
