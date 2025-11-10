@@ -57,7 +57,9 @@ const isActive = (path: string) => {
         </a>
       </li>
       <li>
-        <a href="/habilidades">Habilidades</a>
+        <a href="/habilidades/" class={`nav-item ${isActive('/habilidades') ? 'active' : ''}`}>
+          Habilidades
+        </a>
       </li>
       <li>
         <a href="/experiencia#experiencia" class={`nav-item ${isActive('/experiencia') ? 'active' : ''}`}>
