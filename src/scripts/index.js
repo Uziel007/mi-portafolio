@@ -51,7 +51,6 @@
         renderer: "svg",
         loop: true,
         autoplay: true,
-        path: "/src/assets/welcome.json",
       });
     }
   });
