@@ -20,23 +20,7 @@ const { title, description = "Portafolio de Uziel Sánchez Marín - Ingeniero en
   </head>
   <body class="bg-gray-900 text-gray-200 antialiased">
     <slot />
-    
-    <script>
-      import { gsap } from 'gsap';
-      import { ScrollTrigger } from 'gsap/ScrollTrigger';
-      
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Animación de entrada para el hero
-      document.addEventListener('astro:page-load', () => {
-        gsap.from('.hero-content', {
-          opacity: 0,
-          y: 30,
-          duration: 1.5,
-          ease: 'power3.out'
-        });
-      });
-    </script>
+  
   </body>
 </html>
 
