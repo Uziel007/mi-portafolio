@@ -34,6 +34,74 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
       </div>
     </section>
 
+    
+    <section id="certificaciones" class="section-certificaciones">
+      <div class="container-max-lg">
+        <h2 class="section-title gsap-title">Certificaciones</h2>
+
+        <div class="stats-grid gsap-stats">
+        <div class="stat-card">
+            <p class="stat-number" data-target={certificaciones.length}>0</p>
+            <p class="stat-label">Certificaciones</p>
+        </div>
+        <div class="stat-card">
+            <p class="stat-number" data-target={totalHoras}>0</p>
+            <p class="stat-label">Horas de Estudio</p>
+        </div>
+        <div class="stat-card">
+            <p class="stat-number" data-target={tasaFinal}>0</p>
+            <p class="stat-label">Tasa de Finalización</p>
+        </div>
+        </div>
+
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="🔍 Buscar certificaciones..." 
+            class="search-input"
+          />
+        </div>
+
+        <div class="filters-container gsap-filters">
+            <button class="filter-btn active" data-filter="all" id="habilidades-filter-all">Todas</button>
+            <button class="filter-btn" data-filter="programming" id="habilidades-filter-programming">Programación</button>
+            <button class="filter-btn" data-filter="database" id="habilidades-filter-database">Base de Datos</button>
+            <button class="filter-btn" data-filter="marketing" id="habilidades-filter-marketing">Marketing</button>
+            <button class="filter-btn" data-filter="agile" id="habilidades-filter-agile">Metodologías Ágiles</button>
+            <button class="filter-btn" data-filter="frameworks" id="habilidades-filter-frameworks">Frameworks</button>
+            <button class="filter-btn" data-filter="cloud" id="habilidades-filter-cloud">Nube</button>
+            <button class="filter-btn" data-filter="tools" id="habilidades-filter-tools">Herramientas</button>
+            <button class="filter-btn" data-filter="leadership" id="habilidades-filter-leadership">Liderazgo</button>
+            <button class="filter-btn" data-filter="ai" id="habilidades-filter-ai">IA/ML</button>
+            <button class="filter-btn" data-filter="language" id="habilidades-filter-language">Idiomas</button>
+            <button class="filter-btn" data-filter="architecture" id="habilidades-filter-architecture">Arquitectura</button>
+        </div>
+
+        <div id="certificatesGrid" class="certificates-grid gsap-certificates">
+          {certificaciones.map((cert) => (
+            <a 
+              href={cert.url} 
+              target="_blank" 
+              class="certificate-card"
+              data-category={cert.categoria}
+            >
+              <img 
+                src={cert.imagen} 
+                alt={cert.titulo} 
+                class="certificate-image"
+                loading="lazy"
+              />
+              <div class="certificate-content">
+                <h3 class="certificate-title">{cert.titulo}</h3>
+                <p class="certificate-description">{cert.descripcion}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- Timeline Académico -->
     <section id="timeline" class="section-timeline">
       <div class="container-max">
@@ -230,73 +298,6 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
       </div>
     </section>
 
-    <section id="certificaciones" class="section-certificaciones">
-      <div class="container-max-lg">
-        <h2 class="section-title gsap-title">Certificaciones</h2>
-
-        <div class="stats-grid gsap-stats">
-        <div class="stat-card">
-            <p class="stat-number" data-target={certificaciones.length}>0</p>
-            <p class="stat-label">Certificaciones</p>
-        </div>
-        <div class="stat-card">
-            <p class="stat-number" data-target={totalHoras}>0</p>
-            <p class="stat-label">Horas de Estudio</p>
-        </div>
-        <div class="stat-card">
-            <p class="stat-number" data-target={tasaFinal}>0</p>
-            <p class="stat-label">Tasa de Finalización</p>
-        </div>
-        </div>
-
-        <div class="search-container">
-          <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="🔍 Buscar certificaciones..." 
-            class="search-input"
-          />
-        </div>
-
-        <div class="filters-container gsap-filters">
-            <button class="filter-btn active" data-filter="all" id="habilidades-filter-all">Todas</button>
-            <button class="filter-btn" data-filter="programming" id="habilidades-filter-programming">Programación</button>
-            <button class="filter-btn" data-filter="database" id="habilidades-filter-database">Base de Datos</button>
-            <button class="filter-btn" data-filter="marketing" id="habilidades-filter-marketing">Marketing</button>
-            <button class="filter-btn" data-filter="agile" id="habilidades-filter-agile">Metodologías Ágiles</button>
-            <button class="filter-btn" data-filter="frameworks" id="habilidades-filter-frameworks">Frameworks</button>
-            <button class="filter-btn" data-filter="cloud" id="habilidades-filter-cloud">Nube</button>
-            <button class="filter-btn" data-filter="tools" id="habilidades-filter-tools">Herramientas</button>
-            <button class="filter-btn" data-filter="leadership" id="habilidades-filter-leadership">Liderazgo</button>
-            <button class="filter-btn" data-filter="ai" id="habilidades-filter-ai">IA/ML</button>
-            <button class="filter-btn" data-filter="language" id="habilidades-filter-language">Idiomas</button>
-            <button class="filter-btn" data-filter="architecture" id="habilidades-filter-architecture">Arquitectura</button>
-        </div>
-
-        <div id="certificatesGrid" class="certificates-grid gsap-certificates">
-          {certificaciones.map((cert) => (
-            <a 
-              href={cert.url} 
-              target="_blank" 
-              class="certificate-card"
-              data-category={cert.categoria}
-            >
-              <img 
-                src={cert.imagen} 
-                alt={cert.titulo} 
-                class="certificate-image"
-                loading="lazy"
-              />
-              <div class="certificate-content">
-                <h3 class="certificate-title">{cert.titulo}</h3>
-                <p class="certificate-description">{cert.descripcion}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <section id="idiomas" class="section-idiomas">
       <div class="container-max-md">
         <h2 class="section-title gsap-title">Inglés</h2>
@@ -355,6 +356,6 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
 
   <script>
   import '../scripts/habilidades.js';
-    import '../data/certificaciones.js';
+  import '../data/certificaciones.js';
 </script>
 </Layout>

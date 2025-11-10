@@ -1,0 +1,100 @@
+---
+// src/pages/experiencia.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/experiencias.css';
+import '../styles/index.css';
+import '../styles/global.css';
+---
+
+<Layout title="Experiencia - Portafolio de Uziel Sánchez Marín">
+  <Header />
+  
+  <main>
+    <div class="custom-slider">
+      <div class="custom-wrapper">
+        <div style="background-image: url('/assets/experiencias/servett.png')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year" style="font-size: 18px;"><span>2025</span></p>
+            <p class="custom-item__name" style="font-size: 14px;"><span>Servet – Plataforma Integral de Gestión Empresarial</span></p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/logo.png')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year" style="font-size: 18px;"><span>2025</span></p>
+            <p class="custom-item__name" style="font-size: 14px;">
+              <span>Consultoría especializada para desarrolladores de sistemas: web, redes y más</span>
+            </p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/tiendaropa.jpg')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year" style="font-size: 18px;"><span>2025</span></p>
+            <p class="custom-item__name" style="font-size: 14px;"><span>Desarrollador de Tienda Online de Ropa</span></p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/venta.jpg')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year"><span style="font-size: 18px;">2024</span></p>
+            <p class="custom-item__name"><span style="font-size: 14px;">Desarrollador de Sistema de Punto de Venta (Proyecto Completo)</span></p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/laboratorio.jpg')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year" style="font-size: 18px;"><span>2022-2024</span></p>
+            <p class="custom-item__name" style="font-size: 14px;"><span>Practicante de Laboratorio de Sistemas Computacionales</span></p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/algoritmo.jpg')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year"><span style="font-size: 18px;">(2019-2021)</span></p>
+            <p class="custom-item__name"><span style="font-size: 14px;">Ingeniero de Software – The Pixel Rocker: Agencia de Publicidad</span></p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/redes.jpg')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year"><span>2016 – 2018</span></p>
+            <p class="custom-item__name"><span>Prácticas Profesionales - DEECSA</span></p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/tecnico.jpg')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year"><span>2016</span></p>
+            <p class="custom-item__name"><span>Administrativo / Soporte Técnico Departamento de Innovación y Tecnología</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="custom-arrow custom-arrow-prev">&#10094;</div>
+      <div class="custom-arrow custom-arrow-next">&#10095;</div>
+    </div>
+    
+    <p id="contenido"></p>
+    
+    <div class="atom">
+      <div class="center"></div>
+      <div class="orbit orbit1">
+        <div class="electron elector1"></div>
+      </div>
+      <div class="orbit orbit2">
+        <div class="electron electron2"></div>
+      </div>
+      <div class="orbit orbit3">
+        <div class="electron electron3"></div>
+      </div>
+    </div>
+
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01" alt="Imagen ampliada">
+      <div class="modal-description"></div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  import '../data/experienciasData.js';
+  import '../scripts/experiencias.js';
+</script>
