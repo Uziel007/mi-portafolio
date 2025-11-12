@@ -1,3 +1,486 @@
+/* ========================================
+   FONDO ESPACIAL ÉPICO
+   ======================================== */
+
+/* Contenedor principal del espacio */
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0a0e27 0%, #16213e 50%, #0f3460 100%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Luna realista con cráteres */
+.moon {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 30% 30%, #f4f4f4, #c8c8c8, #9e9e9e);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 60px rgba(255, 255, 255, 0.3),
+        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
+        inset 10px 10px 30px rgba(255, 255, 255, 0.1);
+    animation: moon-float 8s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Cráteres de la luna */
+.moon::before,
+.moon::after {
+    content: '';
+    position: absolute;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2), transparent);
+    border-radius: 50%;
+}
+
+.moon::before {
+    width: 30px;
+    height: 30px;
+    top: 40%;
+    left: 25%;
+}
+
+.moon::after {
+    width: 20px;
+    height: 20px;
+    top: 60%;
+    left: 55%;
+}
+
+@keyframes moon-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Resplandor lunar */
+.moon-glow {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+    border-radius: 50%;
+    animation: glow-pulse 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* Planetas */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    animation: planet-orbit 30s linear infinite;
+}
+
+.planet-1 {
+    top: 20%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+    box-shadow: 
+        0 0 40px rgba(255, 107, 107, 0.5),
+        inset -10px -10px 30px rgba(0, 0, 0, 0.3);
+    animation-duration: 40s;
+}
+
+.planet-2 {
+    bottom: 15%;
+    left: 5%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #4dabf7, #1864ab);
+    box-shadow: 
+        0 0 50px rgba(77, 171, 247, 0.6),
+        inset -15px -15px 40px rgba(0, 0, 0, 0.4);
+    animation-duration: 50s;
+}
+
+.planet-3 {
+    top: 50%;
+    right: 8%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #ffd43b, #fab005);
+    box-shadow: 
+        0 0 35px rgba(255, 212, 59, 0.5),
+        inset -8px -8px 25px rgba(0, 0, 0, 0.3);
+    animation-duration: 35s;
+}
+
+@keyframes planet-orbit {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-30px) translateX(20px); }
+    50% { transform: translateY(0px) translateX(40px); }
+    75% { transform: translateY(30px) translateX(20px); }
+}
+
+/* Anillos planetarios */
+.planet-ring {
+    position: absolute;
+    width: 140%;
+    height: 30%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    top: 35%;
+    left: -20%;
+    transform: rotateX(75deg);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Estrellas parpadeantes */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Asteroides */
+.asteroid {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, #868e96, #495057);
+    border-radius: 40% 60% 60% 40%;
+    box-shadow: 
+        inset -5px -5px 10px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(134, 142, 150, 0.3);
+    animation: asteroid-drift linear infinite;
+}
+
+@keyframes asteroid-drift {
+    0% {
+        transform: translateX(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateX(calc(100vw + 100px)) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Naves espaciales */
+.spaceship {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background: linear-gradient(135deg, #dee2e6, #adb5bd);
+    clip-path: polygon(50% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
+    box-shadow: 
+        0 0 20px rgba(173, 181, 189, 0.5),
+        inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    animation: spaceship-fly 25s linear infinite;
+}
+
+.spaceship::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #4dabf7, transparent);
+    border-radius: 50%;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 
+        0 0 15px #4dabf7,
+        0 0 30px #4dabf7;
+    animation: engine-glow 0.5s ease-in-out infinite;
+}
+
+@keyframes spaceship-fly {
+    0% {
+        left: -100px;
+        top: 20%;
+    }
+    25% {
+        top: 40%;
+    }
+    50% {
+        top: 60%;
+    }
+    75% {
+        top: 30%;
+    }
+    100% {
+        left: calc(100% + 100px);
+        top: 50%;
+    }
+}
+
+@keyframes engine-glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* OVNIs */
+.ufo {
+    position: absolute;
+    width: 70px;
+    height: 25px;
+    background: linear-gradient(180deg, #868e96, #495057);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 
+        0 0 30px rgba(134, 142, 150, 0.6),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.3);
+    animation: ufo-hover 20s ease-in-out infinite;
+}
+
+.ufo::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background: radial-gradient(ellipse, rgba(77, 171, 247, 0.8), transparent);
+    border-radius: 50%;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px #4dabf7;
+}
+
+.ufo::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(77, 171, 247, 0.3),
+        transparent
+    );
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+    animation: beam-scan 2s linear infinite;
+}
+
+@keyframes ufo-hover {
+    0%, 100% { 
+        top: 30%;
+        left: 90%;
+        transform: translateY(0px);
+    }
+    25% { 
+        top: 40%;
+        left: 70%;
+        transform: translateY(-15px);
+    }
+    50% { 
+        top: 25%;
+        left: 50%;
+        transform: translateY(0px);
+    }
+    75% { 
+        top: 45%;
+        left: 30%;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes beam-scan {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+/* Luces del OVNI */
+.ufo-lights {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.ufo-light {
+    width: 6px;
+    height: 6px;
+    background: #ffd43b;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffd43b;
+    animation: light-blink 0.8s ease-in-out infinite;
+}
+
+.ufo-light:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.ufo-light:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes light-blink {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Cometas */
+.comet {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: comet-trail 8s linear infinite;
+}
+
+.comet::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, white, transparent);
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes comet-trail {
+    0% {
+        top: -10%;
+        left: 100%;
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        top: 110%;
+        left: -10%;
+        opacity: 0;
+    }
+}
+
+/* Nebulosas */
+.nebula {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: nebula-drift 40s ease-in-out infinite;
+}
+
+.nebula-1 {
+    top: 10%;
+    left: 20%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.4), transparent);
+    animation-duration: 50s;
+}
+
+.nebula-2 {
+    bottom: 20%;
+    right: 25%;
+    background: radial-gradient(circle, rgba(30, 144, 255, 0.3), transparent);
+    animation-duration: 60s;
+}
+
+@keyframes nebula-drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, -30px) scale(1.2); }
+}
+
+/* Satélites */
+.satellite {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: linear-gradient(135deg, #dee2e6, #868e96);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(222, 226, 230, 0.4);
+    animation: satellite-orbit 35s linear infinite;
+}
+
+.satellite::before,
+.satellite::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffd43b, #fab005);
+    top: 50%;
+}
+
+.satellite::before {
+    left: -55px;
+    transform: translateY(-50%) rotate(-30deg);
+}
+
+.satellite::after {
+    right: -55px;
+    transform: translateY(-50%) rotate(30deg);
+}
+
+@keyframes satellite-orbit {
+    0% {
+        top: 15%;
+        left: -50px;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 15%;
+        left: calc(100% + 50px);
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .moon {
+        width: 100px;
+        height: 100px;
+        top: 5%;
+        right: 5%;
+    }
+    
+    .moon-glow {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .planet-1,
+    .planet-2,
+    .planet-3 {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .spaceship,
+    .ufo,
+    .satellite {
+        transform: scale(0.7);
+    }
+}
+
+/* ========================================
+   ESTILOS ORIGINALES DEL SLIDER
+   ======================================== */
+
 /* Slider personalizado */
 .custom-slider {
     position: relative;
@@ -6,6 +489,7 @@
     height: 500px;
     margin: auto;
     overflow: hidden;
+    z-index: 10;
 }
 
 .custom-wrapper {
@@ -71,6 +555,11 @@
     transform-origin: top center;
     opacity: 0;
     transform: translateY(30px) scale(0.98);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: white;
+    z-index: 10;
+    position: relative;
 }
 
 /* Slideshow y carrusel 3D */
@@ -82,6 +571,7 @@
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
+    z-index: 10;
 }
 
 .slideshow-title {
@@ -233,6 +723,7 @@ figure:hover .image-caption {
     width: 200px;
     height: 200px;
     margin: 40px auto;
+    z-index: 10;
 }
 
 .center {
@@ -320,6 +811,8 @@ figure:hover .image-caption {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    position: relative;
 }
 
 .contact-text {

@@ -147,3 +147,125 @@ document.addEventListener("DOMContentLoaded", () => {
     particles?.appendChild(particle);
   }
 });
+
+import { gsap } from 'gsap';
+  
+  // ========== GENERACIÓN DE ELEMENTOS DINÁMICOS ==========
+  
+  // Código binario (Matrix)
+  const binaryContainer = document.getElementById('binaryContainer');
+  const binaryStrings = ['01001000', '01100101', '01101100', '01101100', '01101111', '01010111', '01101111', '01110010', '01101100', '01100100'];
+  
+  for (let i = 0; i < 30; i++) {
+    const binary = document.createElement('div');
+    binary.className = 'binary-rain';
+    binary.textContent = binaryStrings[Math.floor(Math.random() * binaryStrings.length)].repeat(10);
+    binary.style.left = `${Math.random() * 100}%`;
+    binary.style.animationDuration = `${Math.random() * 5 + 8}s`;
+    binary.style.animationDelay = `${Math.random() * 5}s`;
+    binaryContainer?.appendChild(binary);
+  }
+  
+  // Circuitos
+  const circuitBoard = document.getElementById('circuitBoard');
+  for (let i = 0; i < 15; i++) {
+    const line = document.createElement('div');
+    line.className = 'circuit-line';
+    line.style.top = `${Math.random() * 100}%`;
+    line.style.left = `${Math.random() * 80}%`;
+    line.style.width = `${Math.random() * 200 + 100}px`;
+    line.style.animationDelay = `${Math.random() * 4}s`;
+    circuitBoard?.appendChild(line);
+    
+    // Agregar nodos
+    const node = document.createElement('div');
+    node.className = 'circuit-node';
+    node.style.left = `${Math.random() * 80}%`;
+    node.style.animationDelay = `${Math.random() * 2}s`;
+    line.appendChild(node);
+  }
+  
+  // Partículas de datos
+  const dataContainer = document.getElementById('dataParticlesContainer');
+  for (let i = 0; i < 25; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'data-particle';
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+    particle.style.animationDelay = `${Math.random() * 8}s`;
+    dataContainer?.appendChild(particle);
+  }
+  
+  // Hexágonos
+  const hexContainer = document.getElementById('hexContainer');
+  for (let i = 0; i < 12; i++) {
+    const hexPattern = document.createElement('div');
+    hexPattern.className = 'hex-pattern';
+    hexPattern.style.top = `${Math.random() * 100}%`;
+    hexPattern.style.left = `${Math.random() * 100}%`;
+    hexPattern.style.animationDuration = `${Math.random() * 15 + 15}s`;
+    hexPattern.style.animationDelay = `${Math.random() * 10}s`;
+    
+    const hexagon = document.createElement('div');
+    hexagon.className = 'hexagon';
+    hexPattern.appendChild(hexagon);
+    
+    hexContainer?.appendChild(hexPattern);
+  }
+  
+  // ========== ANIMACIONES GSAP ==========
+  
+  // Hologramas
+  gsap.to('.hologram', {
+    rotationY: 360,
+    rotationX: 60,
+    duration: 10,
+    repeat: -1,
+    ease: 'linear'
+  });
+  
+  // Íconos tecnológicos
+  gsap.utils.toArray('.tech-icon').forEach((icon) => {
+    gsap.to(icon, {
+      y: -30,
+      rotation: 360,
+      duration: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+  });
+  
+  // Terminales de código
+  gsap.to('.code-terminal', {
+    y: -20,
+    duration: 8,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut'
+  });
+  
+  // Parallax con mouse
+  document.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    
+    gsap.to('.circuit-line', {
+      x: mouseX * 20,
+      y: mouseY * 20,
+      duration: 2
+    });
+    
+    gsap.to('.hologram', {
+      x: mouseX * -30,
+      y: mouseY * -30,
+      duration: 2.5
+    });
+    
+    gsap.to('.tech-icon', {
+      x: mouseX * 15,
+      y: mouseY * 15,
+      duration: 3
+    });
+  });

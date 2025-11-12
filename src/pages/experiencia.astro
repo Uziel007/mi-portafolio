@@ -10,7 +10,49 @@ import '../styles/global.css';
 <Layout title="Experiencia - Portafolio de Uziel Sánchez Marín">
   <Header />
   
-  <main>
+  <!-- FONDO ESPACIAL ÉPICO -->
+  <div class="space-background" id="spaceBackground">
+    <!-- Luna con resplandor -->
+    <div class="moon-glow"></div>
+    <div class="moon"></div>
+    
+    <!-- Planetas -->
+    <div class="planet planet-1">
+      <div class="planet-ring"></div>
+    </div>
+    <div class="planet planet-2"></div>
+    <div class="planet planet-3"></div>
+    
+    <!-- Nebulosas -->
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    
+    <!-- Estrellas (se generarán dinámicamente con JS) -->
+    <div id="stars-container"></div>
+    
+    <!-- Asteroides (se generarán dinámicamente) -->
+    <div id="asteroids-container"></div>
+    
+    <!-- Cometas (se generarán dinámicamente) -->
+    <div id="comets-container"></div>
+    
+    <!-- Nave espacial -->
+    <div class="spaceship"></div>
+    
+    <!-- OVNIs -->
+    <div class="ufo">
+      <div class="ufo-lights">
+        <div class="ufo-light"></div>
+        <div class="ufo-light"></div>
+        <div class="ufo-light"></div>
+      </div>
+    </div>
+    
+    <!-- Satélite -->
+    <div class="satellite"></div>
+  </div>
+  
+  <main style="position: relative; z-index: 10;">
     <div class="custom-slider">
       <div class="custom-wrapper">
         <div style="background-image: url('/assets/experiencias/servett.png')" class="custom-item">
@@ -91,6 +133,7 @@ import '../styles/global.css';
   </main>
 
   <Footer />
+  
   <script>
     import '../data/experienciasData.js';
     import '../scripts/experiencias.js';
