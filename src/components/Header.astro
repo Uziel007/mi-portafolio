@@ -386,7 +386,10 @@ const isActive = (path: string) => {
     transform: translateX(-50%);
     font-family: Arial, sans-serif;
     font-size: 14px;
+    font-weight: 700;
     color: white;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
+                 0 0 12px rgba(166, 15, 15, 0.6);
     opacity: 0;
     animation: fadeMove 2s infinite alternate;
     white-space: nowrap;
@@ -394,15 +397,15 @@ const isActive = (path: string) => {
 
   @keyframes fadeMove {
     0% {
-      opacity: 0;
+      opacity: 0.4;
       transform: translateX(-50%) translateY(0px);
     }
     50% {
-      opacity: 0.6;
-      transform: translateX(-50%) translateY(-2px);
+      opacity: 1;
+      transform: translateX(-50%) translateY(-3px);
     }
     100% {
-      opacity: 0;
+      opacity: 0.4;
       transform: translateX(-50%) translateY(0px);
     }
   }
@@ -415,16 +418,23 @@ const isActive = (path: string) => {
     transform: translateX(-50%) translateY(-8px);
     width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 8px solid white;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid white;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
     opacity: 0;
-    animation: blinkArrow 3s infinite;
+    animation: blinkArrow 2s infinite;
   }
 
   @keyframes blinkArrow {
-    0%, 50%, 100% { opacity: 0; }
-    25%, 75% { opacity: 1; }
+    0%, 100% { 
+      opacity: 0.3; 
+      transform: translateX(-50%) translateY(-8px);
+    }
+    50% { 
+      opacity: 1; 
+      transform: translateX(-50%) translateY(-12px);
+    }
   }
 
   /* ========================================
@@ -452,58 +462,106 @@ const isActive = (path: string) => {
 
   @media (max-width: 768px) {
     .modern-navigation {
-      flex-direction: column;
-      padding: 1rem;
-      gap: 1rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0.6rem 1rem;
+      gap: 0.8rem;
       min-height: auto;
+      justify-content: center;
     }
 
     .brand-title {
-      font-size: 1.3rem;
-      margin: 0.5rem 0;
+      font-size: 1rem;
+      margin: 0;
       text-align: center;
+      order: 2;
+      flex: 1 1 auto;
     }
 
     .navigation-menu {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 1rem;
+      gap: 0.4rem;
       width: 100%;
+      order: 3;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .navigation-menu li {
-      width: 100%;
-      max-width: 300px;
+      width: auto;
+      flex: 0 0 auto;
     }
 
     .nav-item {
-      width: 100%;
-      text-align: center;
-      padding: 0.8rem 1rem;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.85rem;
+      border-radius: 6px;
     }
 
     .cat {
-      transform: scale(0.9);
+      transform: scale(0.7);
+      order: 1;
+    }
+
+    /* Mantener elementos visibles en móvil con mejor escala */
+    .play-text {
+      font-size: 11px;
+      font-weight: 800;
+      top: 105%;
+    }
+
+    .arrow-down {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid white;
+      transform: translateX(-50%) translateY(-6px);
     }
   }
 
   @media (max-width: 480px) {
     .modern-navigation {
-      padding: 0.8rem;
+      padding: 0.5rem 0.8rem;
+      gap: 0.5rem;
     }
 
     .brand-title {
-      font-size: 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .navigation-menu {
+      gap: 0.3rem;
     }
 
     .nav-item {
-      font-size: 0.9rem;
-      padding: 0.7rem 0.8rem;
+      font-size: 0.75rem;
+      padding: 0.35rem 0.6rem;
+      border-width: 1px;
     }
 
     .cat {
-      transform: scale(0.85);
+      transform: scale(0.6);
+    }
+
+    /* Ajustar elementos para móvil pequeño */
+    .play-text {
+      font-size: 9px;
+      font-weight: 800;
+      top: 100%;
+    }
+
+    .arrow-down {
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 7px solid white;
+      transform: translateX(-50%) translateY(-5px);
+    }
+
+    /* Hacer el gato aún más compacto */
+    :root {
+      --size: 40px;
     }
   }
 </style>

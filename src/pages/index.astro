@@ -5,60 +5,202 @@ import Footer from '../components/Footer.astro';
 import '../styles/index.css';
 import '../styles/global.css';
 ---
-
 <Layout title="Portafolio - Uziel Sánchez Marín">
   <Header />
-  
-  <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden text-white bg-gray-900">
-    <div class="absolute inset-0">
-      <img 
-        src="/assets/escritorio.jpg" 
-        alt="Workspace background" 
-        class="w-full h-full object-cover object-center brightness-50"
+ 
+  <!-- Hero Section with Advanced Effects -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden text-white">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 hero-bg">
+      <img
+        src="/assets/escritorio.jpg"
+        alt="Workspace background"
+        class="w-full h-full object-cover object-center brightness-40 hero-image"
       />
+      <div class="hero-overlay"></div>
     </div>
-    <div id="lottie-hero" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 z-10"></div>
-    <div class="relative z-20 max-w-4xl px-8 mx-auto animate-fadeInUp">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6 text-shadow-lg">¡Bienvenido a mi Portafolio!</h1>
-      <p class="text-xl md:text-2xl leading-relaxed text-shadow">
-        Ingeniero en Sistemas Computacionales especializado en desarrollo de software, arquitectura de sistemas y soluciones tecnológicas modernas.
+    <!-- Particle Effects -->
+    <div class="particles-container"></div>
+   
+    <!-- Floating Code Elements -->
+    <div class="code-elements">
+      <div class="code-element" style="top: 10%; left: 10%;">{'{ }'}</div>
+      <div class="code-element" style="top: 20%; right: 15%;">{'< />'}</div>
+      <div class="code-element" style="bottom: 15%; left: 20%;">{'[ ]'}</div>
+      <div class="code-element" style="bottom: 25%; right: 10%;">{'=> '}</div>
+      <div class="code-element" style="top: 40%; left: 5%;">{'?.'}</div>
+      <div class="code-element" style="top: 60%; right: 8%;">{'&&'}</div>
+    </div>
+    <!-- Geometric Shapes -->
+    <div class="geometric-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <!-- Main Content -->
+    <div class="relative z-20 max-w-5xl px-8 mx-auto hero-content flex flex-col justify-center items-center">
+      <div class="hero-badge mb-6">
+        <span class="badge-text">Ingeniero en Sistemas Computacionales</span>
+      </div>
+     
+      <h1 class="hero-title text-5xl md:text-7xl font-black mb-6">
+        <span class="gradient-text">Uziel Sánchez</span>
+        <br/>
+        <span class="subtitle-text">Full Stack Developer</span>
+      </h1>
+     
+      <p class="hero-description text-xl md:text-2xl leading-relaxed mb-8 max-w-3xl mx-auto">
+        Especializado en desarrollo de software, arquitectura de sistemas y soluciones tecnológicas modernas que impulsan el futuro digital.
       </p>
-    </div>
-  </section>
-
-  <section id="perfil" class="py-16 px-8 bg-gradient-to-b from-gray-800 to-gray-700 -mt-1">
-    <h2 class="text-3xl md:text-5xl font-bold text-white text-center mb-12">Acerca de mí</h2>
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-center gap-8">
-      <div class="flex justify-center md:flex-shrink-0">
-        <img 
-          src="/assets/foto.jpg" 
-          alt="Foto de perfil de Uziel Sánchez Marín" 
-          class="w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-gray-300 shadow-2xl object-cover gsap-hover"
-          loading="lazy"
-        />
-      </div>
-      <div class="flex-1 min-w-0 max-w-3xl">
-        <div id="profile-text" class="text-lg leading-relaxed text-gray-300 space-y-4 gsap-text">
-          <p>Soy Ingeniero en Sistemas Computacionales con una sólida formación en desarrollo de software, arquitectura de sistemas y tecnologías en la nube.</p>
-          <p>Apasionado por la innovación tecnológica y la eficiencia, aplico buenas prácticas de ingeniería para diseñar soluciones seguras, escalables y orientadas a resultados.</p>
-          <p>Destaco por mi pensamiento analítico, liderazgo técnico y capacidad de adaptación en entornos empresariales exigentes.</p>
+      <div class="hero-stats grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-10">
+        <div class="stat-item">
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-label">Certificaciones</div>
         </div>
-        <div class="mt-8 text-center">
-          <button 
-            id="changeTextBtn" 
-            class="bg-black text-white px-8 py-4 rounded-xl font-bold border-2 border-transparent hover:border-red-500 hover:shadow-glow transform transition-all duration-300 hover:scale-105">
-            Conoce más sobre mí
-          </button>
+        <div class="stat-item">
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-label">Años Experiencia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="15">0</div>
+          <div class="stat-label">Proyectos</div>
         </div>
       </div>
+      <div class="flex gap-4 justify-center flex-wrap mb-12">
+        <a href="#perfil" class="cta-button primary">
+          <span>Conocer más</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+        <a href="/habilidades" class="cta-button secondary">
+          <span>Ver Habilidades</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+      <!-- Scroll Indicator - Centrado bajo botones -->
+      <div class="scroll-indicator mt-8 opacity-80 animate-pulse">
+        <div class="mouse mx-auto mb-3">
+          <div class="wheel"></div>
+        </div>
+        <div class="scroll-text text-sm font-light">Saber más</div>
+        <svg class="arrow-down mx-auto mt-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
     </div>
   </section>
-
+  <!-- Profile Section -->
+  <section id="perfil" class="py-20 px-8 bg-gradient-to-b from-slate-950 via-purple-950/30 to-slate-900 relative overflow-hidden">
+    <!-- Background Effects -->
+    <div class="profile-particles"></div>
+    <div class="grid-background"></div>
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title text-4xl md:text-6xl font-black text-white text-center mb-16">
+        <span class="gradient-text-alt">Acerca de mí</span>
+      </h2>
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+        <!-- Profile Image with 3D Effect -->
+        <div class="profile-image-container">
+          <div class="image-wrapper">
+            <div class="image-glow"></div>
+            <img
+              src="/assets/foto.jpg"
+              alt="Foto de perfil de Uziel Sánchez Marín"
+              class="profile-image"
+              loading="lazy"
+            />
+            <div class="image-border"></div>
+          </div>
+         
+          <!-- Floating Icons -->
+          <div class="tech-icons">
+            <div class="tech-icon" style="top: 10%; left: -10%;">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div class="tech-icon" style="top: 30%; right: -10%;">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <div class="tech-icon" style="bottom: 20%; left: -5%;">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+              </svg>
+            </div>
+            <div class="tech-icon" style="bottom: 10%; right: -8%;">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Profile Content -->
+        <div class="flex-1 max-w-3xl">
+          <div class="profile-card">
+            <div id="profile-text" class="gsap-text space-y-6"> <!-- Cambiado a gsap-text -->
+              <p class="text-lg leading-relaxed text-gray-300">
+                Soy Ingeniero en Sistemas Computacionales con una sólida formación en <strong class="text-cyan-400">desarrollo de software</strong>, <strong class="text-purple-400">arquitectura de sistemas</strong> y <strong class="text-pink-400">tecnologías en la nube</strong>.
+              </p>
+              <p class="text-lg leading-relaxed text-gray-300">
+                Apasionado por la innovación tecnológica y la eficiencia, aplico buenas prácticas de ingeniería para diseñar soluciones <span class="highlight-text">seguras, escalables y orientadas a resultados</span>.
+              </p>
+              <p class="text-lg leading-relaxed text-gray-300">
+                Destaco por mi <strong class="text-green-400">pensamiento analítico</strong>, <strong class="text-blue-400">liderazgo técnico</strong> y capacidad de adaptación en entornos empresariales exigentes.
+              </p>
+            </div>
+            <!-- Skills Quick View -->
+            <div class="skills-preview mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="skill-badge">
+                <div class="skill-icon">☕</div>
+                <div class="skill-name">Java</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">⚛️</div>
+                <div class="skill-name">React</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">🐍</div>
+                <div class="skill-name">Python</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">☁️</div>
+                <div class="skill-name">AWS</div>
+              </div>
+            </div>
+            <div class="mt-10 flex gap-4 justify-center lg:justify-start flex-wrap">
+              <button
+                id="changeTextBtn"
+                class="morph-button bg-black text-white px-8 py-4 rounded-xl font-bold border-2 border-transparent hover:border-red-500 hover:shadow-glow transform transition-all duration-300 hover:scale-105">
+                <span class="button-content">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>Conoce más sobre mí</span>
+                </span>
+                <div class="button-glow"></div>
+              </button>
+              <a href="/experiencia" class="morph-button secondary bg-gray-800 text-white px-8 py-4 rounded-xl font-bold border-2 border-gray-600 hover:border-blue-500 hover:shadow-glow-blue transform transition-all duration-300 hover:scale-105">
+                <span class="button-content">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  <span>Ver Experiencia</span>
+                </span>
+                <div class="button-glow"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <Footer />
 </Layout>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-
 <script>
   import '../scripts/index.js';
 </script>
