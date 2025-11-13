@@ -1,5 +1,5 @@
 // ===================================
-// SISTEMA DE CARGA MEJORADO - VERSIÓN CORREGIDA
+// SISTEMA DE CARGA MEJORADO - VERSIÓN FINAL
 // ===================================
 
 class LoadingManager {
@@ -17,6 +17,8 @@ class LoadingManager {
     this.progressText = null;
     this.statusText = null;
     this.isLoading = false;
+    this.startTime = null;
+    this.minDisplayTime = 4000; // 4 segundos mínimo
     this.init();
   }
 
@@ -25,7 +27,6 @@ class LoadingManager {
     if (!document.getElementById('main-loader')) {
       this.createLoader();
     } else {
-      // Si ya existe, solo obtener las referencias
       this.loaderElement = document.getElementById('main-loader');
       this.progressBar = document.querySelector('.progress-fill');
       this.progressText = document.getElementById('progress-text');
@@ -37,19 +38,15 @@ class LoadingManager {
     const loaderHTML = `
       <div id="main-loader" class="main-loader" style="display: none;">
         <div class="loader-content">
-          <!-- Animación espacial -->
           <div class="loader-animation">
             <div class="loading-planet"></div>
             <div class="loading-orbit"></div>
             <div class="loading-satellite"></div>
           </div>
           
-          <!-- Información de texto -->
           <div class="loader-info">
-            <!-- Título -->
             <h2 class="loader-title">Cargando Experiencia</h2>
             
-            <!-- Barra de progreso -->
             <div class="progress-container">
               <div class="progress-bar" id="progress-bar">
                 <div class="progress-fill"></div>
@@ -58,10 +55,8 @@ class LoadingManager {
               <div class="progress-text" id="progress-text">0%</div>
             </div>
             
-            <!-- Estado actual -->
             <p class="loader-status" id="loader-status">Inicializando recursos...</p>
             
-            <!-- Detalles técnicos -->
             <div class="loader-details">
               <span class="detail-item">
                 <span class="detail-icon">📦</span>
@@ -73,7 +68,6 @@ class LoadingManager {
       </div>
     `;
 
-    // Insertar después del slider
     const slider = document.querySelector('.custom-slider');
     if (slider) {
       slider.insertAdjacentHTML('afterend', loaderHTML);
@@ -93,6 +87,7 @@ class LoadingManager {
   show() {
     if (this.loaderElement && !this.isLoading) {
       this.isLoading = true;
+      this.startTime = Date.now(); // Registrar tiempo de inicio
       this.loaderElement.style.display = 'block';
       this.loaderElement.classList.remove('hidden');
       
@@ -109,10 +104,19 @@ class LoadingManager {
     }
   }
 
-  hide() {
-    if (this.loaderElement) {
+  async hide() {
+    if (this.loaderElement && this.isLoading) {
+      // Calcular tiempo transcurrido
+      const elapsed = Date.now() - this.startTime;
+      const remaining = Math.max(0, this.minDisplayTime - elapsed);
+      
+      if (remaining > 0) {
+        console.log(`⏱️ Esperando ${remaining}ms adicionales para alcanzar tiempo mínimo de visualización`);
+        this.setStatus('✅ Recursos cargados, preparando visualización...');
+        await new Promise(resolve => setTimeout(resolve, remaining));
+      }
+      
       this.isLoading = false;
-      // Animación de salida suave
       this.loaderElement.classList.add('hidden');
       setTimeout(() => {
         this.loaderElement.style.display = 'none';
@@ -126,34 +130,31 @@ class LoadingManager {
     
     const percentage = total > 0 ? Math.round((loaded / total) * 100) : 0;
     
-    // Actualizar barra de progreso
     if (this.progressBar) {
       this.progressBar.style.width = `${percentage}%`;
     }
     
-    // Actualizar texto de porcentaje
     if (this.progressText) {
       this.progressText.textContent = `${percentage}%`;
     }
     
-    // Actualizar estado
     if (status && this.statusText) {
       this.statusText.textContent = status;
     }
     
-    // Actualizar contadores
     const loadedCount = document.getElementById('loaded-count');
     const totalCount = document.getElementById('total-count');
     if (loadedCount) loadedCount.textContent = loaded;
-    if (totalCount) totalCount.textContent = total;
+    if (totalCount) totalCount.textContent = total; // ❌ CORREGIDO: era "textCount"
     
-    // Si completó la carga
+    // Si completó la carga, llamar a hide (que ahora es async y maneja el tiempo mínimo)
     if (loaded >= total && total > 0) {
       setTimeout(() => {
         if (this.statusText) {
           this.statusText.textContent = '✅ Carga completada';
         }
-        setTimeout(() => this.hide(), 800);
+        // hide() ahora espera el tiempo mínimo si es necesario
+        this.hide();
       }, 300);
     }
   }
@@ -180,9 +181,7 @@ class ResourceLoader {
     this.totalCount = 0;
   }
 
-  // Escanear todos los recursos del contenido
   scanResources(container) {
-    // Esperar un poco para que el DOM se actualice completamente
     this.resources.images = Array.from(container.querySelectorAll('img'));
     this.resources.videos = Array.from(container.querySelectorAll('iframe[src*="youtube"], iframe[src*="youtu.be"]'));
     
@@ -195,7 +194,6 @@ class ResourceLoader {
     return this.totalCount;
   }
 
-  // Precargar imágenes
   async preloadImages() {
     if (this.resources.images.length === 0) return;
 
@@ -209,7 +207,7 @@ class ResourceLoader {
             console.warn(`⏱️ Timeout en imagen ${index + 1}`);
             this.incrementProgress(`⚠️ Imagen ${index + 1} (timeout)`);
             resolve();
-          }, 10000); // 10 segundos timeout
+          }, 10000);
 
           img.addEventListener('load', () => {
             clearTimeout(timeout);
@@ -224,7 +222,6 @@ class ResourceLoader {
             resolve();
           });
           
-          // Si la imagen ya tiene src, forzar recarga
           if (img.src) {
             const tempSrc = img.src;
             img.src = '';
@@ -237,7 +234,6 @@ class ResourceLoader {
     await Promise.all(imagePromises);
   }
 
-  // Simular carga de videos
   async preloadVideos() {
     for (let i = 0; i < this.resources.videos.length; i++) {
       await new Promise(resolve => {
@@ -254,18 +250,14 @@ class ResourceLoader {
     this.loadingManager.updateProgress(this.loadedCount, this.totalCount, status);
   }
 
-  // Cargar todos los recursos
   async loadAll(container) {
-    // Reset counters
     this.loadedCount = 0;
-    
-    // Escanear recursos
     this.scanResources(container);
     
     if (this.totalCount === 0) {
       console.log('⚠️ No se encontraron recursos para cargar');
       this.loadingManager.setStatus('No hay recursos para cargar');
-      setTimeout(() => this.loadingManager.hide(), 1500);
+      await this.loadingManager.hide(); // Ahora esperamos el tiempo mínimo
       return;
     }
 
@@ -281,10 +273,13 @@ class ResourceLoader {
       }
       
       this.loadingManager.setStatus('Finalizando...');
+      
+      // La función updateProgress llamará a hide() que esperará el tiempo mínimo
+      
     } catch (error) {
       console.error('❌ Error durante la carga:', error);
       this.loadingManager.setStatus('⚠️ Algunos recursos no se cargaron');
-      setTimeout(() => this.loadingManager.hide(), 2000);
+      await this.loadingManager.hide(); // Esperar tiempo mínimo incluso con errores
     }
   }
 }
@@ -293,17 +288,13 @@ class ResourceLoader {
 // INTEGRACIÓN CON EXPERIENCIAS
 // ===================================
 
-// Crear instancias únicas (Singleton)
 const loadingManager = new LoadingManager();
 const resourceLoader = new ResourceLoader(loadingManager);
 
-// Variable para controlar si ya se modificó animateContent
 let animateContentPatched = false;
-
-// Rastrear qué contenidos ya han sido animados
 const animatedContents = new Set();
+let currentExperienceId = null; // ID de la experiencia actual
 
-// Función para parchear animateContent
 function patchAnimateContent() {
   if (animateContentPatched || !window.animateContent) {
     return;
@@ -316,44 +307,97 @@ function patchAnimateContent() {
     
     const contenido = document.getElementById('contenido');
     
-    // Generar un identificador único para este contenido
+    // Generar identificador único basado en el contenido
     const contentHash = contenido ? contenido.innerHTML.substring(0, 100) : '';
     
-    // Si ya se animó este contenido, solo ejecutar la animación visual sin loader
-    if (animatedContents.has(contentHash) && contenido) {
-      console.log('♻️ Contenido ya animado previamente, solo aplicando animación visual');
-      
-      // Solo ejecutar la animación original sin mostrar el loader
-      if (originalAnimateContent) {
-        originalAnimateContent.apply(this, args);
+    // Si es una experiencia diferente, resetear la bandera
+    if (currentExperienceId !== contentHash) {
+      currentExperienceId = contentHash;
+      if (contenido) {
+        contenido.classList.remove('content-loaded');
+        contenido.removeAttribute('data-animated');
       }
+      console.log('🔄 Nueva experiencia detectada, permitiendo animación');
+    }
+    
+    // Verificar si ESTA experiencia específica ya fue animada
+    if (contenido && contenido.classList.contains('content-loaded') && currentExperienceId === contentHash) {
+      console.log('🔒 Esta experiencia ya fue cargada, ignorando re-animación por scroll');
       return;
     }
     
-    // Mostrar loader solo si no está cargando y es contenido nuevo
+    // IMPORTANTE: Ocultar el contenido ANTES de mostrar el loader
+    if (contenido) {
+      contenido.style.opacity = '0';
+      contenido.style.visibility = 'hidden';
+      contenido.classList.remove('content-loaded');
+    }
+    
+    // Si ya se cargó esta experiencia antes (pero se cambió y volvió), mostrar sin loader
+    if (animatedContents.has(contentHash) && contenido) {
+      console.log('♻️ Experiencia previamente cargada, mostrando sin loader');
+      
+      // Aplicar la animación original
+      if (originalAnimateContent) {
+        originalAnimateContent.apply(this, args);
+      }
+      
+      // Mostrar el contenido inmediatamente
+      setTimeout(() => {
+        contenido.style.visibility = 'visible';
+        contenido.style.opacity = '1';
+        contenido.style.transform = 'translateY(0) scale(1)';
+        contenido.classList.add('content-loaded');
+        contenido.setAttribute('data-animated', 'true');
+      }, 50);
+      
+      return;
+    }
+    
+    // Contenido nuevo: mostrar loader
     if (!loadingManager.isLoading) {
       loadingManager.show();
       loadingManager.setStatus('Preparando contenido...');
     }
     
-    // Ejecutar la función original
+    // Ejecutar animación original
     if (originalAnimateContent) {
       originalAnimateContent.apply(this, args);
     }
     
-    // Esperar a que el DOM se actualice
+    // Esperar actualización del DOM
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    // Cargar recursos del contenido actual
+    // Cargar recursos
     if (contenido && contenido.innerHTML.trim() !== '') {
       console.log('📄 Contenido encontrado, cargando recursos...');
+      
+      // Cargar recursos (esto esperará automáticamente el tiempo mínimo)
       await resourceLoader.loadAll(contenido);
       
-      // Marcar este contenido como ya animado
+      // Marcar como animado
       animatedContents.add(contentHash);
+      currentExperienceId = contentHash;
+      
+      // MOSTRAR el contenido DESPUÉS de cargar (y esperar tiempo mínimo)
+      setTimeout(() => {
+        contenido.style.visibility = 'visible';
+        contenido.style.opacity = '1';
+        contenido.style.transform = 'translateY(0) scale(1)';
+        contenido.classList.add('content-loaded');
+        contenido.setAttribute('data-animated', 'true');
+        console.log('✨ Contenido mostrado y marcado como cargado');
+      }, 300);
     } else {
       console.log('⚠️ No hay contenido para cargar');
-      loadingManager.hide();
+      await loadingManager.hide();
+      
+      // Mostrar contenido aunque esté vacío
+      if (contenido) {
+        contenido.style.visibility = 'visible';
+        contenido.style.opacity = '1';
+        contenido.classList.add('content-loaded');
+      }
     }
   };
 
@@ -361,7 +405,7 @@ function patchAnimateContent() {
   console.log('✅ animateContent parcheado');
 }
 
-// Intentar parchear cuando el DOM esté listo
+// Inicialización
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     setTimeout(patchAnimateContent, 100);
@@ -370,19 +414,15 @@ if (document.readyState === 'loading') {
   setTimeout(patchAnimateContent, 100);
 }
 
-// También intentar parchear cuando la página se carga completamente
 window.addEventListener('load', () => {
   setTimeout(patchAnimateContent, 200);
-  
-  // Si hay contenido inicial, NO cargarlo automáticamente
-  // (se cargará cuando el usuario haga clic)
   console.log('📄 Página cargada, esperando interacción del usuario');
 });
 
-// Exportar para uso externo
+// Exportar
 window.LoadingManager = LoadingManager;
 window.ResourceLoader = ResourceLoader;
 window.loadingManagerInstance = loadingManager;
 window.resourceLoaderInstance = resourceLoader;
 
-console.log('✅ Sistema de carga con progreso inicializado (versión corregida)');
+console.log('✅ Sistema de carga inicializado (versión final)');

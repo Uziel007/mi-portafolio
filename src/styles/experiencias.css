@@ -1459,25 +1459,29 @@ figure:hover .image-caption {
 }
 
 /* ===================================
-   FIX: PREVENIR ANIMACIONES REPETIDAS
+   PREVENIR RE-ANIMACIONES AL SCROLL
    =================================== */
 
-/* Clase para marcar contenido ya animado */
+/* Marcar contenido como ya animado */
+#contenido[data-animated="true"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) scale(1) !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Clase adicional para contenido ya mostrado */
 #contenido.already-animated {
   opacity: 1 !important;
+  visibility: visible !important;
   transform: none !important;
   animation: none !important;
 }
 
-/* Asegurar que el contenido se mantiene visible */
-#contenido {
-  will-change: auto;
-}
-
-/* Prevenir que Intersection Observer reactive la animación */
-#contenido[data-animated="true"] {
+/* Asegurar que el contenido animado permanezca visible */
+#contenido.content-loaded {
   opacity: 1 !important;
+  visibility: visible !important;
   transform: translateY(0) scale(1) !important;
-  animation: none !important;
-  transition: none !important;
 }
