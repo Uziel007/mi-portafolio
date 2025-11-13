@@ -414,36 +414,51 @@ if (document.readyState === 'loading') {
   setTimeout(patchAnimateContent, 100);
 }
 
+// Inicialización
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(patchAnimateContent, 100);
+  });
+} else {
+  setTimeout(patchAnimateContent, 100);
+}
+
 window.addEventListener('load', () => {
   setTimeout(patchAnimateContent, 200);
   console.log('📄 Página cargada, esperando interacción del usuario');
   
-  // 🚀 ESTE BLOQUE ES CRUCIAL
+  // FORZAR CARGA INICIAL DE LA PRIMERA EXPERIENCIA
   setTimeout(() => {
     console.log('🚀 Forzando carga inicial de primera experiencia...');
     
+    // Verificar si existe la primera función de contenido
     if (window.contentFunctions && window.contentFunctions[0]) {
       console.log('✅ Ejecutando contentFunction[0]');
       window.contentFunctions[0]();
       
+      // Esperar a que el contenido se renderice
       setTimeout(() => {
         const contenido = document.getElementById('contenido');
         
         if (contenido && contenido.innerHTML.trim() !== '') {
           console.log('📦 Contenido detectado, iniciando carga de recursos...');
           
+          // Mostrar loader
           loadingManager.show();
           loadingManager.setStatus('Cargando experiencia inicial...');
           
+          // Cargar recursos
           resourceLoader.loadAll(contenido).then(() => {
             console.log('✅ Recursos iniciales cargados');
             
+            // Mostrar contenido
             contenido.style.visibility = 'visible';
             contenido.style.opacity = '1';
             contenido.style.transform = 'translateY(0) scale(1)';
             contenido.classList.add('content-loaded');
             contenido.setAttribute('data-animated', 'true');
             
+            // Marcar como animado
             const contentHash = contenido.innerHTML.substring(0, 100);
             animatedContents.add(contentHash);
             currentExperienceId = contentHash;
