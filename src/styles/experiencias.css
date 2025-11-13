@@ -450,30 +450,171 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .moon {
-        width: 100px;
-        height: 100px;
-        top: 5%;
-        right: 5%;
+/* Responsive */
+@media (max-width: 600px) {
+    /* Carrusel más pequeño */
+    .custom-slider {
+        height: 250px;
+        max-width: 95%;
     }
     
-    .moon-glow {
+    .custom-item {
+        height: 250px;
+    }
+    
+    /* Flechas más pequeñas */
+    .custom-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .custom-arrow-prev {
+        left: 5px;
+    }
+    
+    .custom-arrow-next {
+        right: 5px;
+    }
+    
+    /* Información del carrusel */
+    .custom-item__info {
+        font-size: 12px;
+        padding: 5px 8px;
+        left: 10px;
+        bottom: 10px;
+    }
+    
+    /* Slideshow y carrusel 3D */
+    #slideshow {
+        height: 400px;
+        padding-top: 30px;
+    }
+    
+    .slideshow-title {
+        font-size: 32px;
+        margin-top: 15%;
+        letter-spacing: 1px;
+    }
+    
+    .entire-content {
+        width: 120px;
+        padding-top: 50px;
+    }
+    
+    .content-carrousel figure {
+        width: 120px;
+        height: 70px;
+    }
+    
+    /* Contenido dinámico */
+    #contenido {
+        width: 95%;
+        padding: 12px;
+        margin: 15px auto;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    #contenido h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    #contenido p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    /* Átomo más pequeño */
+    .atom {
         width: 150px;
         height: 150px;
+        margin: 20px auto;
     }
     
-    .planet-1,
-    .planet-2,
-    .planet-3 {
-        width: 50px;
-        height: 50px;
+    .center {
+        width: 20px;
+        height: 20px;
     }
     
-    .spaceship,
-    .ufo,
-    .satellite {
-        transform: scale(0.7);
+    .orbit1, .orbit2, .orbit3 {
+        width: 150px;
+        height: 90px;
+    }
+    
+    .electron {
+        width: 10px;
+        height: 10px;
+    }
+    
+    /* Sección de contacto */
+    .contact-section {
+        padding: 20px 15px;
+        margin: 20px auto;
+        width: 90%;
+    }
+    
+    .contact-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
+    
+    .contact-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .whatsapp-btn,
+    .call-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 10px 15px;
+    }
+    
+    .btn-icon {
+        font-size: 18px;
+        margin-right: 8px;
+    }
+    
+    .btn-text {
+        font-size: 14px;
+    }
+    
+    .phone-number {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    
+    .reference-name {
+        font-size: 15px;
+    }
+    
+    /* Modal */
+    .modal-content {
+        max-width: 95%;
+        max-height: 60vh;
+    }
+    
+    .modal-description {
+        max-width: 90%;
+        font-size: 14px;
+        padding: 10px;
+        max-height: 25vh;
+    }
+    
+    .close {
+        font-size: 32px;
+        top: 10px;
+        right: 20px;
+    }
+    
+    /* Texto más pequeño en móvil */
+    .smaller-text {
+        font-size: 13px;
     }
 }
 
@@ -669,21 +810,30 @@ figure:hover .image-caption {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    padding-top: 60px;
+    z-index: 9999;
+    padding: 0;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal[style*="display: block"] {
+    display: flex !important;
 }
 
 .modal-content {
-    margin: auto;
     display: block;
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 90%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .close {
@@ -969,4 +1119,365 @@ figure:hover .image-caption {
     .custom-item {
         height: 400px;
     }
+}
+
+/* ===================================
+   SISTEMA DE CARGA PRINCIPAL
+   =================================== */
+
+.main-loader {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  margin: 15px auto;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  transition: opacity 0.5s ease-out, max-height 0.5s ease-out;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.main-loader.hidden {
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.loader-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 100%;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* ===================================
+   ANIMACIÓN ESPACIAL
+   =================================== */
+
+.loader-animation {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 25px;
+}
+
+.loading-planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #4dabf7, #1864ab);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 30px rgba(77, 171, 247, 0.6),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+  animation: planet-pulse 2s ease-in-out infinite;
+}
+
+@keyframes planet-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.loading-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: orbit-rotate 3s linear infinite;
+}
+
+@keyframes orbit-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.loading-satellite {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: #ffd43b;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ffd43b;
+  animation: satellite-orbit 3s linear infinite;
+  transform-origin: 50px 0;
+}
+
+@keyframes satellite-orbit {
+  from { 
+    transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
+  }
+  to { 
+    transform: translate(-50%, -50%) rotate(360deg) translateX(50px);
+  }
+}
+
+/* ===================================
+   TÍTULO
+   =================================== */
+
+.loader-title {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 25px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  letter-spacing: 2px;
+  animation: title-glow 2s ease-in-out infinite;
+}
+
+@keyframes title-glow {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(77, 171, 247, 0.4);
+  }
+}
+
+/* ===================================
+   BARRA DE PROGRESO
+   =================================== */
+
+.progress-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4dabf7, #4c6ef5, #7048e8);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  position: relative;
+  box-shadow: 0 0 15px rgba(77, 171, 247, 0.6);
+  animation: progress-shimmer 2s linear infinite;
+}
+
+@keyframes progress-shimmer {
+  0% {
+    box-shadow: 0 0 10px rgba(77, 171, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(77, 171, 247, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(77, 171, 247, 0.4);
+  }
+}
+
+.progress-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: glow-slide 2s linear infinite;
+}
+
+@keyframes glow-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-text {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #4dabf7;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(77, 171, 247, 0.6);
+  letter-spacing: 2px;
+}
+
+/* ===================================
+   ESTADO Y DETALLES
+   =================================== */
+
+.loader-status {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  min-height: 24px;
+  animation: status-fade 1s ease-in-out infinite;
+}
+
+@keyframes status-fade {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.loader-details {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-icon {
+  font-size: 18px;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+
+@media (max-width: 600px) {
+  .main-loader {
+    width: 95%;
+    padding: 20px 15px;
+    margin: 15px auto;
+  }
+
+  .loader-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .loader-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .loader-animation {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .loading-planet {
+    width: 35px;
+    height: 35px;
+  }
+
+  .loading-orbit {
+    width: 70px;
+    height: 70px;
+  }
+
+  .loading-satellite {
+    width: 10px;
+    height: 10px;
+  }
+
+  @keyframes satellite-orbit {
+    from { 
+      transform: translate(-50%, -50%) rotate(0deg) translateX(35px);
+    }
+    to { 
+      transform: translate(-50%, -50%) rotate(360deg) translateX(35px);
+    }
+  }
+
+  .progress-text {
+    font-size: 18px;
+  }
+
+  .loader-status {
+    font-size: 13px;
+  }
+
+  .loader-details {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .detail-item {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===================================
+   ANIMACIÓN DE ENTRADA
+   =================================== */
+
+@keyframes loader-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.main-loader {
+  animation: loader-fade-in 0.3s ease-out;
+}
+
+.loader-content {
+  animation: loader-fade-in 0.5s ease-out 0.2s both;
+}
+
+/* ===================================
+   FIX: PREVENIR ANIMACIONES REPETIDAS
+   =================================== */
+
+/* Clase para marcar contenido ya animado */
+#contenido.already-animated {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Asegurar que el contenido se mantiene visible */
+#contenido {
+  will-change: auto;
+}
+
+/* Prevenir que Intersection Observer reactive la animación */
+#contenido[data-animated="true"] {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  animation: none !important;
+  transition: none !important;
 }

@@ -282,8 +282,31 @@
                 </td>
                 </tr>
             </table>
+            <section class="contact-section">
+              <p class="contact-text">
+                Para obtener más información sobre mi desempeño en el proyecto como desarrollador full stack, analista y en las diferentes áreas que abarcó mi participación, puedes contactar a:
+              </p>
+
+              <div class="contact-options">
+                <a href="https://wa.me/525648238196" class="whatsapp-btn" target="_blank">
+                  <span class="btn-icon">📱</span>
+                  <span class="btn-text">Enviar WhatsApp</span>
+                </a>
+
+                <a href="tel:+525648238196" class="call-btn">
+                  <span class="btn-icon">📞</span>
+                  <span class="btn-text">Llamar ahora</span>
+                </a>
+              </div>
+
+              <div class="contact-details">
+                <p class="phone-number">+52 56 4823 8196</p>
+                <p class="reference-name">Ing. Said López Velázquez</p>
+                <p class="reference-position">Encargado y Desarrollador del Proyecto</p>
+              </div>
+            </section>
             
-        <button id="saber-mas" style="margin: 20px auto; display: block; padding: 12px 24px; background: linear-gradient(135deg, #ff0000, #cc0000); color: #000000; border: 2px solid #000000; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);" onmouseover="this.style.background='linear-gradient(135deg, #cc0000, #990000)'; this.style.borderColor='#333333'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.4)'" onmouseout="this.style.background='linear-gradient(135deg, #ff0000, #cc0000)'; this.style.borderColor='#000000'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 0, 0, 0.3)'" onmousedown="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(255, 0, 0, 0.3)'" onmouseup="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.4)'">Saber más</button>
+        <button id="saber-mas" style="margin: 20px auto; display: block; padding: 12px 24px; background: linear-gradient(135deg, #ff0000, #cc0000); color: #000000; border: 2px solid #000000; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);" onmouseover="this.style.background='linear-gradient(135deg, #cc0000, #990000)'; this.style.borderColor='#333333'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.4)'" onmouseout="this.style.background='linear-gradient(135deg, #ff0000, #cc0000)'; this.style.borderColor='#000000'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 0, 0, 0.3)'" onmousedown="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(255, 0, 0, 0.3)'" onmouseup="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.4)'">Saber más sobre este proyecto</button>
         </section>
 
         <!-- Contenido detallado (oculto inicialmente) -->
