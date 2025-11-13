@@ -417,6 +417,48 @@ if (document.readyState === 'loading') {
 window.addEventListener('load', () => {
   setTimeout(patchAnimateContent, 200);
   console.log('📄 Página cargada, esperando interacción del usuario');
+  
+  // 🚀 ESTE BLOQUE ES CRUCIAL
+  setTimeout(() => {
+    console.log('🚀 Forzando carga inicial de primera experiencia...');
+    
+    if (window.contentFunctions && window.contentFunctions[0]) {
+      console.log('✅ Ejecutando contentFunction[0]');
+      window.contentFunctions[0]();
+      
+      setTimeout(() => {
+        const contenido = document.getElementById('contenido');
+        
+        if (contenido && contenido.innerHTML.trim() !== '') {
+          console.log('📦 Contenido detectado, iniciando carga de recursos...');
+          
+          loadingManager.show();
+          loadingManager.setStatus('Cargando experiencia inicial...');
+          
+          resourceLoader.loadAll(contenido).then(() => {
+            console.log('✅ Recursos iniciales cargados');
+            
+            contenido.style.visibility = 'visible';
+            contenido.style.opacity = '1';
+            contenido.style.transform = 'translateY(0) scale(1)';
+            contenido.classList.add('content-loaded');
+            contenido.setAttribute('data-animated', 'true');
+            
+            const contentHash = contenido.innerHTML.substring(0, 100);
+            animatedContents.add(contentHash);
+            currentExperienceId = contentHash;
+          }).catch(err => {
+            console.error('❌ Error cargando recursos iniciales:', err);
+            loadingManager.hide();
+          });
+        } else {
+          console.warn('⚠️ No hay contenido para cargar inicialmente');
+        }
+      }, 500);
+    } else {
+      console.warn('⚠️ No hay funciones de contenido disponibles');
+    }
+  }, 800);
 });
 
 // Exportar

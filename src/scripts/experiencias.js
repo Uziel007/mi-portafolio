@@ -255,105 +255,109 @@ window.animateContent = animateContent;
 console.log('experiencias.js cargado');
 console.log('contentFunctions disponibles:', window.contentFunctions ? window.contentFunctions.length : 0);
 
-    import { gsap } from 'gsap';
-    
-    // Generar estrellas dinámicamente
-    const starsContainer = document.getElementById('stars-container');
-    const numberOfStars = 150;
-    
-    for (let i = 0; i < numberOfStars; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.width = `${Math.random() * 3 + 1}px`;
-      star.style.height = star.style.width;
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-      star.style.animationDelay = `${Math.random() * 3}s`;
-      starsContainer?.appendChild(star);
-    }
-    
-    // Generar asteroides dinámicamente
-    const asteroidsContainer = document.getElementById('asteroids-container');
-    const numberOfAsteroids = 8;
-    
-    for (let i = 0; i < numberOfAsteroids; i++) {
-      const asteroid = document.createElement('div');
-      asteroid.className = 'asteroid';
-      asteroid.style.top = `${Math.random() * 80 + 10}%`;
-      asteroid.style.animationDuration = `${Math.random() * 20 + 15}s`;
-      asteroid.style.animationDelay = `${Math.random() * 10}s`;
-      asteroidsContainer?.appendChild(asteroid);
-    }
-    
-    // Generar cometas dinámicamente
-    const cometsContainer = document.getElementById('comets-container');
-    const numberOfComets = 5;
-    
-    for (let i = 0; i < numberOfComets; i++) {
-      const comet = document.createElement('div');
-      comet.className = 'comet';
-      comet.style.animationDuration = `${Math.random() * 5 + 5}s`;
-      comet.style.animationDelay = `${Math.random() * 15}s`;
-      cometsContainer?.appendChild(comet);
-    }
-    
-    // Animaciones GSAP para elementos espaciales
-    gsap.to('.moon', {
-      y: -20,
-      duration: 8,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-    
-    gsap.to('.planet-1', {
-      y: -30,
-      x: 20,
-      rotation: 360,
-      duration: 40,
-      repeat: -1,
-      ease: 'linear'
-    });
-    
-    gsap.to('.planet-2', {
-      y: 30,
-      x: -20,
-      rotation: -360,
-      duration: 50,
-      repeat: -1,
-      ease: 'linear'
-    });
-    
-    gsap.to('.planet-3', {
-      y: -20,
-      x: 30,
-      rotation: 360,
-      duration: 35,
-      repeat: -1,
-      ease: 'linear'
-    });
-    
-    // Efecto parallax al mover el mouse
-    document.addEventListener('mousemove', (e) => {
-      const mouseX = e.clientX / window.innerWidth;
-      const mouseY = e.clientY / window.innerHeight;
-      
-      gsap.to('.moon', {
-        x: mouseX * 30,
-        y: mouseY * 30,
-        duration: 1.5
-      });
-      
-      gsap.to('.planet', {
-        x: mouseX * -20,
-        y: mouseY * -20,
-        duration: 2
-      });
-      
-      gsap.to('.star', {
-        x: mouseX * -10,
-        y: mouseY * -10,
-        duration: 2.5
-      });
-    });
+// ===================================
+// ANIMACIONES ESPACIALES CON GSAP
+// ===================================
+
+import { gsap } from 'gsap';
+
+// Generar estrellas dinámicamente
+const starsContainer = document.getElementById('stars-container');
+const numberOfStars = 150;
+
+for (let i = 0; i < numberOfStars; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.width = `${Math.random() * 3 + 1}px`;
+  star.style.height = star.style.width;
+  star.style.top = `${Math.random() * 100}%`;
+  star.style.left = `${Math.random() * 100}%`;
+  star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+  star.style.animationDelay = `${Math.random() * 3}s`;
+  starsContainer?.appendChild(star);
+}
+
+// Generar asteroides dinámicamente
+const asteroidsContainer = document.getElementById('asteroids-container');
+const numberOfAsteroids = 8;
+
+for (let i = 0; i < numberOfAsteroids; i++) {
+  const asteroid = document.createElement('div');
+  asteroid.className = 'asteroid';
+  asteroid.style.top = `${Math.random() * 80 + 10}%`;
+  asteroid.style.animationDuration = `${Math.random() * 20 + 15}s`;
+  asteroid.style.animationDelay = `${Math.random() * 10}s`;
+  asteroidsContainer?.appendChild(asteroid);
+}
+
+// Generar cometas dinámicamente
+const cometsContainer = document.getElementById('comets-container');
+const numberOfComets = 5;
+
+for (let i = 0; i < numberOfComets; i++) {
+  const comet = document.createElement('div');
+  comet.className = 'comet';
+  comet.style.animationDuration = `${Math.random() * 5 + 5}s`;
+  comet.style.animationDelay = `${Math.random() * 15}s`;
+  cometsContainer?.appendChild(comet);
+}
+
+// Animaciones GSAP para elementos espaciales
+gsap.to('.moon', {
+  y: -20,
+  duration: 8,
+  repeat: -1,
+  yoyo: true,
+  ease: 'sine.inOut'
+});
+
+gsap.to('.planet-1', {
+  y: -30,
+  x: 20,
+  rotation: 360,
+  duration: 40,
+  repeat: -1,
+  ease: 'linear'
+});
+
+gsap.to('.planet-2', {
+  y: 30,
+  x: -20,
+  rotation: -360,
+  duration: 50,
+  repeat: -1,
+  ease: 'linear'
+});
+
+gsap.to('.planet-3', {
+  y: -20,
+  x: 30,
+  rotation: 360,
+  duration: 35,
+  repeat: -1,
+  ease: 'linear'
+});
+
+// Efecto parallax al mover el mouse
+document.addEventListener('mousemove', (e) => {
+  const mouseX = e.clientX / window.innerWidth;
+  const mouseY = e.clientY / window.innerHeight;
+  
+  gsap.to('.moon', {
+    x: mouseX * 30,
+    y: mouseY * 30,
+    duration: 1.5
+  });
+  
+  gsap.to('.planet', {
+    x: mouseX * -20,
+    y: mouseY * -20,
+    duration: 2
+  });
+  
+  gsap.to('.star', {
+    x: mouseX * -10,
+    y: mouseY * -10,
+    duration: 2.5
+  });
+});
