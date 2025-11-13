@@ -87,7 +87,7 @@ class LoadingManager {
   show() {
     if (this.loaderElement && !this.isLoading) {
       this.isLoading = true;
-      this.startTime = Date.now(); // Registrar tiempo de inicio
+      this.startTime = Date.now();
       this.loaderElement.style.display = 'block';
       this.loaderElement.classList.remove('hidden');
       
@@ -106,7 +106,6 @@ class LoadingManager {
 
   async hide() {
     if (this.loaderElement && this.isLoading) {
-      // Calcular tiempo transcurrido
       const elapsed = Date.now() - this.startTime;
       const remaining = Math.max(0, this.minDisplayTime - elapsed);
       
@@ -145,15 +144,14 @@ class LoadingManager {
     const loadedCount = document.getElementById('loaded-count');
     const totalCount = document.getElementById('total-count');
     if (loadedCount) loadedCount.textContent = loaded;
-    if (totalCount) totalCount.textContent = total; // ❌ CORREGIDO: era "textCount"
+    if (totalCount) totalCount.textContent = total;
     
-    // Si completó la carga, llamar a hide (que ahora es async y maneja el tiempo mínimo)
+    // Si completó la carga, llamar a hide
     if (loaded >= total && total > 0) {
       setTimeout(() => {
         if (this.statusText) {
           this.statusText.textContent = '✅ Carga completada';
         }
-        // hide() ahora espera el tiempo mínimo si es necesario
         this.hide();
       }, 300);
     }
@@ -251,13 +249,20 @@ class ResourceLoader {
   }
 
   async loadAll(container) {
+    // ⚠️ RESET COMPLETO AL INICIAR NUEVA CARGA
     this.loadedCount = 0;
+    this.resources.images = [];
+    this.resources.videos = [];
+    this.totalCount = 0;
+    
+    console.log('🔄 Reset completo de recursos');
+    
     this.scanResources(container);
     
     if (this.totalCount === 0) {
       console.log('⚠️ No se encontraron recursos para cargar');
       this.loadingManager.setStatus('No hay recursos para cargar');
-      await this.loadingManager.hide(); // Ahora esperamos el tiempo mínimo
+      await this.loadingManager.hide();
       return;
     }
 
@@ -274,12 +279,10 @@ class ResourceLoader {
       
       this.loadingManager.setStatus('Finalizando...');
       
-      // La función updateProgress llamará a hide() que esperará el tiempo mínimo
-      
     } catch (error) {
       console.error('❌ Error durante la carga:', error);
       this.loadingManager.setStatus('⚠️ Algunos recursos no se cargaron');
-      await this.loadingManager.hide(); // Esperar tiempo mínimo incluso con errores
+      await this.loadingManager.hide();
     }
   }
 }
@@ -293,10 +296,18 @@ const resourceLoader = new ResourceLoader(loadingManager);
 
 let animateContentPatched = false;
 const animatedContents = new Set();
-let currentExperienceId = null; // ID de la experiencia actual
+let currentExperienceId = null;
+let isInitialLoad = true; // Bandera para controlar la carga inicial
 
 function patchAnimateContent() {
-  if (animateContentPatched || !window.animateContent) {
+  if (animateContentPatched) {
+    return;
+  }
+  
+  // Si animateContent no existe aún, reintentar
+  if (!window.animateContent) {
+    console.log('⏳ animateContent no disponible, reintentando...');
+    setTimeout(patchAnimateContent, 100);
     return;
   }
 
@@ -354,8 +365,8 @@ function patchAnimateContent() {
       return;
     }
     
-    // Contenido nuevo: mostrar loader
-    if (!loadingManager.isLoading) {
+    // Si es la carga inicial, no mostrar loader (ya se está mostrando desde window.load)
+    if (!isInitialLoad && !loadingManager.isLoading) {
       loadingManager.show();
       loadingManager.setStatus('Preparando contenido...');
     }
@@ -365,38 +376,39 @@ function patchAnimateContent() {
       originalAnimateContent.apply(this, args);
     }
     
-    // Esperar actualización del DOM
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    // Cargar recursos
-    if (contenido && contenido.innerHTML.trim() !== '') {
-      console.log('📄 Contenido encontrado, cargando recursos...');
+    // Si NO es la carga inicial, procesar normalmente
+    if (!isInitialLoad) {
+      // Esperar actualización del DOM
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Cargar recursos (esto esperará automáticamente el tiempo mínimo)
-      await resourceLoader.loadAll(contenido);
-      
-      // Marcar como animado
-      animatedContents.add(contentHash);
-      currentExperienceId = contentHash;
-      
-      // MOSTRAR el contenido DESPUÉS de cargar (y esperar tiempo mínimo)
-      setTimeout(() => {
-        contenido.style.visibility = 'visible';
-        contenido.style.opacity = '1';
-        contenido.style.transform = 'translateY(0) scale(1)';
-        contenido.classList.add('content-loaded');
-        contenido.setAttribute('data-animated', 'true');
-        console.log('✨ Contenido mostrado y marcado como cargado');
-      }, 300);
-    } else {
-      console.log('⚠️ No hay contenido para cargar');
-      await loadingManager.hide();
-      
-      // Mostrar contenido aunque esté vacío
-      if (contenido) {
-        contenido.style.visibility = 'visible';
-        contenido.style.opacity = '1';
-        contenido.classList.add('content-loaded');
+      // Cargar recursos
+      if (contenido && contenido.innerHTML.trim() !== '') {
+        console.log('📄 Contenido encontrado, cargando recursos...');
+        
+        await resourceLoader.loadAll(contenido);
+        
+        // Marcar como animado
+        animatedContents.add(contentHash);
+        currentExperienceId = contentHash;
+        
+        // MOSTRAR el contenido DESPUÉS de cargar
+        setTimeout(() => {
+          contenido.style.visibility = 'visible';
+          contenido.style.opacity = '1';
+          contenido.style.transform = 'translateY(0) scale(1)';
+          contenido.classList.add('content-loaded');
+          contenido.setAttribute('data-animated', 'true');
+          console.log('✨ Contenido mostrado y marcado como cargado');
+        }, 300);
+      } else {
+        console.log('⚠️ No hay contenido para cargar');
+        await loadingManager.hide();
+        
+        if (contenido) {
+          contenido.style.visibility = 'visible';
+          contenido.style.opacity = '1';
+          contenido.classList.add('content-loaded');
+        }
       }
     }
   };
@@ -414,64 +426,60 @@ if (document.readyState === 'loading') {
   setTimeout(patchAnimateContent, 100);
 }
 
-// Inicialización
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(patchAnimateContent, 100);
-  });
-} else {
-  setTimeout(patchAnimateContent, 100);
-}
-
 window.addEventListener('load', () => {
   setTimeout(patchAnimateContent, 200);
-  console.log('📄 Página cargada, esperando interacción del usuario');
+  console.log('📄 Página cargada, iniciando carga automática');
   
-  // FORZAR CARGA INICIAL DE LA PRIMERA EXPERIENCIA
+  // 🚀 CARGA INICIAL AUTOMÁTICA
   setTimeout(() => {
     console.log('🚀 Forzando carga inicial de primera experiencia...');
     
-    // Verificar si existe la primera función de contenido
     if (window.contentFunctions && window.contentFunctions[0]) {
       console.log('✅ Ejecutando contentFunction[0]');
+      
+      // Marcar que estamos en carga inicial
+      isInitialLoad = true;
+      
       window.contentFunctions[0]();
       
-      // Esperar a que el contenido se renderice
       setTimeout(() => {
         const contenido = document.getElementById('contenido');
         
         if (contenido && contenido.innerHTML.trim() !== '') {
           console.log('📦 Contenido detectado, iniciando carga de recursos...');
           
-          // Mostrar loader
           loadingManager.show();
           loadingManager.setStatus('Cargando experiencia inicial...');
           
-          // Cargar recursos
           resourceLoader.loadAll(contenido).then(() => {
             console.log('✅ Recursos iniciales cargados');
             
-            // Mostrar contenido
             contenido.style.visibility = 'visible';
             contenido.style.opacity = '1';
             contenido.style.transform = 'translateY(0) scale(1)';
             contenido.classList.add('content-loaded');
             contenido.setAttribute('data-animated', 'true');
             
-            // Marcar como animado
             const contentHash = contenido.innerHTML.substring(0, 100);
             animatedContents.add(contentHash);
             currentExperienceId = contentHash;
+            
+            // Desactivar bandera de carga inicial
+            isInitialLoad = false;
+            console.log('🏁 Carga inicial completada');
           }).catch(err => {
             console.error('❌ Error cargando recursos iniciales:', err);
             loadingManager.hide();
+            isInitialLoad = false;
           });
         } else {
           console.warn('⚠️ No hay contenido para cargar inicialmente');
+          isInitialLoad = false;
         }
       }, 500);
     } else {
       console.warn('⚠️ No hay funciones de contenido disponibles');
+      isInitialLoad = false;
     }
   }, 800);
 });
