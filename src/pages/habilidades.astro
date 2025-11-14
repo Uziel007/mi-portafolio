@@ -14,6 +14,45 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
 <Layout title="Habilidades - Uziel Sánchez Marín">
   <Header />
 
+  <!-- Floating Navigation Menu -->
+  <div class="floating-nav" id="floatingNav">
+    <button class="floating-nav-toggle" id="floatingNavToggle">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <div class="floating-nav-menu" id="floatingNavMenu">
+      <a href="#formacion" class="floating-nav-item">
+        <span class="floating-nav-icon">🎓</span>
+        <span class="floating-nav-text">Formación</span>
+      </a>
+      <a href="#certificaciones" class="floating-nav-item">
+        <span class="floating-nav-icon">📜</span>
+        <span class="floating-nav-text">Certificaciones</span>
+      </a>
+      <a href="#timeline" class="floating-nav-item">
+        <span class="floating-nav-icon">⏳</span>
+        <span class="floating-nav-text">Timeline</span>
+      </a>
+      <a href="#conocimientos" class="floating-nav-item">
+        <span class="floating-nav-icon">💡</span>
+        <span class="floating-nav-text">Conocimientos</span>
+      </a>
+      <a href="#aptitudes" class="floating-nav-item">
+        <span class="floating-nav-icon">⭐</span>
+        <span class="floating-nav-text">Aptitudes</span>
+      </a>
+      <a href="#tecnologias" class="floating-nav-item">
+        <span class="floating-nav-icon">⚙️</span>
+        <span class="floating-nav-text">Tecnologías</span>
+      </a>
+      <a href="#idiomas" class="floating-nav-item">
+        <span class="floating-nav-icon">🌍</span>
+        <span class="floating-nav-text">Idiomas</span>
+      </a>
+    </div>
+  </div>
+
   <!-- FONDO TECNOLÓGICO ÉPICO -->
   <div class="tech-background" id="techBackground">
     <!-- Grid tecnológico -->
@@ -415,6 +454,39 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
   import '../scripts/habilidades.js';
   import '../data/certificaciones.js';
   import { gsap } from 'gsap';
+  
+  // ========== FLOATING NAVIGATION ==========
+  const floatingNav = document.getElementById('floatingNav');
+  const floatingNavToggle = document.getElementById('floatingNavToggle');
+
+  floatingNavToggle?.addEventListener('click', () => {
+    floatingNav?.classList.toggle('active');
+  });
+
+  // Close floating nav when clicking outside
+  document.addEventListener('click', (e) => {
+    if (floatingNav && !floatingNav.contains(e.target as Node)) {
+      floatingNav.classList.remove('active');
+    }
+  });
+
+  // Close floating nav when clicking on a link
+  document.querySelectorAll('.floating-nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      floatingNav?.classList.remove('active');
+    });
+  });
+
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(this: HTMLElement, e: Event) {
+      e.preventDefault();
+      const target = document.querySelector((this as HTMLAnchorElement).getAttribute('href') || '');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
   
   // ========== GENERACIÓN DE ELEMENTOS DINÁMICOS ==========
   

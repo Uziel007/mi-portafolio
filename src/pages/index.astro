@@ -7,6 +7,29 @@ import '../styles/global.css';
 ---
 <Layout title="Portafolio - Uziel Sánchez Marín">
   <Header />
+
+  <!-- Floating CV Download Menu -->
+  <div class="floating-cv" id="floatingCV">
+    <button class="floating-cv-toggle" id="floatingCVToggle">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>
+    </button>
+    <div class="floating-cv-menu" id="floatingCVMenu">
+      <a href="/assets/CV/CV Uziel Sanchez Marin en PDF.pdf" download class="floating-cv-item">
+        <span class="floating-cv-icon">📄</span>
+        <span class="floating-cv-text">Descargar PDF</span>
+      </a>
+      <a href="/assets/CV/CV Uziel Sanchez Marin WORD.docx" download class="floating-cv-item">
+        <span class="floating-cv-icon">📝</span>
+        <span class="floating-cv-text">Descargar Word</span>
+      </a>
+      <a href="/assets/CV/CV texto.txt" download class="floating-cv-item">
+        <span class="floating-cv-icon">📋</span>
+        <span class="floating-cv-text">Descargar Texto</span>
+      </a>
+    </div>
+  </div>
  
   <!-- Hero Section with Advanced Effects -->
   <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden text-white">
@@ -156,20 +179,36 @@ import '../styles/global.css';
             <!-- Skills Quick View -->
             <div class="skills-preview mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
               <div class="skill-badge">
-                <div class="skill-icon">☕</div>
-                <div class="skill-name">Java</div>
+                <div class="skill-icon">🏗️</div>
+                <div class="skill-name">Arquitectura</div>
               </div>
               <div class="skill-badge">
-                <div class="skill-icon">⚛️</div>
-                <div class="skill-name">React</div>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-icon">🐍</div>
-                <div class="skill-name">Python</div>
+                <div class="skill-icon">📱</div>
+                <div class="skill-name">Full Stack</div>
               </div>
               <div class="skill-badge">
                 <div class="skill-icon">☁️</div>
-                <div class="skill-name">AWS</div>
+                <div class="skill-name">Cloud</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">🔄</div>
+                <div class="skill-name">Metodologías Ágiles</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">🗄️</div>
+                <div class="skill-name">Bases de Datos</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">🤖</div>
+                <div class="skill-name">IA</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">🎯</div>
+                <div class="skill-name">Marketing Digital</div>
+              </div>
+              <div class="skill-badge">
+                <div class="skill-icon">👔</div>
+                <div class="skill-name">Liderazgo</div>
               </div>
             </div>
             <div class="mt-10 flex gap-4 justify-center lg:justify-start flex-wrap">
@@ -203,4 +242,27 @@ import '../styles/global.css';
 </Layout>
 <script>
   import '../scripts/index.js';
+
+  // ========== FLOATING CV MENU ==========
+  const floatingCV = document.getElementById('floatingCV');
+  const floatingCVToggle = document.getElementById('floatingCVToggle');
+
+  floatingCVToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    floatingCV?.classList.toggle('active');
+  });
+
+  // Close floating CV when clicking outside
+  document.addEventListener('click', (e) => {
+    if (floatingCV && !floatingCV.contains(e.target as Node)) {
+      floatingCV.classList.remove('active');
+    }
+  });
+
+  // Close floating CV when clicking on a download link
+  document.querySelectorAll('.floating-cv-item').forEach(item => {
+    item.addEventListener('click', () => {
+      floatingCV?.classList.remove('active');
+    });
+  });
 </script>
