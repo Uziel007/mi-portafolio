@@ -1,10 +1,310 @@
  // Funciones de contenido para cada ítem (en orden del HTML: Servet, consultoría, tienda de ropa, punto de venta, laboratorio, agencia, prácticas, soporte técnico)
   window.contentFunctions = [
+
+    // Función para Portafolio Personal
+    function () {
+      animateContent();
+      document.getElementById("contenido").innerHTML = `
+        <div class="smaller-text">
+            <!-- SECCIÓN DE TECNOLOGÍAS -->
+            <div class="tech-section">
+                <h3 class="tech-title">🚀 Tecnologías Utilizadas</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fas fa-rocket tech-icon" style="color: #FF5D01;"></i>
+                        <span>Astro</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-typescript-plain colored tech-icon"></i>
+                        <span>TypeScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-tailwindcss-plain colored tech-icon"></i>
+                        <span>Tailwind CSS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-rocket tech-icon" style="color: #4ECDC4;"></i>
+                        <span>GSAP</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-play-circle tech-icon" style="color: #00DDB3;"></i>
+                        <span>Lottie</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-javascript-plain colored tech-icon"></i>
+                        <span>JavaScript ES6+</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-html5-plain colored tech-icon"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-css3-plain colored tech-icon"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-git-plain colored tech-icon"></i>
+                        <span>Git/GitHub</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-mobile-alt tech-icon" style="color: #FF6B6B;"></i>
+                        <span>Responsive Design</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-bolt tech-icon" style="color: #F39C12;"></i>
+                        <span>Performance</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-paint-brush tech-icon" style="color: #9B59B6;"></i>
+                        <span>UI/UX Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                Portafolio personal desarrollado con tecnologías modernas, destacando el uso de Astro para máximo rendimiento, 
+                TypeScript para código robusto y mantenible, y Tailwind CSS para un diseño responsivo y elegante. 
+                Las animaciones implementadas con GSAP y Lottie crean una experiencia visual interactiva y profesional.
+            </p>
+
+            <ul>
+                <li><strong>Arquitectura moderna:</strong> Construido con Astro, aprovechando la generación de sitios estáticos para máxima velocidad y SEO optimizado.</li>
+                <li><strong>TypeScript:</strong> Código tipado y seguro que garantiza mantenibilidad y escalabilidad del proyecto.</li>
+                <li><strong>Diseño responsivo:</strong> Utiliza Tailwind CSS con sistema de utilidades para crear interfaces adaptables a cualquier dispositivo.</li>
+                <li><strong>Animaciones fluidas:</strong> Integración de GSAP para animaciones complejas y Lottie para animaciones vectoriales ligeras.</li>
+                <li><strong>Optimización:</strong> Técnicas de lazy loading, code splitting y compresión de assets para tiempos de carga ultra-rápidos.</li>
+                <li><strong>Accesibilidad:</strong> Implementación de mejores prácticas WCAG para garantizar accesibilidad universal.</li>
+                <li><strong>SEO optimizado:</strong> Meta tags dinámicos, structured data y sitemap para máxima visibilidad en buscadores.</li>
+            </ul>
+
+            <h1 class="h1relleno2"></h1>
+            <h1 class="h1relleno2"></h1>
+            <strong>Galería de imágenes:</strong> 
+            <section id="slideshow">
+                <div class="entire-content">
+                    <div class="content-carrousel">
+                        ${[
+                          {
+                            num: 1,
+                            desc: "Página de inicio del portafolio con hero section animado usando GSAP. Implementé animaciones de entrada escalonadas para los elementos principales y un efecto parallax sutil en el fondo. El diseño responsivo se adapta perfectamente a todos los dispositivos.",
+                          },
+                          {
+                            num: 2,
+                            desc: "Sección 'Sobre mí' con diseño minimalista y tipografía cuidadosamente seleccionada. Utilicé Tailwind CSS para crear un layout flexible con grid system. Las animaciones Lottie añaden dinamismo sin comprometer el rendimiento.",
+                          },
+                          {
+                            num: 3,
+                            desc: "Galería de proyectos con sistema de filtrado dinámico implementado en TypeScript. Cada tarjeta de proyecto tiene animaciones hover personalizadas con GSAP y transiciones suaves. El lazy loading optimiza la carga de imágenes.",
+                          },
+                          {
+                            num: 4,
+                            desc: "Vista detallada de proyecto individual mostrando tecnologías utilizadas con íconos animados. Implementé un carousel personalizado con navegación táctil para dispositivos móviles y keyboard navigation para accesibilidad.",
+                          },
+                          {
+                            num: 5,
+                            desc: "Sección de habilidades técnicas con barras de progreso animadas usando GSAP ScrollTrigger. Los elementos se animan al entrar en el viewport, creando una experiencia interactiva. Diseño responsive con breakpoints personalizados en Tailwind.",
+                          },
+                          {
+                            num: 6,
+                            desc: "Listado anexado de certificaciones organizadas de forma clara y visual. Cada certificación se muestra con su nombre, institución y fecha, manteniendo un formato limpio y profesional.",
+                          },
+                          {
+                            num: 7,
+                            desc: "Formulario de contacto con validación en tiempo real usando TypeScript. Implementé estados de loading y success con animaciones Lottie. El diseño incluye mensajes de error personalizados y accesibles.",
+                          },
+                          {
+                            num: 8,
+                            desc: "Footer con enlaces a redes sociales animados. Cada ícono tiene un efecto hover único creado con GSAP. El diseño responsive reorganiza los elementos en móvil para óptima usabilidad.",
+                          },
+                          {
+                            num: 9,
+                            desc: "Sección dedicada a mis hobbies presentada de forma visual y relajada. Incluye galerías, pequeños efectos animados y una organización ligera para mostrar intereses personales de manera clara.",
+                          },
+                          {
+                            num: 10,
+                            desc: "Sección de testimonios con carousel automático y controles manuales. Las transiciones entre slides usan animaciones GSAP personalizadas. El diseño es totalmente accesible con navegación por teclado.",
+                          },
+                          {
+                            num: 11,
+                            desc: "Blog integrado con sistema de categorías y búsqueda. Los artículos se cargan dinámicamente usando las capacidades de Astro. Cada post tiene meta información optimizada para SEO y sharing en redes sociales.",
+                          },
+                          {
+                            num: 12,
+                            desc: "Aptitudes profesionales presentadas de forma clara y estructurada. Incluye habilidades técnicas y blandas organizadas por categorías, con indicadores visuales para mostrar nivel y dominio en cada área.",
+                          },
+                          {
+                            num: 13,
+                            desc: "Vista móvil completa demostrando el diseño responsive. Todas las secciones se adaptan perfectamente a pantallas pequeñas con navegación optimizada para touch. Las animaciones se ajustan según las capacidades del dispositivo.",
+                          },
+                          {
+                            num: 14,
+                            desc: "Videojuego interactivo integrado en el sitio donde el usuario puede presionar sobre el gato para activar animaciones y acciones dinámicas. Diseñado como una experiencia ligera y divertida que añade interacción al portafolio.",
+                          },
+                        ]
+                          .map(
+                            (img) => `
+                    <figure class="shadow"
+                        data-img="portafolio${img.num}.png"
+                        data-desc="${img.desc.replace(/"/g, "&quot;")}">
+                        <img src="/assets/experiencias/galerias/portafolio/portafolio${
+                          img.num
+                        }.png"/>
+                        <figcaption class="image-caption">Ver detalles</figcaption>
+                    </figure>
+                `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+            </section>
+
+            <h1 class="h1relleno2"></h1>
+            <h1 class="h1relleno2"></h1>
+
+            <section class="contact-section">
+                <p class="contact-text">¿Te interesa conocer más sobre este proyecto o colaborar? Contáctame directamente:</p>
+                
+                <div class="contact-options">
+                    <a href="https://wa.me/525585067049" class="whatsapp-btn" target="_blank">
+                        <span class="btn-icon">📱</span>
+                        <span class="btn-text">Enviar WhatsApp</span>
+                    </a>
+                    
+                    <a href="tel:+525585067049" class="call-btn">
+                        <span class="btn-icon">📞</span>
+                        <span class="btn-text">Llamar ahora</span>
+                    </a>
+                </div>
+                
+                <div class="contact-details">
+                    <p class="phone-number">+52 55 8506 7049</p>
+                    <p class="reference-name">Uziel Sánchez Marín</p>
+                    <p class="reference-position">Desarrollador Full Stack</p>
+                </div>
+            </section>
+        </div>
+      `;
+      
+      document.querySelectorAll(".shadow").forEach((fig) => {
+        fig.addEventListener("click", () => {
+          const img = fig.dataset.img;
+          const desc = fig.dataset.desc;
+          openModalWithDescription(
+            `/assets/experiencias/galerias/portafolio/${img}`,
+            desc
+          );
+        });
+      });
+      
+      setTimeout(adaptAllCarousels, 100);
+    },
+
     // Función para Servet
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
     <div class="smaller-text">
+    <div class="tech-section">
+    <h3 class="tech-title">🚀 Tecnologías Utilizadas</h3>
+    <div class="tech-grid">
+        <div class="tech-item">
+            <i class="devicon-spring-plain colored tech-icon"></i>
+            <span>Spring Boot</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-java-plain colored tech-icon"></i>
+            <span>Java 17</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-hibernate-plain colored tech-icon"></i>
+            <span>Hibernate/JPA</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-leaf tech-icon" style="color: #6DB33F;"></i>
+            <span>Thymeleaf</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-database tech-icon" style="color: #336791;"></i>
+            <span>HSQLDB</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-javascript-plain colored tech-icon"></i>
+            <span>JavaScript ES6+</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-css3-plain colored tech-icon"></i>
+            <span>CSS3/SCSS</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-html5-plain colored tech-icon"></i>
+            <span>HTML5</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-file-excel tech-icon" style="color: #217346;"></i>
+            <span>Excel Avanzado</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-redis-plain colored tech-icon"></i>
+            <span>Redis Cache</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-git-plain colored tech-icon"></i>
+            <span>Git/GitHub</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-code-branch tech-icon" style="color: #F05032;"></i>
+            <span>REST API</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-network-wired tech-icon" style="color: #FF6B6B;"></i>
+            <span>WebSockets</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-envelope tech-icon" style="color: #D44638;"></i>
+            <span>JavaMail SMTP</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-lock tech-icon" style="color: #6DB33F;"></i>
+            <span>Spring Security</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-key tech-icon" style="color: #FB015B;"></i>
+            <span>JWT Auth</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-chart-line tech-icon" style="color: #FF6384;"></i>
+            <span>Chart.js</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-qrcode tech-icon" style="color: #4ECDC4;"></i>
+            <span>QR Generator</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-file-pdf tech-icon" style="color: #E74C3C;"></i>
+            <span>PDF Reports</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-file-excel tech-icon" style="color: #1D6F42;"></i>
+            <span>Excel Export</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-bootstrap-plain colored tech-icon"></i>
+            <span>Bootstrap 5</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-jquery-plain colored tech-icon"></i>
+            <span>jQuery</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-boxes tech-icon" style="color: #F39C12;"></i>
+            <span>JPackage</span>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-calendar-alt tech-icon" style="color: #9B59B6;"></i>
+            <span>FullCalendar</span>
+        </div>
+    </div>
+</div>
         <p>
             Servet representa una solución integral desarrollada con Spring Boot para la gestión completa de negocios. 
             Esta plataforma combina tecnologías modernas como Hibernate, Thymeleaf, HSQLDB y herramientas de empaquetado 
@@ -1473,6 +1773,59 @@
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
+          <div class="tech-section">
+          <h3 class="tech-title">🚀 Tecnologías Utilizadas</h3>
+          <div class="tech-grid">
+              <div class="tech-item">
+                  <i class="devicon-javascript-plain colored tech-icon"></i>
+                  <span>JavaScript ES6+</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-html5-plain colored tech-icon"></i>
+                  <span>HTML5</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-css3-plain colored tech-icon"></i>
+                  <span>CSS3/Flexbox</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-nodejs-plain colored tech-icon"></i>
+                  <span>Node.js</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-database tech-icon" style="color: #3ECF8E;"></i>
+                  <span>Supabase</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-postgresql-plain colored tech-icon"></i>
+                  <span>PostgreSQL</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-code tech-icon" style="color: #61DAFB;"></i>
+                  <span>REST API</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-git-plain colored tech-icon"></i>
+                  <span>Git/GitHub</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-mobile-alt tech-icon" style="color: #FF6B6B;"></i>
+                  <span>Responsive Design</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-paint-brush tech-icon" style="color: #9B59B6;"></i>
+                  <span>UI/UX Design</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-rocket tech-icon" style="color: #F39C12;"></i>
+                  <span>SPA Architecture</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-cloud tech-icon" style="color: #3498DB;"></i>
+                  <span>Cloud Hosting</span>
+              </div>
+          </div>
+      </div>
                 <ul>
                     <li>Consultoría integral especializada para desarrolladores de sistemas en áreas como desarrollo web, infraestructura de redes, automatización y soluciones backend.</li>
                     <li>Sistema de administración con opciones para activar o desactivar publicaciones, servicios, testimonios y contenido general sin necesidad de modificar código.</li>
@@ -1621,6 +1974,75 @@
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
+      <div class="tech-section">
+          <h3 class="tech-title">🚀 Tecnologías Utilizadas</h3>
+          <div class="tech-grid">
+              <div class="tech-item">
+                  <i class="devicon-html5-plain colored tech-icon"></i>
+                  <span>HTML5</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-css3-plain colored tech-icon"></i>
+                  <span>CSS3/Grid</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-javascript-plain colored tech-icon"></i>
+                  <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-database tech-icon" style="color: #3ECF8E;"></i>
+                  <span>Supabase</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-postgresql-plain colored tech-icon"></i>
+                  <span>PostgreSQL</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-shopping-cart tech-icon" style="color: #FF6B6B;"></i>
+                  <span>E-commerce</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-mobile-alt tech-icon" style="color: #4ECDC4;"></i>
+                  <span>Mobile First</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-paint-brush tech-icon" style="color: #95E1D3;"></i>
+                  <span>UI/UX Design</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-git-plain colored tech-icon"></i>
+                  <span>Git</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-sliders-h tech-icon" style="color: #9B59B6;"></i>
+                  <span>Filtros Avanzados</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-heart tech-icon" style="color: #E74C3C;"></i>
+                  <span>Sistema Favoritos</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-images tech-icon" style="color: #F39C12;"></i>
+                  <span>Lazy Loading</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-map-marker-alt tech-icon" style="color: #1ABC9C;"></i>
+                  <span>Geolocalización</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-search tech-icon" style="color: #3498DB;"></i>
+                  <span>Búsqueda Real-Time</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-book tech-icon" style="color: #E67E22;"></i>
+                  <span>Blog Integrado</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-envelope tech-icon" style="color: #95A5A6;"></i>
+                  <span>Email Marketing</span>
+              </div>
+          </div>
+      </div>
                 <ul>
                     <li>Desarrollé una tienda online de ropa completamente funcional con diseño responsivo y estéticamente atractivo.</li>
                     <li>Incluye un catálogo dinámico con filtros por color, estilo, temporada y colaboraciones, adaptándose automáticamente según la fecha.</li>
@@ -1766,10 +2188,292 @@
       });
       setTimeout(adaptAllCarousels, 100);
     },
+    // Función para Portafolio de Moda
+    function () {
+      animateContent();
+      document.getElementById("contenido").innerHTML = `
+        <div class="smaller-text">
+            <!-- SECCIÓN DE TECNOLOGÍAS -->
+            <div class="tech-section">
+                <h3 class="tech-title">🚀 Tecnologías Utilizadas</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="devicon-html5-plain colored tech-icon"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-css3-plain colored tech-icon"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-javascript-plain colored tech-icon"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="devicon-github-original colored tech-icon"></i>
+                        <span>GitHub Pages</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-brands fa-whatsapp tech-icon" style="color: #25D366;"></i>
+                        <span>WhatsApp API</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-shopping-cart tech-icon" style="color: #FF6B6B;"></i>
+                        <span>Carrito Compras</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-icons tech-icon" style="color: #339AF0;"></i>
+                        <span>Font Awesome</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-mobile-alt tech-icon" style="color: #4ECDC4;"></i>
+                        <span>Responsive</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-images tech-icon" style="color: #F39C12;"></i>
+                        <span>Galería Imágenes</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-video tech-icon" style="color: #E74C3C;"></i>
+                        <span>Video MP4</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-sliders-h tech-icon" style="color: #9B59B6;"></i>
+                        <span>Carrusel Vertical</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-palette tech-icon" style="color: #E91E63;"></i>
+                        <span>Diseño Visual</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                Portafolio web profesional para diseñadora de modas, desarrollado con tecnologías web estándar y alojado en GitHub Pages. 
+                El sitio presenta colecciones de moda con galería interactiva, carrito de compras integrado y conexión directa vía WhatsApp.
+            </p>
+
+            <ul>
+                <li><strong>Arquitectura limpia:</strong> Sitio estático construido con HTML5 semántico, CSS3 moderno y JavaScript vanilla para máxima compatibilidad.</li>
+                <li><strong>Galería multimedia:</strong> Presentación de colecciones con imágenes optimizadas localmente y videos MP4 embebidos.</li>
+                <li><strong>Carrito de compras:</strong> Sistema funcional que permite agregar prendas y enviar pedidos directamente por WhatsApp.</li>
+                <li><strong>Carrusel vertical:</strong> Navegación única con scroll vertical para mostrar colecciones de forma innovadora.</li>
+                <li><strong>Secciones especializadas:</strong> Moodboard, fotografías profesionales, croquis técnicos, diseños finales, pasarela y material promocional.</li>
+                <li><strong>Animaciones CSS:</strong> Transiciones suaves y efectos visuales implementados con CSS3 para experiencia fluida.</li>
+                <li><strong>Responsive Design:</strong> Adaptación perfecta a dispositivos móviles, tablets y desktop.</li>
+                <li><strong>GitHub Pages:</strong> Deploy automático y hosting gratuito con SSL incluido.</li>
+            </ul>
+
+            <h1 class="h1relleno2"></h1>
+            <h1 class="h1relleno2"></h1>
+            <strong>Galería de imágenes:</strong> 
+            <section id="slideshow">
+                <div class="entire-content">
+                    <div class="content-carrousel">
+                        ${[
+                          {
+                            num: 1,
+                            desc: "Página principal del portafolio con hero section elegante mostrando la última colección. Implementé un diseño minimalista que destaca las prendas con tipografía serif y espacios amplios. La navegación es intuitiva con menú sticky.",
+                          },
+                          {
+                            num: 2,
+                            desc: "Sección de moodboard con galería de inspiración visual. Utilicé CSS Grid para crear un layout tipo Pinterest con imágenes de diferentes tamaños. Las imágenes se cargan con lazy loading para optimizar performance.",
+                          },
+                          {
+                            num: 3,
+                            desc: "Carrusel vertical implementado con JavaScript vanilla y CSS scroll-snap. Cada slide muestra una prenda diferente con transiciones suaves. La navegación incluye flechas y dots indicadores del progreso.",
+                          },
+                          {
+                            num: 4,
+                            desc: "Galería de fotografías profesionales con lightbox personalizado. Al hacer clic en una imagen se abre en modal con fondo oscuro. Implementé navegación entre imágenes con teclado y gestos táctiles.",
+                          },
+                          {
+                            num: 5,
+                            desc: "Propuesta visual mostrando paletas de colores, texturas y materiales. Diseñé tarjetas interactivas con efecto flip que revelan información técnica. Los colores se muestran con códigos hexadecimales.",
+                          },
+                          {
+                            num: 6,
+                            desc: "Sección de logos y branding personal de la diseñadora. Incluye versiones del logo en diferentes colores y aplicaciones. Las imágenes están en formato SVG para máxima calidad en cualquier resolución.",
+                          },
+                          {
+                            num: 7,
+                            desc: "Página de eventos con información organizada por fechas, ubicación y actividades. Incluye secciones visuales para destacar presentaciones, pasarelas y exhibiciones, manteniendo una estructura clara y fácil de navegar.",
+                          },
+                          {
+                            num: 8,
+                            desc: "Diseños finales presentados en grid con filtros por categoría. Cada prenda muestra múltiples vistas y detalles. El sistema de filtrado funciona con JavaScript para mostrar/ocultar elementos dinámicamente.",
+                          },
+                          {
+                            num: 9,
+                            desc: "Sección de pasarela con video embebido de desfile de moda. El reproductor es personalizado con controles estilizados. Implementé thumbnails que permiten saltar a momentos específicos del video.",
+                          },
+                          {
+                            num: 10,
+                            desc: "Sección dedicada al casting de modelos donde se muestran los perfiles seleccionados, sus características y el concepto visual buscado. Presentado de forma clara para entender la propuesta del desfile.",
+                          },
+                          {
+                            num: 11,
+                            desc: "Descripción del concepto del desfile junto con la paleta de colores, texturas e inspiración visual. Explica la línea creativa y la dirección estética del evento.",
+                          },
+                          {
+                            num: 12,
+                            desc: "Galería de fitting presentada como un carrusel tipo collage con múltiples imágenes superpuestas. Las fotos cambian con transiciones suaves y desvanecido para mostrar variaciones de prendas y ajustes.",
+                          },
+                          {
+                            num: 13,
+                            desc: "Sección con el croquis de acomodo del evento donde se ilustran posiciones, recorridos, pasarela y distribución del espacio. Permite visualizar la estructura general del desfile.",
+                          },
+                          {
+                            num: 14,
+                            desc: "Footer con enlaces a redes sociales de la diseñadora. Cada ícono de Font Awesome tiene animación hover única. El diseño responsive reorganiza los elementos en columnas para móvil.",
+                          },
+                          {
+                            num: 15,
+                            desc: "Vista móvil completa del portafolio. El menú se convierte en hamburger menu con slide-in animation. Las galerías se adaptan a una columna con scroll vertical optimizado para touch.",
+                          },
+                          {
+                            num: 16,
+                            desc: "Página de tienda online de ropa con catálogo completo, información de cada prenda y enlaces directos para compra. Incluye secciones organizadas por categorías y navegación sencilla para explorar los productos.",
+                          },
+                        ]
+                          .map(
+                            (img) => `
+                    <figure class="shadow"
+                        data-img="moda${img.num}.png"
+                        data-desc="${img.desc.replace(/"/g, "&quot;")}">
+                        <img src="/assets/experiencias/galerias/moda/moda${
+                          img.num
+                        }.png"/>
+                        <figcaption class="image-caption">Ver detalles</figcaption>
+                    </figure>
+                `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+            </section>
+
+            <h1 class="h1relleno2"></h1>
+            <h1 class="h1relleno2"></h1>
+
+            <section class="contact-section">
+                <p class="contact-text">Si deseas más información sobre este proyecto o contactar a la diseñadora:</p>
+                
+                <div class="contact-options">
+                    <a href="https://wa.me/525524218886" class="whatsapp-btn" target="_blank">
+                        <span class="btn-icon">📱</span>
+                        <span class="btn-text">Enviar WhatsApp</span>
+                    </a>
+                    
+                    <a href="tel:+525524218886" class="call-btn">
+                        <span class="btn-icon">📞</span>
+                        <span class="btn-text">Llamar ahora</span>
+                    </a>
+                </div>
+                
+                <div class="contact-details">
+                    <p class="phone-number">+52 55 2421 8886</p>
+                    <p class="reference-name">Adela Ávila Franco</p>
+                    <p class="reference-position">Diseñadora de Moda</p>
+                </div>
+            </section>
+        </div>
+      `;
+      
+      document.querySelectorAll(".shadow").forEach((fig) => {
+        fig.addEventListener("click", () => {
+          const img = fig.dataset.img;
+          const desc = fig.dataset.desc;
+          openModalWithDescription(
+            `/assets/experiencias/galerias/moda/${img}`,
+            desc
+          );
+        });
+      });
+      
+      setTimeout(adaptAllCarousels, 100);
+    },
     // Función para punto de venta
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
+      <div class="tech-section">
+        <h3 class="tech-title">🚀 Tecnologías Utilizadas</h3>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <i class="devicon-csharp-plain colored tech-icon"></i>
+                <span>C#</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-dot-net-plain colored tech-icon"></i>
+                <span>.NET Framework</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-dotnetcore-plain colored tech-icon"></i>
+                <span>WinForms</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-mysql-plain colored tech-icon"></i>
+                <span>MySQL 8.0</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-database tech-icon" style="color: #00758F;"></i>
+                <span>ADO.NET</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-barcode tech-icon" style="color: #FF6B6B;"></i>
+                <span>Barcode Scanner</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-qrcode tech-icon" style="color: #4ECDC4;"></i>
+                <span>QR Generator</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-print tech-icon" style="color: #4ECDC4;"></i>
+                <span>Impresión Térmica</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-file-pdf tech-icon" style="color: #E74C3C;"></i>
+                <span>PDF Reports</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-file-excel tech-icon" style="color: #1D6F42;"></i>
+                <span>Excel Export</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-cash-register tech-icon" style="color: #F39C12;"></i>
+                <span>Sistema POS</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-chart-bar tech-icon" style="color: #9B59B6;"></i>
+                <span>Reportes 20+</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-users-cog tech-icon" style="color: #3498DB;"></i>
+                <span>Gestión Roles</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-boxes tech-icon" style="color: #E67E22;"></i>
+                <span>Control Inventario</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-receipt tech-icon" style="color: #1ABC9C;"></i>
+                <span>Facturación</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-credit-card tech-icon" style="color: #2ECC71;"></i>
+                <span>Múltiples Pagos</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-git-plain colored tech-icon"></i>
+                <span>Git/GitHub</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-shield-alt tech-icon" style="color: #95A5A6;"></i>
+                <span>Seguridad Datos</span>
+            </div>
+        </div>
+    </div>
                 <ul>
                     <li>Desarrollé un sistema integral de punto de venta (POS) diseñado específicamente para empresas medianas y pequeñas, que incluye una amplia gama de funcionalidades como gestión de pagos, ventas y más de 20 reportes generados a partir de los datos.</li>
                     <li>Implementé un lector de código de barras y un generador de códigos de barras, facilitando la gestión de inventarios y el procesamiento de ventas.</li>
@@ -1921,6 +2625,67 @@
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
+      <div class="tech-section">
+          <h3 class="tech-title">🚀 Tecnologías y Habilidades</h3>
+          <div class="tech-grid">
+              <div class="tech-item">
+                  <i class="fas fa-flask tech-icon" style="color: #9B59B6;"></i>
+                  <span>Análisis Químico</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-laptop-code tech-icon" style="color: #3498DB;"></i>
+                  <span>Software Dev</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-python-plain colored tech-icon"></i>
+                  <span>Python</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-database tech-icon" style="color: #E67E22;"></i>
+                  <span>Data Management</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-tools tech-icon" style="color: #95A5A6;"></i>
+                  <span>Mantenimiento PC</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-chart-line tech-icon" style="color: #1ABC9C;"></i>
+                  <span>Análisis Estadístico</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-microscope tech-icon" style="color: #E74C3C;"></i>
+                  <span>Instrumentación</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-file-excel tech-icon" style="color: #217346;"></i>
+                  <span>Excel Avanzado</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-atom tech-icon" style="color: #F39C12;"></i>
+                  <span>Espectrómetros</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-vial tech-icon" style="color: #16A085;"></i>
+                  <span>Cromatógrafos</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-file-alt tech-icon" style="color: #2C3E50;"></i>
+                  <span>Documentación</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-clipboard-check tech-icon" style="color: #27AE60;"></i>
+                  <span>Control Calidad</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-warehouse tech-icon" style="color: #8E44AD;"></i>
+                  <span>Inventario Lab</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-graduation-cap tech-icon" style="color: #2980B9;"></i>
+                  <span>Capacitación</span>
+              </div>
+          </div>
+      </div>
                 <p>
                     Durante mi periodo como Practicante en el Laboratorio de Química, desarrollé un rol multifuncional combinando mis conocimientos técnicos con las necesidades del laboratorio. Mis principales responsabilidades y logros incluyeron:
                 </p>
@@ -1962,6 +2727,67 @@
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
+      <div class="tech-section">
+          <h3 class="tech-title">🚀 Tecnologías y Habilidades</h3>
+          <div class="tech-grid">
+              <div class="tech-item">
+                  <i class="fas fa-code tech-icon" style="color: #61DAFB;"></i>
+                  <span>Full Stack Dev</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-javascript-plain colored tech-icon"></i>
+                  <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-php-plain colored tech-icon"></i>
+                  <span>PHP</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-mysql-plain colored tech-icon"></i>
+                  <span>MySQL</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-project-diagram tech-icon" style="color: #FF6B6B;"></i>
+                  <span>Algoritmos</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-cogs tech-icon" style="color: #4ECDC4;"></i>
+                  <span>Optimización</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-users tech-icon" style="color: #95E1D3;"></i>
+                  <span>Trabajo Equipo</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-lightbulb tech-icon" style="color: #F39C12;"></i>
+                  <span>Soluciones Tech</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-rocket tech-icon" style="color: #9B59B6;"></i>
+                  <span>Innovación</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-wordpress-plain colored tech-icon"></i>
+                  <span>WordPress</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-ad tech-icon" style="color: #E74C3C;"></i>
+                  <span>Marketing Digital</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-photoshop-plain colored tech-icon"></i>
+                  <span>Adobe Suite</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-git-plain colored tech-icon"></i>
+                  <span>Control Versiones</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-chart-pie tech-icon" style="color: #1ABC9C;"></i>
+                  <span>Analytics</span>
+              </div>
+          </div>
+      </div>
                 <p>
                     Durante mi trayectoria en The Pixel Rocker, formé parte del área de desarrollo y tecnología, contribuyendo activamente en proyectos de alto impacto. Mi rol se centró en las siguientes actividades clave:
                 </p>
@@ -2000,6 +2826,75 @@
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
+      <div class="tech-section">
+          <h3 class="tech-title">🚀 Tecnologías y Habilidades</h3>
+          <div class="tech-grid">
+              <div class="tech-item">
+                  <i class="fas fa-network-wired tech-icon" style="color: #3498DB;"></i>
+                  <span>Redes LAN/WAN</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-server tech-icon" style="color: #2ECC71;"></i>
+                  <span>Servidores</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-windows8-original colored tech-icon"></i>
+                  <span>Windows Server</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-linux-plain colored tech-icon"></i>
+                  <span>Linux</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-user-cog tech-icon" style="color: #E74C3C;"></i>
+                  <span>Active Directory</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-tools tech-icon" style="color: #95A5A6;"></i>
+                  <span>Soporte Técnico</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-ethernet tech-icon" style="color: #F39C12;"></i>
+                  <span>Cableado Red</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-wifi tech-icon" style="color: #1ABC9C;"></i>
+                  <span>Redes WiFi</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-cloud tech-icon" style="color: #1ABC9C;"></i>
+                  <span>Cloud Migration</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-sync-alt tech-icon" style="color: #9B59B6;"></i>
+                  <span>Automatización</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-shield-alt tech-icon" style="color: #C0392B;"></i>
+                  <span>Ciberseguridad</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-database tech-icon" style="color: #16A085;"></i>
+                  <span>Bases de Datos</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-hdd tech-icon" style="color: #7F8C8D;"></i>
+                  <span>Backup/Recovery</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-ticket-alt tech-icon" style="color: #E67E22;"></i>
+                  <span>Sistema Tickets</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-file-alt tech-icon" style="color: #2C3E50;"></i>
+                  <span>Documentación IT</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-users-cog tech-icon" style="color: #8E44AD;"></i>
+                  <span>Gestión Usuarios</span>
+              </div>
+          </div>
+      </div>
                 <p>
                     Durante mi periodo como Becario de Sistemas Computacionales en Deecsa, formé parte de un equipo clave en la transformación digital de la empresa.
                     Mi participación se destacó por el desarrollo de soluciones innovadoras y la implementación de estrategias tecnológicas orientadas a la optimización de procesos. Entre mis principales responsabilidades y logros se incluyen:
@@ -2040,6 +2935,59 @@
     function () {
       animateContent();
       document.getElementById("contenido").innerHTML = `
+      <div class="tech-section">
+          <h3 class="tech-title">🚀 Tecnologías y Habilidades</h3>
+          <div class="tech-grid">
+              <div class="tech-item">
+                  <i class="fas fa-headset tech-icon" style="color: #3498DB;"></i>
+                  <span>Soporte IT</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-laptop tech-icon" style="color: #95A5A6;"></i>
+                  <span>Hardware PC</span>
+              </div>
+              <div class="tech-item">
+                  <i class="devicon-windows8-original colored tech-icon"></i>
+                  <span>Windows OS</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-wrench tech-icon" style="color: #E67E22;"></i>
+                  <span>Mantenimiento</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-user-friends tech-icon" style="color: #1ABC9C;"></i>
+                  <span>Atención Usuario</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-print tech-icon" style="color: #2C3E50;"></i>
+                  <span>Impresoras</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-network-wired tech-icon" style="color: #16A085;"></i>
+                  <span>Conectividad</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-file-alt tech-icon" style="color: #9B59B6;"></i>
+                  <span>Documentación</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-hands-helping tech-icon" style="color: #E74C3C;"></i>
+                  <span>Colaboración</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-mobile-alt tech-icon" style="color: #F39C12;"></i>
+                  <span>Dispositivos Móviles</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-phone-volume tech-icon" style="color: #27AE60;"></i>
+                  <span>Telefonía IP</span>
+              </div>
+              <div class="tech-item">
+                  <i class="fas fa-graduation-cap tech-icon" style="color: #2980B9;"></i>
+                  <span>Capacitación</span>
+              </div>
+          </div>
+      </div>
                 <p>
                     • Desempeñé un papel clave en la gestión y soporte técnico para el departamento, brindando soluciones informáticas y administrativas para mejorar los procesos internos.<br>
                     • Implementé y coordiné el uso de herramientas tecnológicas para optimizar las operaciones de la oficina, incluyendo el soporte a usuarios y la resolución de problemas técnicos.<br>

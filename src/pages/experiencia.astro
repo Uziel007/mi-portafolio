@@ -6,6 +6,11 @@ import Footer from '../components/Footer.astro';
 import '../styles/experiencias.css';
 import '../styles/global.css';
 ---
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Devicon para íconos de tecnologías -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 <Layout title="Experiencia - Portafolio de Uziel Sánchez Marín">
   <Header />
@@ -55,6 +60,12 @@ import '../styles/global.css';
   <main style="position: relative; z-index: 10;">
     <div class="custom-slider">
       <div class="custom-wrapper">
+        <div style="background-image: url('/assets/experiencias/portafolioPersonal.jpg')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year" style="font-size: 18px;"><span>2024 – Actualmente</span></p>
+            <p class="custom-item__name" style="font-size: 14px;"><span>Portafolio Personal – Astro + TypeScript + Tailwind</span></p>
+          </div>
+        </div>
         <div style="background-image: url('/assets/experiencias/servett.png')" class="custom-item">
           <div class="custom-item__info">
             <p class="custom-item__year" style="font-size: 18px;"><span>2025</span></p>
@@ -73,6 +84,12 @@ import '../styles/global.css';
           <div class="custom-item__info">
             <p class="custom-item__year" style="font-size: 18px;"><span>2025</span></p>
             <p class="custom-item__name" style="font-size: 14px;"><span>Desarrollador de Tienda Online de Ropa</span></p>
+          </div>
+        </div>
+        <div style="background-image: url('/assets/experiencias/portafolioModas.png')" class="custom-item">
+          <div class="custom-item__info">
+            <p class="custom-item__year" style="font-size: 18px;"><span>2024</span></p>
+            <p class="custom-item__name" style="font-size: 14px;"><span>Portafolio de Moda – Adela Ávila Franco</span></p>
           </div>
         </div>
         <div style="background-image: url('/assets/experiencias/venta.jpg')" class="custom-item">
