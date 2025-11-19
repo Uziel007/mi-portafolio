@@ -1853,17 +1853,6 @@ figure:hover .image-caption {
   letter-spacing: 0.2px;
 }
 
-/* Títulos h4 (subsecciones) - Estilo más sobrio */
-#contenido h4 {
-  font-size: 1.2em !important;
-  margin-top: 25px !important;
-  margin-bottom: 12px !important;
-  font-weight: 600;
-  color: #3498DB !important;
-  letter-spacing: 0.5px;
-  text-transform: none;
-}
-
 /* Clase smaller-text */
 .smaller-text {
   color: white;
@@ -1978,12 +1967,6 @@ figure:hover .image-caption {
   font-weight: 600;
   color: inherit;
   letter-spacing: 0.2px;
-}
-
-/* Secciones específicas */
-section h4 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
-  letter-spacing: 0.5px;
 }
 
 section p,

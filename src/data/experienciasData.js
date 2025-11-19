@@ -77,151 +77,59 @@
                 </div>
             </div>
 
-            <p style="color: white; font-size: 1.1em; line-height: 1.8;">
-                Este <strong>portafolio personal</strong> representa la culminación de mi experiencia como desarrollador Full Stack, diseñado y construido completamente desde cero utilizando tecnologías de vanguardia para demostrar mis habilidades técnicas, capacidad de diseño y atención al detalle. El proyecto fue desarrollado con <strong>Astro 4.0</strong>, uno de los frameworks más modernos y performantes del ecosistema web, combinado con <strong>TypeScript</strong> para garantizar código robusto y mantenible, <strong>Tailwind CSS</strong> para un diseño responsivo y elegante, y bibliotecas especializadas de animación como <strong>GSAP</strong> y <strong>Lottie</strong> para crear una experiencia visual impactante y profesional.
+            <p class="intro">
+                Este <strong>portafolio personal</strong> representa mi experiencia como desarrollador Full Stack, construido desde cero con tecnologías modernas. Desarrollado con <strong>Astro 4.0</strong>, <strong>TypeScript</strong>, <strong>Tailwind CSS</strong>, y bibliotecas de animación como <strong>GSAP</strong> y <strong>Lottie</strong> para crear una experiencia visual profesional y de alto rendimiento.
             </p>
 
             <h4 style="color: #FF5D01; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">🏗️ Arquitectura y Desarrollo con Astro</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Static Site Generation (SSG) optimizado:</strong> Implementé Astro aprovechando su capacidad de generar sitios estáticos ultra-rápidos con "Zero JS by default", enviando únicamente el HTML y CSS necesarios al navegador. Esto resultó en tiempos de carga iniciales inferiores a 1 segundo y scores perfectos de 100/100 en Lighthouse para Performance.</li>
-                
-                <li><strong>Arquitectura basada en componentes:</strong> Desarrollé más de 25 componentes reutilizables y modulares (.astro) incluyendo Hero, ProjectCard, SkillBar, Testimonial, ContactForm, BlogPost, Navigation, Footer, Modal, Carousel, FilterSystem, SearchBox, y Timeline. Cada componente está optimizado con props tipados y scoped styles para máxima eficiencia.</li>
-                
-                <li><strong>Enrutamiento dinámico y colecciones:</strong> Configuré el sistema de routing de Astro con páginas estáticas y dinámicas, implementando content collections para gestionar proyectos, artículos de blog y certificaciones mediante archivos Markdown con frontmatter metadata. Utilicé getStaticPaths() para generación dinámica de páginas individuales.</li>
-                
-                <li><strong>Integración de frameworks híbridos:</strong> Implementé la arquitectura "Islands" de Astro para componentes interactivos específicos, utilizando directivas client:load, client:visible y client:idle para hidratación selectiva de JavaScript solo donde era necesario, optimizando el performance global del sitio.</li>
-                
-                <li><strong>Build optimization y asset handling:</strong> Configuré el proceso de build con optimización automática de imágenes usando Astro Assets (conversión a WebP/AVIF, responsive images, lazy loading), minificación agresiva de CSS/JS, tree-shaking, y code splitting automático para cargar solo el código necesario por ruta.</li>
-            </ul>
+            <p>
+                Implementé Astro con <strong>Static Site Generation optimizado</strong> utilizando "Zero JS by default", logrando tiempos de carga inferiores a 1 segundo y scores perfectos de 100/100 en Lighthouse Performance. Desarrollé una <strong>arquitectura basada en componentes</strong> con más de 25 componentes reutilizables (.astro) incluyendo Hero, ProjectCard, SkillBar, Navigation, ContactForm y Timeline, todos con props tipados y scoped styles. Configuré <strong>Content Collections</strong> para gestionar proyectos y blog mediante archivos Markdown con frontmatter metadata, usando getStaticPaths() para la generación dinámica de páginas. Implementé la <strong>arquitectura Islands</strong> utilizando directivas client:load, client:visible y client:idle para hidratación selectiva de JavaScript, optimizando significativamente el performance global del sitio.
+            </p>
 
             <h4 style="color: #3178C6; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">📝 TypeScript y Tipado Estricto</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Configuración TypeScript estricta:</strong> Implementé tsconfig.json con las opciones más estrictas (strict: true, noImplicitAny, strictNullChecks, strictFunctionTypes) para garantizar type safety absoluto. Esto eliminó errores en tiempo de ejecución y mejoró la experiencia de desarrollo con autocompletado inteligente.</li>
-                
-                <li><strong>Interfaces y tipos personalizados:</strong> Definí más de 15 interfaces TypeScript para estructurar datos del portafolio incluyendo Project, Skill, Experience, Education, Certification, Testimonial, BlogPost, y ContactFormData. Utilicé tipos avanzados como Union Types, Intersection Types, y Generics para máxima flexibilidad.</li>
-                
-                <li><strong>Validación de datos en formularios:</strong> Implementé validación client-side tipada para el formulario de contacto usando TypeScript con regex patterns para email, teléfono y campos de texto. Creé custom validators reutilizables con mensajes de error descriptivos y type-safe.</li>
-                
-                <li><strong>Type guards y assertion functions:</strong> Desarrollé funciones de validación tipo-seguras para verificar estructuras de datos en runtime, especialmente útiles al procesar content collections y datos externos. Implementé narrowing types con type predicates para manejo robusto de casos edge.</li>
-                
-                <li><strong>Utilities types para transformación:</strong> Utilicé utility types de TypeScript como Partial, Required, Pick, Omit, Record para crear variantes de interfaces base, optimizando la reutilización de código y manteniendo DRY principles sin sacrificar type safety.</li>
-            </ul>
+            <p>
+                Implementé una <strong>configuración TypeScript estricta</strong> con tsconfig.json utilizando las opciones más rigurosas (strict: true, noImplicitAny, strictNullChecks) garantizando type safety absoluto y eliminando errores en tiempo de ejecución. Definí más de 15 <strong>interfaces personalizadas</strong> para estructurar todos los datos del portafolio: Project, Skill, Experience, Education, Certification, Testimonial, BlogPost y ContactFormData. Creé un sistema de <strong>validación tipada</strong> para formularios usando TypeScript con regex patterns personalizados para email, teléfono y campos de texto, implementando validators reutilizables completamente type-safe. Utilicé <strong>utility types</strong> avanzados como Partial, Required, Pick, Omit y Record para crear variantes de interfaces base, optimizando la reutilización de código mientras mantengo la seguridad de tipos en toda la aplicación.
+            </p>
 
             <h4 style="color: #06B6D4; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">🎨 Diseño Responsivo con Tailwind CSS</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Sistema de diseño consistente:</strong> Configuré tailwind.config.js con paleta de colores personalizada (10 tonos por color), tipografía custom usando Google Fonts (Inter para UI, Fira Code para código), spacing scale optimizado, y breakpoints estratégicos (sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px).</li>
-                
-                <li><strong>Mobile-first responsive design:</strong> Desarrollé todas las interfaces siguiendo metodología mobile-first, escribiendo estilos base para móvil y progresivamente añadiendo complejidad con media queries Tailwind (md:, lg:, xl:). Logré layouts perfectamente adaptables que reorganizan elementos según el viewport sin pérdida de funcionalidad.</li>
-                
-                <li><strong>Utility-first CSS optimization:</strong> Utilicé clases utility de Tailwind para construir interfaces sin escribir CSS custom, aprovechando modifiers como hover:, focus:, active:, group-hover:, peer-checked: para interactividad. Implementé dark mode con clase 'dark:' para tematización automática según preferencias del sistema.</li>
-                
-                <li><strong>Custom components y plugins:</strong> Extendí Tailwind creando componentes reutilizables mediante @apply en CSS, plugins personalizados para utilities específicas (glassmorphism effects, gradient texts, animated backgrounds), y configuración de aspectRatio, backdropBlur, y otras propiedades avanzadas.</li>
-                
-                <li><strong>Optimización de production build:</strong> Configuré PurgeCSS automático en Tailwind para eliminar clases no utilizadas, reduciendo el CSS final de 3.5MB a menos de 15KB. Implementé tree-shaking selectivo de componentes y utilicé Just-in-Time (JIT) mode para compilación on-demand durante desarrollo.</li>
-            </ul>
+            <p>
+                Configuré un <strong>sistema de diseño consistente</strong> personalizando tailwind.config.js con una paleta de colores única, tipografía custom usando Google Fonts (Inter para UI, Fira Code para código), spacing scale optimizado y breakpoints estratégicos. Desarrollé todas las interfaces siguiendo <strong>metodología mobile-first</strong>, escribiendo estilos base para móvil y progresivamente añadiendo complejidad con media queries Tailwind (md:, lg:, xl:), logrando layouts perfectamente adaptables que reorganizan elementos según el viewport. Utilicé el enfoque <strong>utility-first CSS</strong> aprovechando modifiers como hover:, focus:, active:, group-hover: para crear interactividad sin escribir CSS custom, además de implementar dark mode automático con la clase 'dark:'. Optimicé el build de producción configurando <strong>PurgeCSS automático</strong> que redujo el CSS final de 3.5MB a menos de 15KB, eliminando clases no utilizadas y usando JIT mode para compilación on-demand durante desarrollo.
+            </p>
 
             <h4 style="color: #88CE02; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">✨ Animaciones Avanzadas con GSAP</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>ScrollTrigger para animaciones on-scroll:</strong> Implementé GSAP ScrollTrigger en más de 20 secciones para animar elementos al entrar en viewport. Configuré triggers personalizados con start/end points, scrub para animaciones sincronizadas con scroll, pin para elementos sticky, y markers en desarrollo para debugging visual de trigger zones.</li>
-                
-                <li><strong>Timeline animations complejas:</strong> Creé timelines secuenciales con gsap.timeline() para coordinar múltiples animaciones, implementando stagger effects para listas (proyectos, skills, testimonios), easing functions personalizadas (Power4.easeOut, Elastic, Bounce), y control preciso de duration, delay y overlap entre animaciones.</li>
-                
-                <li><strong>Hero section animación de entrada:</strong> Desarrollé secuencia de animación dramática para el hero utilizando GSAP para animar título con SplitText (animación letra por letra), subtítulo con fade-in escalonado, CTA buttons con scale y rotation, y background gradient animado con morphing colors, todo orquestado en una timeline maestra.</li>
-                
-                <li><strong>Parallax y efectos 3D:</strong> Implementé efectos parallax multi-layer usando GSAP para crear profundidad visual, aplicando diferentes velocidades de scroll a elementos foreground/background. Utilicé transforms 3D (rotateX, rotateY, perspective) para cards interactivas que rotan al hover siguiendo posición del mouse.</li>
-                
-                <li><strong>Smooth scroll y navegación fluida:</strong> Integré GSAP ScrollToPlugin para navegación suave entre secciones con animación easing personalizada. Implementé anchor links que animan scroll position con duración y offset ajustables, mejorando UX significativamente comparado con scroll nativo del navegador.</li>
-                
-                <li><strong>Performance optimization de animaciones:</strong> Optimicé todas las animaciones GSAP utilizando will-change en CSS para elementos animados frecuentemente, force3D: true para aprovechar aceleración por GPU, y lazy loading de animaciones pesadas solo cuando el usuario las requiere, manteniendo 60fps constantes incluso en dispositivos de gama baja.</li>
-            </ul>
+            <p>
+                Implementé <strong>GSAP ScrollTrigger</strong> en más de 20 secciones para animar elementos al entrar en viewport, configurando triggers personalizados con start/end points, scrub para animaciones sincronizadas con scroll, pin para elementos sticky y markers en desarrollo para debugging visual. Creé <strong>timeline animations complejas</strong> con gsap.timeline() para coordinar múltiples animaciones secuenciales, implementando stagger effects para listas de proyectos, skills y testimonios, con easing functions personalizadas (Power4.easeOut, Elastic, Bounce). Desarrollé una <strong>secuencia de animación dramática</strong> para el hero section utilizando SplitText para animar el título letra por letra, subtítulo con fade-in escalonado, botones CTA con scale y rotation, y background gradient animado, todo orquestado en una timeline maestra. Implementé <strong>efectos parallax multi-layer</strong> para crear profundidad visual aplicando diferentes velocidades de scroll a elementos foreground/background, además de transforms 3D (rotateX, rotateY, perspective) para cards interactivas que rotan al hover siguiendo la posición del mouse. Optimicé todas las animaciones utilizando <strong>will-change en CSS</strong> para elementos animados frecuentemente, force3D: true para aprovechar aceleración por GPU, y lazy loading de animaciones pesadas, manteniendo 60fps constantes incluso en dispositivos de gama baja.
+            </p>
 
             <h4 style="color: #00DDB3; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">🎬 Animaciones Vectoriales con Lottie</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Integración de Lottie animations:</strong> Implementé biblioteca lottie-web para reproducir animaciones vectoriales JSON exportadas desde After Effects. Cargué 8 animaciones custom para ilustrar conceptos técnicos (loading spinners, success checks, error states, empty states, hero illustrations) con tamaño total menor a 200KB.</li>
-                
-                <li><strong>Control programático de playback:</strong> Desarrollé sistema de control JavaScript para animaciones Lottie con métodos play(), pause(), stop(), setSpeed(), setDirection(), y goToAndStop() para frames específicos. Implementé triggers basados en scroll position y user interactions para reproducción condicional.</li>
-                
-                <li><strong>Optimización de peso y carga:</strong> Optimicé archivos JSON de Lottie reduciendo keyframes innecesarios, simplificando paths vectoriales, y eliminando metadata redundante. Implementé lazy loading de animaciones con Intersection Observer para cargarlas solo cuando entran en viewport, reduciendo initial bundle size.</li>
-                
-                <li><strong>Animaciones interactivas y estados:</strong> Creé animaciones Lottie que responden a user input, como formulario de contacto que muestra diferentes animaciones según estado (idle → typing → validating → success/error), mejorando feedback visual y reduciendo perceived loading time.</li>
-                
-                <li><strong>Fallbacks y progressive enhancement:</strong> Implementé estrategia de fallback para navegadores que no soportan Lottie o tienen JavaScript deshabilitado, mostrando imágenes estáticas alternativas. Utilicé feature detection para cargar Lottie condicionalmente solo en navegadores compatibles.</li>
-            </ul>
+            <p>
+                Implementé la biblioteca <strong>lottie-web</strong> para reproducir animaciones vectoriales JSON exportadas desde After Effects, cargando 8 animaciones custom para ilustrar conceptos técnicos como loading spinners, success checks, error states y hero illustrations con un tamaño total menor a 200KB. Desarrollé un <strong>sistema de control programático</strong> con métodos play(), pause(), stop(), setSpeed(), setDirection() y goToAndStop() para frames específicos, implementando triggers basados en scroll position y user interactions. Optimicé los archivos JSON reduciendo keyframes innecesarios, simplificando paths vectoriales y eliminando metadata redundante, además de implementar <strong>lazy loading con Intersection Observer</strong> para cargar animaciones solo cuando entran en viewport. Creé <strong>animaciones interactivas</strong> que responden a user input, como el formulario de contacto que muestra diferentes estados (idle → typing → validating → success/error), mejorando el feedback visual. Implementé estrategia de <strong>fallback</strong> para navegadores sin soporte, mostrando imágenes estáticas alternativas mediante feature detection.
+            </p>
 
             <h4 style="color: #2ECC71; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">🔍 SEO y Optimización para Buscadores</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Meta tags optimizados por página:</strong> Implementé meta tags dinámicos y únicos para cada página incluyendo title (50-60 caracteres), description (150-160 caracteres), Open Graph tags para social sharing (og:title, og:description, og:image, og:url), Twitter Cards, y canonical URLs para evitar contenido duplicado.</li>
-                
-                <li><strong>Structured data con Schema.org:</strong> Desarrollé JSON-LD structured data para Person, WebSite, BreadcrumbList, BlogPosting, y Portfolio schemas, mejorando rich snippets en SERPs. Google Search Console confirmó correcta indexación de todos los structured data implementados.</li>
-                
-                <li><strong>Sitemap XML dinámico:</strong> Configuré generación automática de sitemap.xml listando todas las páginas del sitio con prioridades, frecuencias de actualización (changefreq) y lastmod timestamps. Integré sitemap con Google Search Console y Bing Webmaster Tools para indexación acelerada.</li>
-                
-                <li><strong>Robots.txt y crawling optimization:</strong> Creé archivo robots.txt permitiendo acceso a crawlers principales mientras bloqueaba directorios innecesarios (/admin, /assets/raw, /temp). Implementé meta robots tags (index/noindex, follow/nofollow) estratégicamente en páginas específicas.</li>
-                
-                <li><strong>URLs semánticas y arquitectura:</strong> Diseñé estructura de URLs limpia y descriptiva (/proyectos/nombre-proyecto, /blog/titulo-articulo, /habilidades) sin parámetros innecesarios. Implementé breadcrumbs navegables con structured data para mejorar UX y SEO.</li>
-                
-                <li><strong>Core Web Vitals optimization:</strong> Optimicé métricas de Core Web Vitals logrando: LCP (Largest Contentful Paint) < 1.5s mediante optimización de imágenes hero, FID (First Input Delay) < 50ms con code splitting, CLS (Cumulative Layout Shift) = 0 reservando espacios para contenido dinámico.</li>
-            </ul>
+            <p>
+                Implementé <strong>meta tags dinámicos y únicos</strong> para cada página incluyendo title (50-60 caracteres), description (150-160 caracteres), Open Graph tags para social sharing (og:title, og:description, og:image, og:url), Twitter Cards y canonical URLs para evitar contenido duplicado. Desarrollé <strong>JSON-LD structured data</strong> para Person, WebSite, BreadcrumbList, BlogPosting y Portfolio schemas mejorando los rich snippets en resultados de búsqueda, con correcta indexación confirmada por Google Search Console. Configuré <strong>generación automática de sitemap.xml</strong> listando todas las páginas con prioridades, frecuencias de actualización (changefreq) y lastmod timestamps, integrado con Google Search Console y Bing Webmaster Tools. Diseñé una <strong>estructura de URLs semánticas</strong> limpia y descriptiva (/proyectos/nombre-proyecto, /blog/titulo-articulo) sin parámetros innecesarios, implementando breadcrumbs navegables con structured data. Optimicé las <strong>métricas Core Web Vitals</strong> logrando LCP (Largest Contentful Paint) menor a 1.5s mediante optimización de imágenes hero, FID (First Input Delay) menor a 50ms con code splitting, y CLS (Cumulative Layout Shift) igual a 0 reservando espacios para contenido dinámico.
+            </p>
 
             <h4 style="color: #3498DB; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">♿ Accesibilidad Web (WCAG 2.1 AA)</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>HTML semántico y roles ARIA:</strong> Utilicé elementos HTML5 semánticos apropiados (nav, main, article, aside, section, header, footer) y roles ARIA (role="navigation", role="banner", role="complementary") donde era necesario. Implementé landmarks para navegación por screen readers.</li>
-                
-                <li><strong>Contraste de colores y visibilidad:</strong> Verifiqué ratios de contraste mínimos de 4.5:1 para texto normal y 3:1 para texto grande usando herramientas como WebAIM Contrast Checker. Implementé paleta de colores accesible que funciona para usuarios con deficiencias de visión de color (deuteranopia, protanopia).</li>
-                
-                <li><strong>Navegación por teclado completa:</strong> Garanticé que toda funcionalidad sea accesible vía teclado implementando focus states visibles, orden lógico de tabulación (tabindex), traps de foco en modals, y shortcuts de teclado para acciones comunes. Testeé navegación completa sin mouse.</li>
-                
-                <li><strong>Alternative text y media accessibility:</strong> Añadí alt text descriptivo a todas las imágenes (excepto decorativas con alt=""), transcripciones para videos, captions para contenido audio, y aria-label/aria-describedby para elementos interactivos sin texto visible.</li>
-                
-                <li><strong>Formularios accesibles:</strong> Implementé labels explícitos para todos los inputs, mensajes de error asociados con aria-describedby, validación en tiempo real anunciada por screen readers con aria-live, y autocomplete attributes para facilitar llenado de formularios.</li>
-                
-                <li><strong>Testing con herramientas especializadas:</strong> Realicé auditorías de accesibilidad con WAVE, axe DevTools, Lighthouse Accessibility, y testeé con screen readers reales (NVDA, JAWS, VoiceOver) para validar experiencia completa. Corregí todos los issues de nivel A y AA de WCAG 2.1.</li>
-            </ul>
+            <p>
+                Utilicé <strong>HTML semántico y roles ARIA</strong> apropiados empleando elementos HTML5 (nav, main, article, aside, section, header, footer) y roles ARIA (role="navigation", role="banner", role="complementary") donde era necesario, implementando landmarks para navegación eficiente con screen readers. Verifiqué <strong>ratios de contraste mínimos</strong> de 4.5:1 para texto normal y 3:1 para texto grande usando WebAIM Contrast Checker, implementando una paleta de colores accesible que funciona para usuarios con deficiencias de visión como deuteranopia y protanopia. Garanticé que toda funcionalidad sea accesible vía teclado implementando <strong>navegación completa por teclado</strong> con focus states visibles, orden lógico de tabulación (tabindex), traps de foco en modals y shortcuts para acciones comunes. Añadí <strong>alternative text descriptivo</strong> a todas las imágenes (excepto decorativas con alt=""), transcripciones para videos, captions para contenido audio y aria-label/aria-describedby para elementos interactivos sin texto visible. Realicé <strong>auditorías exhaustivas</strong> con WAVE, axe DevTools, Lighthouse Accessibility y testeé con screen readers reales (NVDA, JAWS, VoiceOver) para validar la experiencia completa, corrigiendo todos los issues de nivel A y AA de WCAG 2.1.
+            </p>
 
             <h4 style="color: #E74C3C; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">⚡ Performance y Optimización</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Image optimization pipeline:</strong> Implementé pipeline automático de optimización de imágenes convirtiendo a formatos modernos (WebP con fallback JPEG, AVIF experimental), compresión lossy/lossless con Squoosh, generación de múltiples tamaños para srcset responsive, y lazy loading nativo con loading="lazy".</li>
-                
-                <li><strong>Critical CSS inlining:</strong> Extraje CSS crítico para above-the-fold content e inliné directamente en HTML para primera renderización sin bloqueo. Cargué CSS no crítico de forma asíncrona con media="print" onload="this.media='all'" y preload hints.</li>
-                
-                <li><strong>JavaScript code splitting:</strong> Dividí JavaScript en chunks lógicos por ruta usando dynamic imports. Implementé lazy loading de componentes pesados (carousel, modal, video player) solo cuando usuario interactúa, reduciendo bundle inicial de 180KB a 35KB.</li>
-                
-                <li><strong>Resource hints y preloading:</strong> Utilicé resource hints estratégicamente incluyendo dns-prefetch para dominios externos, preconnect para APIs críticas, prefetch para navegación anticipada, y preload para recursos críticos (fonts, hero images, above-fold CSS).</li>
-                
-                <li><strong>Compression y caching strategy:</strong> Configuré compresión Gzip/Brotli en servidor reduciendo assets en 70-80%. Implementé aggressive caching con service workers para recursos estáticos (cache-first), y network-first para contenido dinámico. Utilicé cache busting con hashes en filenames para invalidación automática.</li>
-                
-                <li><strong>Lighthouse scores perfectos:</strong> Logré scores consistentes de 100/100 en las cuatro categorías de Lighthouse (Performance, Accessibility, Best Practices, SEO) en todas las páginas principales del sitio, validado en múltiples dispositivos y condiciones de red.</li>
-            </ul>
+            <p>
+                Implementé un <strong>pipeline automático de optimización de imágenes</strong> convirtiendo a formatos modernos (WebP con fallback JPEG, AVIF experimental), aplicando compresión lossy/lossless, generación de múltiples tamaños para srcset responsive y lazy loading nativo con loading="lazy". Extraje <strong>CSS crítico</strong> para above-the-fold content e inliné directamente en HTML para primera renderización sin bloqueo, cargando CSS no crítico de forma asíncrona con preload hints. Dividí JavaScript en <strong>chunks lógicos por ruta</strong> usando dynamic imports e implementé lazy loading de componentes pesados (carousel, modal, video player) solo cuando el usuario interactúa, reduciendo el bundle inicial de 180KB a 35KB. Utilicé <strong>resource hints estratégicamente</strong> incluyendo dns-prefetch para dominios externos, preconnect para APIs críticas, prefetch para navegación anticipada y preload para recursos críticos como fonts y hero images. Configuré <strong>compresión Gzip/Brotli</strong> en servidor reduciendo assets en 70-80% e implementé aggressive caching con service workers para recursos estáticos (cache-first) y network-first para contenido dinámico. Logré <strong>scores perfectos de Lighthouse</strong> con 100/100 consistentes en las cuatro categorías (Performance, Accessibility, Best Practices, SEO) en todas las páginas principales, validado en múltiples dispositivos y condiciones de red.
+            </p>
 
             <h4 style="color: #9B59B6; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">🎮 Características Interactivas Especiales</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Sistema de filtrado dinámico de proyectos:</strong> Desarrollé filtro multi-categoría con animaciones smooth para mostrar/ocultar proyectos usando GSAP. Implementé URL state management para compartir vistas filtradas, y animación de re-layout con FLIP technique para transiciones fluidas.</li>
-                
-                <li><strong>Dark mode toggle automático:</strong> Implementé switch dark/light mode respetando preferencias del sistema (prefers-color-scheme) con override manual. Persistí preferencia en localStorage y apliqué tema antes de render inicial para evitar flash of unstyled content (FOUC).</li>
-                
-                <li><strong>Carousel personalizado accesible:</strong> Construí carousel desde cero con controles keyboard (arrow keys), navegación táctil (swipe gestures), autoplay pausable, indicadores de progreso, y lazy loading de slides. Implementé ARIA attributes para accesibilidad completa (role="region", aria-roledescription="carousel").</li>
-                
-                <li><strong>Modal system con focus management:</strong> Desarrollé sistema de modals reutilizable con backdrop blur, animaciones de entrada/salida GSAP, focus trap para navegación por teclado, scroll lock en body, y cierre con ESC key. Implementé stack para modals anidados.</li>
-                
-                <li><strong>Mini-juego interactivo:</strong> Creé videojuego simple integrado en sección "Hobbies" donde usuario puede interactuar con gato animado mediante clicks, desencadenando animaciones Lottie y efectos de sonido (con mute option). Implementé score tracking con leaderboard local.</li>
-                
-                <li><strong>Toast notifications system:</strong> Desarrollé sistema de notificaciones toast para feedback de acciones (formulario enviado, error de red, copia al portapapeles) con auto-dismiss, queue de múltiples toasts, animaciones stagger, y accesibilidad con aria-live="polite".</li>
-            </ul>
+            <p>
+                Desarrollé un <strong>sistema de filtrado dinámico</strong> multi-categoría para proyectos con animaciones smooth usando GSAP para mostrar/ocultar elementos, implementando URL state management para compartir vistas filtradas y animación de re-layout con FLIP technique para transiciones fluidas. Implementé <strong>dark mode toggle automático</strong> que respeta las preferencias del sistema (prefers-color-scheme) con override manual, persistiendo la preferencia en localStorage y aplicando el tema antes del render inicial para evitar flash of unstyled content (FOUC). Construí un <strong>carousel personalizado accesible</strong> desde cero con controles keyboard (arrow keys), navegación táctil (swipe gestures), autoplay pausable, indicadores de progreso, lazy loading de slides y ARIA attributes completos (role="region", aria-roledescription="carousel"). Desarrollé un <strong>sistema de modals reutilizable</strong> con backdrop blur, animaciones de entrada/salida GSAP, focus trap para navegación por teclado, scroll lock en body, cierre con ESC key y stack para modals anidados. Creé un <strong>sistema de notificaciones toast</strong> para feedback de acciones (formulario enviado, error de red, copia al portapapeles) con auto-dismiss, queue de múltiples toasts, animaciones stagger y accesibilidad con aria-live="polite".
+            </p>
 
             <h4 style="color: #1ABC9C; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">🛠️ Tooling, Testing y Deployment</h4>
-            <ul style="color: white; line-height: 1.8;">
-                <li><strong>Configuración de desarrollo moderna:</strong> Configuré entorno de desarrollo con Vite (HMR ultra-rápido), ESLint para linting de código con reglas estrictas, Prettier para formateo automático, Husky para git hooks pre-commit, y lint-staged para validar solo archivos modificados.</li>
-                
-                <li><strong>Testing automatizado:</strong> Implementé tests con Vitest para funciones utility, validadores de formularios, y lógica de negocio. Escribí tests E2E con Playwright para flujos críticos (navegación, envío de formularios, sistema de filtrado), logrando 85% de code coverage.</li>
-                
-                <li><strong>CI/CD pipeline con GitHub Actions:</strong> Configuré workflow automatizado que ejecuta en cada push: linting, type checking TypeScript, tests unitarios, build de producción, y deployment automático a Vercel. Pipeline completo toma menos de 3 minutos.</li>
-                
-                <li><strong>Deployment en Vercel:</strong> Configuré deployment en Vercel con preview automático de PRs, rollback instantáneo, edge caching global, Analytics integrado, y custom domain con HTTPS automático. Implementé rewrite rules para SPA routing y redirects SEO.</li>
-                
-                <li><strong>Monitoring y error tracking:</strong> Integré Sentry para error tracking en producción, capturando JavaScript errors, performance issues, y user feedback. Configuré alerts para errores críticos y dashboards para monitorear health del sitio en tiempo real.</li>
-                
-                <li><strong>Git workflow y versioning:</strong> Seguí Git Flow con branches develop/main, feature branches para nuevas funcionalidades, commits convencionales (feat:, fix:, docs:, style:), y semantic versioning para releases. Mantuve changelog actualizado automáticamente con conventional-changelog.</li>
-            </ul>
+            <p>
+                Configuré un <strong>entorno de desarrollo moderno</strong> con Vite para HMR ultra-rápido, ESLint para linting de código con reglas estrictas, Prettier para formateo automático, Husky para git hooks pre-commit y lint-staged para validar solo archivos modificados. Implementé <strong>testing automatizado</strong> con Vitest para funciones utility, validadores de formularios y lógica de negocio, además de tests E2E con Playwright para flujos críticos como navegación, envío de formularios y sistema de filtrado, logrando 85% de code coverage. Configuré <strong>CI/CD pipeline con GitHub Actions</strong> que ejecuta automáticamente en cada push: linting, type checking TypeScript, tests unitarios, build de producción y deployment automático a Vercel, con el pipeline completo tomando menos de 3 minutos. Realicé el <strong>deployment en Vercel</strong> con preview automático de PRs, rollback instantáneo, edge caching global, Analytics integrado y custom domain con HTTPS automático, implementando rewrite rules para SPA routing y redirects SEO. Integré <strong>Sentry para monitoring</strong> y error tracking en producción, capturando JavaScript errors, performance issues y user feedback, con alerts configurados para errores críticos y dashboards para monitorear el health del sitio en tiempo real. Seguí <strong>Git Flow</strong> con branches develop/main, feature branches, commits convencionales (feat:, fix:, docs:) y semantic versioning para releases.
+            </p>
             <strong>Galería de imágenes:</strong> 
             <section id="slideshow">
                 <div class="entire-content">
