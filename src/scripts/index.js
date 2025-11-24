@@ -129,18 +129,68 @@
   });
 
   // Botón cambio texto
-      const btn = document.getElementById("changeTextBtn");
-      const textEl = document.getElementById("profile-text");
-      if (btn && textEl) {
-        btn.addEventListener("click", () => {
-          const newText = `<p class="text-lg leading-relaxed text-gray-300">Soy un Ingeniero en Sistemas Computacionales con una visión integral del desarrollo tecnológico, combinando conocimientos en <strong class="text-cyan-400">arquitectura de software</strong>, <strong class="text-purple-400">programación avanzada</strong> y <strong class="text-pink-400">servicios en la nube</strong>.</p><p class="text-lg leading-relaxed text-gray-300">He adquirido experiencia práctica en frameworks modernos como <strong class="text-blue-400">Angular</strong> y <strong class="text-green-400">Spring Boot</strong>, además de trabajar con <strong class="text-yellow-400">Java, Python, PHP y JavaScript</strong>, lo que me permite abordar soluciones full stack con enfoque profesional.</p><p class="text-lg leading-relaxed text-gray-300">Mis certificaciones abarcan áreas clave como arquitectura de software, AWS Cloud, metodologías ágiles y diseño de sistemas escalables. Esta formación me permite integrar tecnología y estrategia para aportar <span class="highlight-text">valor real a los proyectos empresariales</span>.</p><p class="text-lg leading-relaxed text-gray-300">Me distingo por mi <strong class="text-green-400">liderazgo técnico</strong>, mi compromiso con la excelencia y mi capacidad de adaptación a nuevos desafíos. Mi objetivo es contribuir a equipos de alto rendimiento, impulsando soluciones innovadoras y eficientes que generen impacto.</p>`;
-          textEl.innerHTML = newText;
-          gsap.from(".gsap-text p", { duration: 1, y: 20, opacity: 0, stagger: 0.2, ease: "power2.out" });
-          
-          // Scroll suave a la sección "Acerca de mí"
-          const perfilSection = document.querySelector('#perfil');
-          if (perfilSection) {
-            perfilSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+// Botón cambio texto con toggle y animación mejorada
+const btn = document.getElementById("changeTextBtn");
+const textEl = document.getElementById("profile-text");
+let isExpanded = false;
+
+const originalText = `<p class="text-lg leading-relaxed text-gray-300">
+            Soy Ingeniero en Sistemas Computacionales con una sólida formación en <strong class="text-cyan-400">desarrollo de software</strong>, <strong class="text-purple-400">arquitectura de sistemas</strong> y <strong class="text-pink-400">tecnologías en la nube</strong>.
+          </p>
+          <p class="text-lg leading-relaxed text-gray-300">
+            Apasionado por la innovación tecnológica y la eficiencia, aplico buenas prácticas de ingeniería para diseñar soluciones <span class="highlight-text">seguras, escalables y orientadas a resultados</span>.
+          </p>
+          <p class="text-lg leading-relaxed text-gray-300">
+            Destaco por mi <strong class="text-green-400">pensamiento analítico</strong>, <strong class="text-blue-400">liderazgo técnico</strong> y capacidad de adaptación en entornos empresariales exigentes.
+          </p>`;
+
+const expandedText = `<p class="text-lg leading-relaxed text-gray-300">Soy un Ingeniero en Sistemas Computacionales con una visión integral del desarrollo tecnológico, combinando conocimientos en <strong class="text-cyan-400">arquitectura de software</strong>, <strong class="text-purple-400">programación avanzada</strong> y <strong class="text-pink-400">servicios en la nube</strong>.</p><p class="text-lg leading-relaxed text-gray-300">He adquirido experiencia práctica en frameworks modernos como <strong class="text-blue-400">Angular</strong> y <strong class="text-green-400">Spring Boot</strong>, además de trabajar con <strong class="text-yellow-400">Java, Python, PHP y JavaScript</strong>, lo que me permite abordar soluciones full stack con enfoque profesional.</p><p class="text-lg leading-relaxed text-gray-300">Mis certificaciones abarcan áreas clave como arquitectura de software, AWS Cloud, metodologías ágiles y diseño de sistemas escalables. Esta formación me permite integrar tecnología y estrategia para aportar <span class="highlight-text">valor real a los proyectos empresariales</span>.</p><p class="text-lg leading-relaxed text-gray-300">Me distingo por mi <strong class="text-green-400">liderazgo técnico</strong>, mi compromiso con la excelencia y mi capacidad de adaptación a nuevos desafíos. Mi objetivo es contribuir a equipos de alto rendimiento, impulsando soluciones innovadoras y eficientes que generen impacto.</p>`;
+
+if (btn && textEl) {
+  btn.addEventListener("click", () => {
+    isExpanded = !isExpanded;
+    
+    // Cambiar el texto del botón
+    const buttonText = btn.querySelector('span:last-child');
+    if (buttonText) {
+      buttonText.textContent = isExpanded ? 'Conoce menos sobre mí' : 'Conoce más sobre mí';
+    }
+    
+    // ANIMACIÓN MEJORADA - más lenta y visible
+    // Primero fade out
+    gsap.to(textEl, {
+      opacity: 0,
+      y: -20,
+      duration: 0.6,
+      ease: "power2.in",
+      onComplete: () => {
+        // Cambiar el contenido cuando está invisible
+        textEl.innerHTML = isExpanded ? expandedText : originalText;
+        
+        // Luego fade in con animación de párrafos
+        gsap.to(textEl, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+        
+        // Animar cada párrafo individualmente
+        gsap.from("#profile-text p", {
+          duration: 0.8,
+          y: 30,
+          opacity: 0,
+          stagger: 0.3,
+          ease: "power2.out",
+          delay: 0.2
         });
       }
+    });
+    
+    // Scroll suave a la sección "Acerca de mí"
+    const perfilSection = document.querySelector('#perfil');
+    if (perfilSection) {
+      perfilSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+}
