@@ -120,6 +120,16 @@ export const certificaciones = [
     completado: 100
   },
   {
+    categoria: 'tools',
+    titulo: 'Universidad Excel - Básico, Intermedio y Avanzado!',
+    imagen: '/assets/Certificaciones/universidadexcelbasico-intermedio-avanzado.png',
+    descripcion: 'Curso completo de Excel que cubre nivel básico, intermedio y avanzado. Incluye fórmulas, funciones, tablas dinámicas, análisis de datos y herramientas profesionales para el manejo y automatización de información.',
+    url: 'https://www.udemy.com/certificate/UC-951a6601-f25d-4e9d-839a-f06c9ef882d3/',
+    stagger: 6,
+    horas: 13.5,
+    completado: 100
+  },
+  {
     categoria: 'database',
     titulo: 'Practical Database Course for Beginners',
     imagen: '/assets/Certificaciones/certificadodatabasecourse6coursesin1.jpg',
