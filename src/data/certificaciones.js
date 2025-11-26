@@ -130,6 +130,16 @@ export const certificaciones = [
     completado: 100
   },
   {
+    categoria: 'leadership',
+    titulo: 'Comunicación Asertiva',
+    imagen: '/assets/Certificaciones/cursodecomunicacionacertiva.png',
+    descripcion: 'Certificación enfocada en desarrollar habilidades de comunicación asertiva. Incluye fundamentos, estilos de comunicación, principios de asertividad, lenguaje verbal y no verbal, escucha activa, manejo de conflictos, técnicas para decir “no”, gestión de emociones y aplicación en contextos laborales y personales.',
+    url: 'https://claseflix.io/validar-certificado/6927290f1696a500150f598f',
+    stagger: 6,
+    horas: 8,
+    completado: 100
+  },
+  {
     categoria: 'database',
     titulo: 'Practical Database Course for Beginners',
     imagen: '/assets/Certificaciones/certificadodatabasecourse6coursesin1.jpg',
@@ -167,6 +177,16 @@ export const certificaciones = [
     url: 'https://simpli-web.app.link/e/XDpnTzgV1Xb',
     stagger: 6,
     horas: 120,
+    completado: 100
+  },
+  {
+    categoria: 'language',
+    titulo: 'Curso de Inglés de A1 a B1',
+    imagen: '/assets/Certificaciones/inglesA1B1.png',
+    descripcion: 'Formación completa desde nivel A1 hasta B1. Incluye gramática básica e intermedia, vocabulario general y especializado, phrasal verbs, preposiciones, condicionales, voz pasiva, listening, speaking, reading y writing. Además, preparación para exámenes Trinity y Cambridge, tips para aprobar y recursos prácticos para mejorar.',
+    url: 'https://claseflix.io/validar-certificado/69272f1a1696a500150f5a93',
+    stagger: 6,
+    horas: 20,
     completado: 100
   },
   {
