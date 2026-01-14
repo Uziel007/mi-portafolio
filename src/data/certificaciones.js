@@ -1,13 +1,15 @@
 export const certificaciones = [
   {
     categoria: 'agile',
-    titulo: 'Certificación de SCRUM FUNDAMENTALS (2024)',
+    titulo: 'Certificación de SCRUM FUNDAMENTALS',
     imagen: '/assets/Certificaciones/scrumfundamentals.png',
     descripcion: 'Obtuve la Certificación Scrum Fundamentals, que me proporcionó una base sólida en la metodología ágil Scrum. Aprendí a gestionar proyectos de manera eficiente, trabajando en equipos colaborativos para entregar valor rápido y de forma continua.',
     url: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=1056186',
     stagger: 1,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2024',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'cloud',
@@ -17,7 +19,9 @@ export const certificaciones = [
     url: 'https://www.credly.com/badges/630eeb13-b229-4148-8bc9-a4a27d93c217/public_url',
     stagger: 6,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'tools',
@@ -27,7 +31,9 @@ export const certificaciones = [
     url: 'https://skillshop.credential.net/b52f8295-7bf4-4760-9dae-c189130d9a9f#acc.jZBeV19Q',
     stagger: 2,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Diciembre 2024',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'agile',
@@ -37,7 +43,9 @@ export const certificaciones = [
     url: '/assets/Certificaciones/descargas/santander.pdf',
     stagger: 6,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'programming',
@@ -47,7 +55,9 @@ export const certificaciones = [
     url: 'https://data-flair.training/verify/75B547582A-75AF51C5AE-7591D036BD/',
     stagger: 4,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Febrero 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'architecture',
@@ -57,7 +67,9 @@ export const certificaciones = [
     url: 'https://simpli-web.app.link/e/cAtHmD4IkXb',
     stagger: 5,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Octubre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'architecture',
@@ -67,7 +79,9 @@ export const certificaciones = [
     url: '/assets/Certificaciones/descargas/Fundamentos de la arquitectura de software y el diseño de sistemas.pdf',
     stagger: 6,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'cloud',
@@ -77,7 +91,9 @@ export const certificaciones = [
     url: 'https://credmark.ai/badge/CM-2511-FBKFWYR',
     stagger: 6,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'tools',
@@ -87,7 +103,9 @@ export const certificaciones = [
     url: 'https://claseflix.io/validar-certificado/68e61d70c1ae460015c597c7',
     stagger: 6,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Octubre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'agile',
@@ -97,7 +115,9 @@ export const certificaciones = [
     url: 'https://badges.innovativelearning.eu/badge/17d8d470-f87f-4f72-b97c-4a58996927f4',
     stagger: 1,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Octubre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'marketing',
@@ -107,7 +127,9 @@ export const certificaciones = [
     url: 'https://c46e136a583f7e334124-ac22991740ab4ff17e21daf2ed577041.ssl.cf1.rackcdn.com/Certificate/DigitalMarketingFundamentals-UzielSanchezMarin-611988.pdf',
     stagger: 3,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Septiembre 2024',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'programming',
@@ -117,7 +139,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-c19c8edd-de0c-4ee6-b192-738afacc1ad9/',
     stagger: 8,
     horas: 34,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Febrero 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'tools',
@@ -127,17 +151,21 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-951a6601-f25d-4e9d-839a-f06c9ef882d3/',
     stagger: 6,
     horas: 13.5,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'leadership',
     titulo: 'Comunicación Asertiva',
     imagen: '/assets/Certificaciones/cursodecomunicacionacertiva.png',
-    descripcion: 'Certificación enfocada en desarrollar habilidades de comunicación asertiva. Incluye fundamentos, estilos de comunicación, principios de asertividad, lenguaje verbal y no verbal, escucha activa, manejo de conflictos, técnicas para decir “no”, gestión de emociones y aplicación en contextos laborales y personales.',
+    descripcion: 'Certificación enfocada en desarrollar habilidades de comunicación asertiva. Incluye fundamentos, estilos de comunicación, principios de asertividad, lenguaje verbal y no verbal, escucha activa, manejo de conflictos, técnicas para decir "no", gestión de emociones y aplicación en contextos laborales y personales.',
     url: 'https://claseflix.io/validar-certificado/6927290f1696a500150f598f',
     stagger: 6,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'database',
@@ -147,7 +175,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-65101205-8c2c-453d-a6bb-03d6e2466af5/',
     stagger: 9,
     horas: 12,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Febrero 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'programming',
@@ -157,7 +187,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-223436ce-99ef-4fa5-88c4-4c687f9512c1/',
     stagger: 10,
     horas: 56,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Diciembre 2024',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'programming',
@@ -167,7 +199,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-b9e3657c-1bdf-4c20-a5c5-afb735076931/',
     stagger: 11,
     horas: 155,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Marzo 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'cloud',
@@ -177,7 +211,9 @@ export const certificaciones = [
     url: 'https://simpli-web.app.link/e/XDpnTzgV1Xb',
     stagger: 6,
     horas: 120,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'language',
@@ -187,7 +223,9 @@ export const certificaciones = [
     url: 'https://claseflix.io/validar-certificado/69272f1a1696a500150f5a93',
     stagger: 6,
     horas: 20,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'programming',
@@ -197,7 +235,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-70e496be-05ff-4552-be0f-8039291c9bca/',
     stagger: 12,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Febrero 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'frameworks',
@@ -207,7 +247,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-4f4d3aa4-df56-421f-b30e-28ba6d6d6649/',
     stagger: 13,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Febrero 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'database',
@@ -217,7 +259,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-dbd5a0ed-9985-4889-89b7-d70143143514/',
     stagger: 14,
     horas: 7,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Marzo 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'leadership',
@@ -227,7 +271,9 @@ export const certificaciones = [
     url: 'https://claseflix.io/validar-certificado/68e818b5eed4640015fdbc24',
     stagger: 7,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Octubre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'frameworks',
@@ -237,7 +283,9 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-95b9eda5-35cb-461a-ab1d-2c928641d7af/',
     stagger: 6,
     horas: 56.7,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'ai',
@@ -247,6 +295,8 @@ export const certificaciones = [
     url: 'https://www.udemy.com/certificate/UC-b718fbd5-16eb-4264-a228-d94a55f97b9c/',
     stagger: 14,
     horas: 8,
-    completado: 100
+    completado: 100,
+    fechaExpedicion: 'Octubre 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
   }
 ];
