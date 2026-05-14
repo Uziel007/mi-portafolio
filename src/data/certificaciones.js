@@ -25,7 +25,7 @@ export const certificaciones = [
   },
   {
     categoria: 'agile',
-    titulo: 'Scrum Developer Certified',
+    titulo: 'Scrum Developer Accredited Certification',
     imagen: '/assets/Certificaciones/ScrumDeveloper.png',
     descripcion: 'Certificación enfocada en fundamentos y prácticas de desarrollo ágil bajo Scrum. Avala conocimientos en trabajo colaborativo, gestión de sprints, roles Scrum, integración continua y participación activa en equipos de desarrollo ágiles.',
     url: 'https://www.scrum-institute.org/certifications/Scrum-Institute.Org-SDAC086f1eae06-06048917955718.pdf',
