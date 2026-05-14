@@ -176,34 +176,63 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
 
         <div id="certificatesGrid" class="certificates-grid gsap-certificates">
           {certificaciones.map((cert) => (
-            <a 
-              href={cert.url} 
-              target="_blank" 
-              class="certificate-card"
-              data-category={cert.categoria}
-            >
-              <img 
-                src={cert.imagen} 
-                alt={cert.titulo} 
-                class="certificate-image"
-                loading="lazy"
-              />
-              <div class="certificate-content">
-                <h3 class="certificate-title">{cert.titulo}</h3>
-                <p class="certificate-description">{cert.descripcion}</p>
-                
-                <div class="certificate-dates">
-                  <div class="date-item">
-                    <span class="date-label">📅 Expedición:</span>
-                    <span class="date-value">{cert.fechaExpedicion}</span>
+            cert.url ? (
+              <a 
+                href={cert.url} 
+                target="_blank" 
+                class="certificate-card"
+                data-category={cert.categoria}
+              >
+                <img 
+                  src={cert.imagen} 
+                  alt={cert.titulo} 
+                  class="certificate-image"
+                  loading="lazy"
+                />
+                <div class="certificate-content">
+                  <h3 class="certificate-title">{cert.titulo}</h3>
+                  <p class="certificate-description">{cert.descripcion}</p>
+                  
+                  <div class="certificate-dates">
+                    <div class="date-item">
+                      <span class="date-label">📅 Expedición:</span>
+                      <span class="date-value">{cert.fechaExpedicion}</span>
+                    </div>
+                    <div class="date-item">
+                      <span class="date-label">⏳ Vencimiento:</span>
+                      <span class="date-value">{cert.fechaVencimiento}</span>
+                    </div>
                   </div>
-                  <div class="date-item">
-                    <span class="date-label">⏳ Vencimiento:</span>
-                    <span class="date-value">{cert.fechaVencimiento}</span>
+                </div>
+              </a>
+            ) : (
+              <div 
+                class="certificate-card"
+                data-category={cert.categoria}
+              >
+                <img 
+                  src={cert.imagen} 
+                  alt={cert.titulo} 
+                  class="certificate-image"
+                  loading="lazy"
+                />
+                <div class="certificate-content">
+                  <h3 class="certificate-title">{cert.titulo}</h3>
+                  <p class="certificate-description">{cert.descripcion}</p>
+                  
+                  <div class="certificate-dates">
+                    <div class="date-item">
+                      <span class="date-label">📅 Expedición:</span>
+                      <span class="date-value">{cert.fechaExpedicion}</span>
+                    </div>
+                    <div class="date-item">
+                      <span class="date-label">⏳ Vencimiento:</span>
+                      <span class="date-value">{cert.fechaVencimiento}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </a>
+            )
           ))}
         </div>
       </div>

@@ -1,15 +1,27 @@
 export const certificaciones = [
-  {
+    {
     categoria: 'agile',
-    titulo: 'Certificación de SCRUM FUNDAMENTALS',
-    imagen: '/assets/Certificaciones/scrumfundamentals.png',
-    descripcion: 'Obtuve la Certificación Scrum Fundamentals, que me proporcionó una base sólida en la metodología ágil Scrum. Aprendí a gestionar proyectos de manera eficiente, trabajando en equipos colaborativos para entregar valor rápido y de forma continua.',
-    url: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=1056186',
-    stagger: 1,
-    horas: 8,
+    titulo: 'Scrum Developer Accredited Certification',
+    imagen: '/assets/Certificaciones/ScrumDeveloper.png',
+    descripcion: 'Certificación enfocada en fundamentos y prácticas de desarrollo ágil bajo Scrum. Avala conocimientos en trabajo colaborativo, gestión de sprints, roles Scrum, integración continua y participación activa en equipos de desarrollo ágiles.',
+    url: 'https://www.scrum-institute.org/certifications/Scrum-Institute.Org-SDAC086f1eae06-06048917955718.pdf',
+    stagger: 3,
+    horas: 80,
     completado: 100,
-    fechaExpedicion: 'Noviembre 2024',
+    fechaExpedicion: 'Abril 2026',
     fechaVencimiento: 'Sin fecha de vencimiento'
+  },
+  {
+    categoria: 'programming',
+    titulo: 'Java Standard Mainware',
+    imagen: '/assets/Certificaciones/JavaStandard.jpeg',
+    descripcion: 'Certificación enfocada en fundamentos sólidos de Java Standard, incluyendo programación orientada a objetos, lógica de programación, diagramación, manejo básico de SQL, JavaScript y fases de pruebas unitarias. Incluye desarrollo práctico de código, resolución de problemas y evaluación teórica avanzada.',
+    url: null,
+    stagger: 4,
+    horas: 120,
+    completado: 100,
+    fechaExpedicion: 'Mayo 2026',
+    fechaVencimiento: 'Mayo 2028'
   },
   {
     categoria: 'cloud',
@@ -21,18 +33,6 @@ export const certificaciones = [
     horas: 8,
     completado: 100,
     fechaExpedicion: 'Noviembre 2025',
-    fechaVencimiento: 'Sin fecha de vencimiento'
-  },
-  {
-    categoria: 'agile',
-    titulo: 'Scrum Developer Accredited Certification',
-    imagen: '/assets/Certificaciones/ScrumDeveloper.png',
-    descripcion: 'Certificación enfocada en fundamentos y prácticas de desarrollo ágil bajo Scrum. Avala conocimientos en trabajo colaborativo, gestión de sprints, roles Scrum, integración continua y participación activa en equipos de desarrollo ágiles.',
-    url: 'https://www.scrum-institute.org/certifications/Scrum-Institute.Org-SDAC086f1eae06-06048917955718.pdf',
-    stagger: 3,
-    horas: 80,
-    completado: 100,
-    fechaExpedicion: 'Abril 2026',
     fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
@@ -69,6 +69,18 @@ export const certificaciones = [
     horas: 8,
     completado: 100,
     fechaExpedicion: 'Febrero 2025',
+    fechaVencimiento: 'Sin fecha de vencimiento'
+  },
+  {
+    categoria: 'agile',
+    titulo: 'Certificación de SCRUM FUNDAMENTALS',
+    imagen: '/assets/Certificaciones/scrumfundamentals.png',
+    descripcion: 'Obtuve la Certificación Scrum Fundamentals, que me proporcionó una base sólida en la metodología ágil Scrum. Aprendí a gestionar proyectos de manera eficiente, trabajando en equipos colaborativos para entregar valor rápido y de forma continua.',
+    url: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=1056186',
+    stagger: 1,
+    horas: 8,
+    completado: 100,
+    fechaExpedicion: 'Noviembre 2024',
     fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
