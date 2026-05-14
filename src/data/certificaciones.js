@@ -24,6 +24,18 @@ export const certificaciones = [
     fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
+    categoria: 'agile',
+    titulo: 'Scrum Developer Certified',
+    imagen: '/assets/Certificaciones/ScrumDeveloper.png',
+    descripcion: 'Certificación enfocada en fundamentos y prácticas de desarrollo ágil bajo Scrum. Avala conocimientos en trabajo colaborativo, gestión de sprints, roles Scrum, integración continua y participación activa en equipos de desarrollo ágiles.',
+    url: 'https://www.scrum-institute.org/certifications/Scrum-Institute.Org-SDAC086f1eae06-06048917955718.pdf',
+    stagger: 3,
+    horas: 80,
+    completado: 100,
+    fechaExpedicion: 'Abril 2026',
+    fechaVencimiento: 'Abril 2028'
+  },
+  {
     categoria: 'tools',
     titulo: 'Certificación en Google Analytics',
     imagen: '/assets/Certificaciones/GoogleAnalytics.png',
