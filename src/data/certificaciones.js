@@ -33,7 +33,7 @@ export const certificaciones = [
     horas: 80,
     completado: 100,
     fechaExpedicion: 'Abril 2026',
-    fechaVencimiento: 'Abril 2028'
+    fechaVencimiento: 'Sin fecha de vencimiento'
   },
   {
     categoria: 'tools',
