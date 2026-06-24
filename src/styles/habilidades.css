@@ -1430,3 +1430,167 @@
     transform: translateX(-50%);
   }
 }
+/* ========================================
+   MOBILE FILTER DROPDOWN
+   ======================================== */
+
+/* Desktop: muestra botones normales, oculta mobile */
+.desktop-filters { display: flex; }
+.mobile-filters  { display: none; }
+
+@media (max-width: 768px) {
+  .desktop-filters { display: none; }
+  .mobile-filters  { display: block; margin-bottom: 2rem; }
+}
+
+/* Header del dropdown */
+.mobile-filter-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(31, 41, 55, 0.95);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.mobile-filter-header:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.mobile-filter-icon { font-size: 1.25rem; }
+
+.mobile-filter-label {
+  flex: 1;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.mobile-filter-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent);
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.chevron-icon {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-filters.open .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Row de filtros activos (tags con ×) */
+.active-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  min-height: 0;
+}
+
+.active-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, var(--primary), #c0392b);
+  color: white;
+  border-radius: 50px;
+  padding: 0.3rem 0.85rem 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.35);
+  animation: tag-pop 0.2s ease;
+}
+
+@keyframes tag-pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.active-filter-tag .remove-tag {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.active-filter-tag .remove-tag:hover {
+  background: rgba(255,255,255,0.45);
+}
+
+/* Panel desplegable */
+.mobile-filter-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+
+.mobile-filters.open .mobile-filter-panel {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Grid de opciones */
+.mobile-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  padding: 1rem 0 0.25rem;
+}
+
+.mobile-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: rgba(31, 41, 55, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+  backdrop-filter: blur(8px);
+}
+
+.mobile-filter-option:hover {
+  border-color: var(--accent);
+  color: white;
+  background: rgba(55, 65, 81, 0.95);
+  transform: translateY(-1px);
+}
+
+.mobile-filter-option.active {
+  background: linear-gradient(135deg, var(--primary), #c0392b);
+  border-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.option-emoji { font-size: 1rem; }

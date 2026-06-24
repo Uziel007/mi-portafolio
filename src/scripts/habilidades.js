@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Set inicial para visibilidad inmediata
       gsap.set(".gsap-title, .gsap-list *, .gsap-grid *, .gsap-skills *, .gsap-stats *, .gsap-certificates *, .gsap-progress *, .gsap-timeline .timeline-item, .gsap-timeline .timeline-content, .gsap-timeline .timeline-date", { opacity: 1, y: 0, scale: 1 });
 
-      // Animaciones de entrada (sin certificates, se maneja en update)
+      // Animaciones de entrada
       gsap.from(".gsap-title", { duration: 1.2, y: 60, opacity: 0, ease: "power3.out", stagger: 0.3 });
       gsap.from(".gsap-list .academic-item", { duration: 1, x: -60, opacity: 0, ease: "power3.out", stagger: 0.2 });
       gsap.from(".gsap-timeline .timeline-item", { duration: 1, y: 50, opacity: 0, ease: "power3.out", stagger: 0.2 });
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.from(".gsap-stats .stat-card", { duration: 1.2, scale: 0.6, opacity: 0, ease: "elastic.out(1, 0.4)", stagger: 0.2 });
       gsap.from(".gsap-progress .progress-item", { duration: 1, x: -40, opacity: 0, ease: "power3.out", stagger: 0.15 });
 
-      // Contadores automáticos (soporte decimal para horas)
+      // Contadores automáticos
       gsap.utils.toArray(".stat-number").forEach(stat => {
         const target = parseFloat(stat.dataset.target);
         const label = stat.nextElementSibling.textContent.toLowerCase();
@@ -66,69 +66,148 @@ document.addEventListener("DOMContentLoaded", () => {
         card.addEventListener("mouseleave", () => gsap.to(card, { duration: 0.3, rotationY: 0, z: 0 }));
       });
 
-      // Lógica de certificaciones
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('.certificate-card');
-      const searchInput = document.getElementById('searchInput');
-      const grid = document.getElementById('certificatesGrid');
-      let currentFilter = 'all';
+      // ========== FILTROS Y BÚSQUEDA ==========
+      const allFilterBtns    = document.querySelectorAll('.filter-btn, .mobile-filter-option');
+      const cards            = document.querySelectorAll('.certificate-card');
+      const searchInput      = document.getElementById('searchInput');
+      const grid             = document.getElementById('certificatesGrid');
+      const mobileFilters    = document.querySelector('.mobile-filters');
+      const mobileToggle     = document.getElementById('mobileFilterToggle');
+      const activeFiltersRow = document.getElementById('activeFiltersRow');
+      const mobileHeader     = document.querySelector('.mobile-filter-header');
+
+      const labelMap = {
+        all: 'Todas', programming: 'Programación', database: 'Base de Datos',
+        marketing: 'Marketing', agile: 'Metodologías Ágiles', frameworks: 'Frameworks',
+        cloud: 'Nube', tools: 'Herramientas', leadership: 'Liderazgo',
+        ai: 'IA/ML', language: 'Idiomas', architecture: 'Arquitectura', testing: 'Testing'
+      };
+
+      let activeFilters = new Set(['all']);
+      let searchTerm = '';
       let timeout;
 
-      // Asignar índice original
-      cards.forEach((card, i) => {
-        card.dataset.originalIndex = i;
+      // Guardar índice original de cada card
+      cards.forEach((card, i) => { card.dataset.originalIndex = i; });
+
+      // ── Dropdown mobile ──
+      function toggleMobilePanel(e) {
+        if (e) e.stopPropagation();
+        mobileFilters?.classList.toggle('open');
+      }
+      mobileToggle?.addEventListener('click', toggleMobilePanel);
+      mobileHeader?.addEventListener('click', (e) => {
+        // Evitar doble disparo si el clic viene del botón toggle
+        if (e.target.closest('#mobileFilterToggle')) return;
+        toggleMobilePanel(e);
+      });
+      document.addEventListener('click', (e) => {
+        if (mobileFilters && !mobileFilters.contains(e.target)) {
+          mobileFilters.classList.remove('open');
+        }
       });
 
-      // Función para actualizar certificates
-      function updateCertificates(filter, term) {
-        let visibleCards = Array.from(cards).filter(card => {
-          const matchesFilter = filter === 'all' || card.dataset.category === filter;
-          const matchesSearch = !term || card.textContent.toLowerCase().includes(term.toLowerCase());
+      // ── Tags activos ──
+      function renderActiveTags() {
+        if (!activeFiltersRow) return;
+        activeFiltersRow.innerHTML = '';
+        if (activeFilters.has('all')) return;
+        activeFilters.forEach(f => {
+          const tag = document.createElement('span');
+          tag.className = 'active-filter-tag';
+          tag.innerHTML = `${labelMap[f] || f} <button class="remove-tag" aria-label="Quitar ${labelMap[f]}">✕</button>`;
+          tag.querySelector('.remove-tag').addEventListener('click', (e) => {
+            e.stopPropagation();
+            activeFilters.delete(f);
+            if (activeFilters.size === 0) activeFilters.add('all');
+            syncButtonStates();
+            renderActiveTags();
+            applyAndAnimate();
+          });
+          activeFiltersRow.appendChild(tag);
+        });
+      }
+
+      // ── Sincronizar clases active en todos los botones ──
+      function syncButtonStates() {
+        allFilterBtns.forEach(btn => {
+          const f = btn.dataset.filter;
+          btn.classList.toggle('active', activeFilters.has(f) || (activeFilters.has('all') && f === 'all'));
+        });
+      }
+
+      // ── Filtrar + animar con GSAP ──
+      function applyAndAnimate() {
+        const visibleCards = Array.from(cards).filter(card => {
+          const cats = (card.dataset.categories || '').split(',').map(s => s.trim());
+          const text = card.textContent.toLowerCase();
+          const matchesFilter = activeFilters.has('all') || cats.some(c => activeFilters.has(c));
+          const matchesSearch = !searchTerm || text.includes(searchTerm);
           return matchesFilter && matchesSearch;
         }).sort((a, b) => parseInt(a.dataset.originalIndex) - parseInt(b.dataset.originalIndex));
 
-        // Remover todas
+        // Reordenar en el DOM
         Array.from(grid.children).forEach(child => {
           if (child.classList.contains('certificate-card')) grid.removeChild(child);
         });
+        visibleCards.forEach(card => {
+          card.style.display = '';
+          grid.appendChild(card);
+        });
 
-        // Append visibles en orden
-        visibleCards.forEach(card => grid.appendChild(card));
+        // Ocultar las que no aplican
+        cards.forEach(card => {
+          if (!visibleCards.includes(card)) card.style.display = 'none';
+        });
 
-        // Animar stagger in (0.15s por card)
-        gsap.fromTo(visibleCards, 
-          { opacity: 0, y: 60, scale: 0.9 }, 
-          { duration: 0.8, opacity: 1, y: 0, scale: 1, 
-            stagger: { each: 0.15, from: "start" }, 
-            ease: "back.out(1.7)" }
-        );
+        // Animar entrada
+        if (visibleCards.length > 0) {
+          gsap.fromTo(visibleCards,
+            { opacity: 0, y: 60, scale: 0.9 },
+            { duration: 0.8, opacity: 1, y: 0, scale: 1,
+              stagger: { each: 0.12, from: "start" },
+              ease: "back.out(1.7)" }
+          );
+        }
       }
 
-      // Inicial: animar all
-      updateCertificates('all', '');
-
-      // Filtros
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentFilter = btn.dataset.filter;
-          clearTimeout(timeout);
-          updateCertificates(currentFilter, searchInput.value.toLowerCase());
+      // ── Click en botones (desktop y mobile) ──
+      allFilterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const filter = btn.dataset.filter;
+          if (filter === 'all') {
+            activeFilters = new Set(['all']);
+          } else {
+            activeFilters.delete('all');
+            if (activeFilters.has(filter)) {
+              activeFilters.delete(filter);
+              if (activeFilters.size === 0) activeFilters.add('all');
+            } else {
+              activeFilters.add(filter);
+            }
+          }
+          syncButtonStates();
+          renderActiveTags();
+          applyAndAnimate();
         });
       });
 
-      // Búsqueda con debounce
+      // ── Buscador con debounce ──
       searchInput?.addEventListener('input', (e) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
-          updateCertificates(currentFilter, e.target.value.toLowerCase());
+          searchTerm = e.target.value.toLowerCase().trim();
+          applyAndAnimate();
         }, 300);
       });
+
+      // ── Estado inicial ──
+      applyAndAnimate();
     };
   };
 
-  // Partículas
+  // Partículas de fondo
   const particles = document.getElementById('particles-bg');
   for (let i = 0; i < 60; i++) {
     const particle = document.createElement('div');

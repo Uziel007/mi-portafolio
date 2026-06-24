@@ -159,20 +159,83 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
           />
         </div>
 
-        <div class="filters-container gsap-filters">
-          <button class="filter-btn active" data-filter="all" id="habilidades-filter-all">Todas</button>
-          <button class="filter-btn" data-filter="programming" id="habilidades-filter-programming">Programación</button>
-          <button class="filter-btn" data-filter="database" id="habilidades-filter-database">Base de Datos</button>
-          <button class="filter-btn" data-filter="marketing" id="habilidades-filter-marketing">Marketing</button>
-          <button class="filter-btn" data-filter="agile" id="habilidades-filter-agile">Metodologías Ágiles</button>
-          <button class="filter-btn" data-filter="frameworks" id="habilidades-filter-frameworks">Frameworks</button>
-          <button class="filter-btn" data-filter="cloud" id="habilidades-filter-cloud">Nube</button>
-          <button class="filter-btn" data-filter="tools" id="habilidades-filter-tools">Herramientas</button>
-          <button class="filter-btn" data-filter="leadership" id="habilidades-filter-leadership">Liderazgo</button>
-          <button class="filter-btn" data-filter="ai" id="habilidades-filter-ai">IA/ML</button>
-          <button class="filter-btn" data-filter="language" id="habilidades-filter-language">Idiomas</button>
-          <button class="filter-btn" data-filter="architecture" id="habilidades-filter-architecture">Arquitectura</button>
+        <!-- FILTROS DESKTOP -->
+      <div class="filters-container gsap-filters desktop-filters">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="programming">Programación</button>
+        <button class="filter-btn" data-filter="database">Base de Datos</button>
+        <button class="filter-btn" data-filter="marketing">Marketing</button>
+        <button class="filter-btn" data-filter="agile">Metodologías Ágiles</button>
+        <button class="filter-btn" data-filter="frameworks">Frameworks</button>
+        <button class="filter-btn" data-filter="cloud">Nube</button>
+        <button class="filter-btn" data-filter="tools">Herramientas</button>
+        <button class="filter-btn" data-filter="leadership">Liderazgo</button>
+        <button class="filter-btn" data-filter="ai">IA/ML</button>
+        <button class="filter-btn" data-filter="language">Idiomas</button>
+        <button class="filter-btn" data-filter="architecture">Arquitectura</button>
+        <button class="filter-btn" data-filter="testing">Testing</button>
+      </div>
+
+      <!-- FILTROS MOBILE (dropdown) -->
+      <div class="mobile-filters gsap-filters">
+        <div class="mobile-filter-header">
+          <span class="mobile-filter-icon">🎛️</span>
+          <span class="mobile-filter-label">Filtrar por categoría</span>
+          <button class="mobile-filter-toggle" id="mobileFilterToggle" aria-label="Abrir filtros">
+            <svg class="chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
         </div>
+
+        <!-- Tags de activos -->
+        <div class="active-filters-row" id="activeFiltersRow"></div>
+
+        <!-- Dropdown panel -->
+        <div class="mobile-filter-panel" id="mobileFilterPanel">
+          <div class="mobile-filter-grid">
+            <button class="mobile-filter-option active" data-filter="all">
+              <span class="option-emoji">✨</span> Todas
+            </button>
+            <button class="mobile-filter-option" data-filter="programming">
+              <span class="option-emoji">💻</span> Programación
+            </button>
+            <button class="mobile-filter-option" data-filter="database">
+              <span class="option-emoji">🗄️</span> Base de Datos
+            </button>
+            <button class="mobile-filter-option" data-filter="marketing">
+              <span class="option-emoji">📣</span> Marketing
+            </button>
+            <button class="mobile-filter-option" data-filter="agile">
+              <span class="option-emoji">🔄</span> Metodologías Ágiles
+            </button>
+            <button class="mobile-filter-option" data-filter="frameworks">
+              <span class="option-emoji">🧩</span> Frameworks
+            </button>
+            <button class="mobile-filter-option" data-filter="cloud">
+              <span class="option-emoji">☁️</span> Nube
+            </button>
+            <button class="mobile-filter-option" data-filter="tools">
+              <span class="option-emoji">🛠️</span> Herramientas
+            </button>
+            <button class="mobile-filter-option" data-filter="leadership">
+              <span class="option-emoji">🏆</span> Liderazgo
+            </button>
+            <button class="mobile-filter-option" data-filter="ai">
+              <span class="option-emoji">🤖</span> IA/ML
+            </button>
+            <button class="mobile-filter-option" data-filter="language">
+              <span class="option-emoji">🌍</span> Idiomas
+            </button>
+            <button class="mobile-filter-option" data-filter="architecture">
+              <span class="option-emoji">🏗️</span> Arquitectura
+            </button>
+            <button class="mobile-filter-option" data-filter="testing">
+              <span class="option-emoji">🧪</span> Testing
+            </button>
+          </div>
+        </div>
+      </div>
 
         <div id="certificatesGrid" class="certificates-grid gsap-certificates">
           {certificaciones.map((cert) => (
@@ -181,7 +244,7 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
                 href={cert.url} 
                 target="_blank" 
                 class="certificate-card"
-                data-category={cert.categoria}
+                data-categories={cert.categorias.join(',')}
               >
                 <img 
                   src={cert.imagen} 
@@ -208,7 +271,7 @@ const tasaFinal = certificaciones.length > 0 ? Math.round((completadas / certifi
             ) : (
               <div 
                 class="certificate-card"
-                data-category={cert.categoria}
+                data-categories={cert.categorias.join(',')}
               >
                 <img 
                   src={cert.imagen} 
